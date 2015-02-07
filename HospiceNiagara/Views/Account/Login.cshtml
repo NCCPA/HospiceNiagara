@@ -4,6 +4,9 @@
     ViewBag.Title = "Log in";
 }
 
+<!-- They way the css is set up this is the esiest Fix White Screen-->
+<style> .wrapper { background-color:transparent; } </style>
+
 
 <!--  If you are already Loged in you Should not be allowed here-->
 <!--Custom Css for this page only link here-->
@@ -44,10 +47,10 @@
 
 
                 <!-- Submit and login-->
-                <input type="submit" value="Login" class="btn btn-login btn-primary" />
+                <input type="submit" value="Login" class="btn btn-login btn-default btn-blue" />
 
                 <!-- Fogot Password Btn class -->
-                @Html.ActionLink("Forgot your password?", "ForgotPassword", new { id = 1 }, new { @class = "btn btn-login btn-primary" })
+                @Html.ActionLink("Forgot your password?", "ForgotPassword", new { id = 1 }, new { @class = "btn btn-login btn-blue btn-default" })
             }
 
         </section>

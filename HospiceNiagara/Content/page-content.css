@@ -58,9 +58,6 @@ body {
     background-repeat: repeat-x repeat-y;
 }
 
-.page-header {
-    color:white;
-}
 
 a {
     color:#2d52b7;
@@ -129,3 +126,19 @@ a:active.showfile {
 .navbar {
     margin-bottom:0px;
 }
+
+
+
+.btn-admin span {
+    display:block;
+    clear:both;
+    font-size:4em;
+    margin-bottom:20px;
+    color:#2d52b7;
+    transition:530ms;
+}
+
+.btn-admin:hover span {
+    color:#2090ff;
+}
+
