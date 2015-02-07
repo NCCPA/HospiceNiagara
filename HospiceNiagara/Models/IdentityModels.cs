@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace HospiceNiagara.Models
 {
@@ -16,6 +18,20 @@ namespace HospiceNiagara.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        //Properties of a ApplicationUser - User
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime? DOB { get; set; }
+
+        [Display(Name = "Ex")]
+        public string PhoneExt { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsContact { get; set; }
+        public bool CanCreateMeeting { get; set; }
+        public string Position { get; set; }
+        public string PositionDescription { get; set; }
+        public string Bio { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

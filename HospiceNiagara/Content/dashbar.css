@@ -1,0 +1,28 @@
+﻿.glyphicon-home,
+.glyphicon-file {
+    font-size:2.5em;
+}
+
+
+.sidebar {
+    background-color:#000;
+    width:75px;
+    float:left;
+}
+
+.sidebar ul li a {
+    text-decoration:none;
+    text-align:center;
+}
+
+.sidebar-item {
+    font-size:16pt;
+    position:relative;
+    display:block;
+    left:70px;
+    top:0px;
+    white-space:nowrap;
+    width:188px;
+    line-height:normal;
+    text-align:left;
+}

@@ -1,0 +1,117 @@
+﻿.navbar {
+    margin-bottom:0px;
+}
+
+.glyphicon-user,
+.glyphicon-briefcase,
+.glyphicon-home,
+.glyphicon-file,
+.glyphicon-calendar,
+.glyphicon-bell,
+.glyphicon-book,
+.glyphicon-tasks,
+.glyphicon-log-out {
+    font-size:3em;
+    color:#808080;
+}
+
+
+
+
+.sidebar {
+    background-color:#000000;
+    width:150px;
+    position:absolute;
+    float:left;
+}
+
+.sidebar ul {
+    margin:0px;
+    padding:0px;
+    width:inherit;
+}
+
+.sidebar ul li {
+    list-style:none;
+    display:inline-block;
+    box-sizing:content-box;
+    width:inherit
+}
+
+.sidebar ul li:hover:not(.sidebar-no-change) {
+    background-color:#5e5e5e;
+}
+
+.sidebar ul li a {
+    width:100%;
+    padding-top:20px;
+    padding-bottom:5px;
+    text-align:center;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+    text-decoration:none;
+    color:#fff;
+}
+
+
+.sidebar ul li a:active {
+    text-decoration:none;   
+    color:#fff;
+    
+}
+
+.sidebar-text {
+    font-size:16pt;
+    color:#fff;
+    text-align: center;
+    padding-bottom:20px;
+    opacity: 0;
+    visibility: hidden;
+    text-align: left;
+    text-transform:uppercase;
+    font-weight:bold;
+    z-index:10;
+
+    position:absolute;
+    left:180px;
+    width:230px;
+    height:67px;
+    bottom:1px;
+    padding:20px 10px;
+
+    transition-property:left, opacity;
+    transition-duration: 0.23s;
+} 
+
+.sidebar ul li a:hover span {
+    visibility: visible;
+    background-color: #9ACD32;
+    left:150px;
+    opacity: 1;
+}
+
+.sidebar-account {
+    color:#fff;
+    font-size:11pt;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.active-app {
+    color:#9ACD32;
+    text-shadow:0px 0px 30px #9acd32;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dash-logo {
+    width:75%;
+    height:50%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}

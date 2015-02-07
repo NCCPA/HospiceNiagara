@@ -154,7 +154,17 @@ namespace HospiceNiagara.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { 
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.Email,
+                    LastName = model.LastName,
+                    DOB = model.DOB,
+                    CanCreateMeeting = model.CanCreateMeeting,
+                    IsContact = model.IsContact,
+                    PositionDescription = model.PositionDescription,
+                    Bio = model.Bio
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -389,13 +399,11 @@ namespace HospiceNiagara.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // GET: /Account/LogOff
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

@@ -1,0 +1,90 @@
+﻿.container {
+    padding:0px;
+
+}
+
+.page-content {
+    color:#fff;
+}
+
+.panel-default > .panel-heading {
+    background-color:#9ACD32;
+}
+
+.panel {
+    color:#000;
+}
+
+.widget-icon-right {
+    float:right;
+}
+
+footer {
+    position:relative;
+    bottom:0px;
+
+    height:150px;
+    width:inherit;
+
+    background-color:#000;
+    color:white;
+
+    padding:20px;
+}
+
+.wrapper {
+    padding: 2%;
+    color: #000;
+}
+
+a {
+    color:#2d52b7;
+}
+
+a:hover {
+    color:#1a3275;
+}
+
+/*Fix Modal Movement*/
+.modal-open[style] {
+padding-right: 0px !important;
+}
+
+
+/*Button Colors*/
+.btn-blue {
+    background-color:#2d52b7;
+    color:white;
+}
+
+.btn-blue:hover, .btn-blue:focus {
+    background-color:#1a3275;
+    color:white;
+}
+
+.btn-primary, 
+.btn-primary:hover, .btn-primary:focus {
+    color:black;
+}
+
+
+a:link.showfile{
+    text-decoration: none;
+}
+
+a:visited.showfile {
+    text-decoration: none;
+}
+
+a:hover.showfile {
+    text-decoration: none;
+}
+
+a:active.showfile {
+    text-decoration: none;
+}
+
+.hr-style {
+   height:2px;
+   background-color:#9ACD32;
+}

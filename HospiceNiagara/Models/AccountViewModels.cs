@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HospiceNiagara.Models
@@ -79,6 +80,45 @@ namespace HospiceNiagara.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //Properties of a ApplicationUser - User // CUSTOM
+
+        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "You cannot leave the first name blank.")]
+        [StringLength(100, ErrorMessage = "First Name cannot be more than 50 characters long.")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "You cannot leave the last name blank.")]
+        [StringLength(100, ErrorMessage = "Last Name cannot be more than 100 characters long.")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Date Of Birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? DOB { get; set; }
+
+        [Display(Name = "Phone Extension")]
+        [StringLength(4)]
+        public string PhoneExt { get; set; }
+
+        [Display (Name = "Phone")]
+        [StringLength(11)]
+        public string Phone { get; set; }
+
+        public bool IsActive { get; set; }
+        public bool IsContact { get; set; }
+        public bool CanCreateMeeting { get; set; }
+        
+        [Display(Name = "Position" )]
+        public string Position { get; set; }
+
+        [Display(Name = "Position Description")]
+        public string PositionDescription { get; set; }
+
+        [Display(Name = "Bio")]
+        [StringLength(250, ErrorMessage = "Bio Cannot be more than 250 characters")]
+        public string Bio { get; set; }
     }
 
     public class ResetPasswordViewModel
