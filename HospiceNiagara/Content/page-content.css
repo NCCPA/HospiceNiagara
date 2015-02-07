@@ -13,6 +13,7 @@
 
 .panel {
     color:#000;
+    border:none;
 }
 
 .widget-icon-right {
@@ -35,6 +36,30 @@ footer {
 .wrapper {
     padding: 2%;
     color: #000;
+    overflow:auto;
+    background-color:#fff;
+    height:100%;
+}
+
+html,body
+{
+    height:100%;
+
+}
+
+
+.container {
+    height:100%;
+}
+
+/* Back Ground Pattern*/
+body {
+    background-image:url(/img/blackorchid.png);
+    background-repeat: repeat-x repeat-y;
+}
+
+.page-header {
+    color:white;
 }
 
 a {
@@ -86,5 +111,21 @@ a:active.showfile {
 
 .hr-style {
    height:2px;
-   background-color:#9ACD32;
+   background-color:#1a3275;
+}
+
+/*Fix Caret*/
+.navbar-default .navbar-nav>.dropdown>a:hover .caret,
+.navbar-default .navbar-nav>.dropdown>a .caret
+ {
+    border-top-color:#fff;
+    border-bottom-color:#000;
+}
+
+.navbar-default .navbar-nav>.dropdown>a:focus .caret {
+    border-top-color:#fff;
+}
+
+.navbar {
+    margin-bottom:0px;
 }
