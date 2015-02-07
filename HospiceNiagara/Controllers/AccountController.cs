@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HospiceNiagara.Models;
+using System.Web.Security;
 
 namespace HospiceNiagara.Controllers
 {
@@ -403,7 +404,7 @@ namespace HospiceNiagara.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Login", "Account");
+            return Redirect("/Account/Login");
         }
 
         //

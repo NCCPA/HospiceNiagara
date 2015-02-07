@@ -23,6 +23,9 @@ $(document).ready(function () {
     });
 
 
+    /*Please DONT DELETE THIS AGAIN RYAN*/
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+
     ////make sidebar big as viewport or devicing viewing
     //var height = $(document).height();
     //$('.sidebar').height(height);
