@@ -164,7 +164,7 @@ namespace HospiceNiagara.Controllers
                 var user = new ApplicationUser { 
                     UserName = model.Email,
                     Email = model.Email,
-                    FirstName = model.Email,
+                    FirstName = model.FirstName,
                     LastName = model.LastName,
                     DOB = model.DOB,
                     CanCreateMeeting = model.CanCreateMeeting,

@@ -1,0 +1,29 @@
+﻿@model HospiceNiagara.Models.ApplicationUser
+
+<div class="page-header">
+    <h1>Profile</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-xs-3 col-md-2">
+        <a href="#" class="thumbnail">
+            <img class="img-responsive" src="http://placehold.it/200x200">
+        </a>
+        <div class="caption">
+            <button type="button" class="btn btn-default btn-blue col-md-12" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus-sign pull-left"></span> Upload Picture
+            </button>
+        </div>
+        <a href="@Url.Action("Edit","Profile")" class="btn btn-default btn-blue col-md-12"><span class="glyphicon pull-left glyphicon-pencil"></span> Edit Profile</a>
+    </div>
+
+    <div class="col-xs-9 col-md-10">
+        <ul class="list-unstyled">
+            <li>First Name: @Html.DisplayFor(model => Model.FirstName) </li>
+            <li>Last Name: @Html.DisplayFor(model => Model.LastName)</li>
+            <li>Date of Birth: @Html.DisplayFor(model => Model.DOB)</li>
+            <li>E-Mail: @Html.DisplayFor(model => Model.Email)</li>
+        </ul>
+    </div>
+</div>

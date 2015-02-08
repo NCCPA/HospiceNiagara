@@ -79,6 +79,19 @@ padding-right: 0px !important;
     color:white;
 }
 
+.btn-green {
+    background-color:#9ACD32;
+    color:#000;
+}
+
+.btn-green:hover {
+    background-color:#65871f;
+}
+
+.btn {
+    transition:520ms;
+}
+
 .btn-blue:hover, .btn-blue:focus {
     background-color:#1a3275;
     color:white;
