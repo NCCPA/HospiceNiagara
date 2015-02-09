@@ -1,9 +1,10 @@
-﻿.container {
+﻿.container-fluid {
     padding:0px;
 }
 
 .page-content {
     color:#fff;
+    min-height:720px;
 }
 
 .panel-default > .panel-heading {
@@ -152,4 +153,23 @@ a:active.showfile {
 
 .meeting-format li ul {
     margin-bottom:20px;
+}
+
+.footer {
+    background-color:black;
+    color:white;
+    margin:0px;
+    padding:40px;
+}
+
+.facebook-color {
+    color:#3b5998
+}
+
+.twitter-color{
+    color:#4099FF
+}
+
+.linked-color {
+    color:#4875B4;
 }
