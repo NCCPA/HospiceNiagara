@@ -13,7 +13,7 @@
 
 .panel {
     color:#000;
-    border:none;
+    
 }
 
 .widget-icon-right {
@@ -53,11 +53,7 @@ html,body
     height:100%;
 }
 
-/* Back Ground Pattern*/
-body {
-    background-image:url(/img/blackorchid.png);
-    background-repeat: repeat-x repeat-y;
-}
+
 
 
 a {

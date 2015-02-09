@@ -1,18 +1,14 @@
 ﻿<div class="page-header">
-    <h1>Home</h1>
-</div>
-
-<div class="row">
-    <!--Recent Files Uploaded-->
-    @Html.Partial("_AnnounceControl")
-    @Html.Partial("_FilesControl")
+    <h1>Home - <small>Welcome @User.Identity.Name</small></h1>
 </div>
 
 <div class="row">
     @Html.Partial("_EventsControl")
-    @Html.Partial("_MeetingControl")
+    @Html.Partial("_AnnounceControl")
+    @Html.Partial("_DeathControl")
 </div>
 
 <div class="row">
     @Html.Partial("_MiniCalendarControl")
+    
 </div>
