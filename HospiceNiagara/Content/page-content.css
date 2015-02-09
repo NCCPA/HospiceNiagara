@@ -151,11 +151,12 @@ a:active.showfile {
     color:#2090ff;
 }
 
-.meeting-format {
+.date-format {
     display:block;
     margin-bottom:20px;
     color:#808080;
     font-size:8pt;
+    padding-left:18px;
 }
 
 .footer {
@@ -175,4 +176,17 @@ a:active.showfile {
 
 .linked-color {
     color:#4875B4
+}
+
+.website-footer {
+    text-decoration:underline;
+    color:#4099FF;
+}
+
+body {
+   font-family: 'Roboto', sans-serif;
+}
+
+.page-header {
+    border-bottom:2px solid #3b5998;
 }

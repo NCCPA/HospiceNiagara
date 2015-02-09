@@ -36,7 +36,10 @@ namespace HospiceNiagara
                       "~/Content/page-content.css",
                       "~/Content/bootstrap-fileinput.css",
                       "~/Content/fullcalendar.css",
-                      "~/Content/fullcalendar.print.css"));
+                      "~/Content/fullcalendar.print.css",
+                      "~/Content/jquery-ui.css",
+                      "~/Content/jquery-ui.structure.css",
+                      "~/Content/jquery-ui.theme.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
