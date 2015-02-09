@@ -151,8 +151,11 @@ a:active.showfile {
     color:#2090ff;
 }
 
-.meeting-format li ul {
+.meeting-format {
+    display:block;
     margin-bottom:20px;
+    color:#808080;
+    font-size:8pt;
 }
 
 .footer {
