@@ -24,8 +24,11 @@
         </div>
     </div>
 
-   
+   @if (User.Identity.IsAuthenticated)
+   {
     @Html.Partial("_Footer")
+   }
+    
 
     
     @Scripts.Render("~/bundles/jquery")

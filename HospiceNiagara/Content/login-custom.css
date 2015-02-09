@@ -27,12 +27,15 @@ html {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+    height:auto;
 }
+
+
 
 .login {
     max-width:400px;
     
-    margin-top:20%;
+    margin-top:5%;
     margin-left:auto;
     margin-right:auto;
 
