@@ -18,8 +18,9 @@ namespace HospiceNiagara.Models
             // Add custom user claims here
             return userIdentity;
         }
-
+        
         //Properties of a ApplicationUser - User
+       
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? DOB { get; set; }
@@ -45,5 +46,7 @@ namespace HospiceNiagara.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Files> Files { get; set; }
     }
 }

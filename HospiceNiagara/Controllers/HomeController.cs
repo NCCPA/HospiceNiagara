@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospiceNiagara.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,9 +13,6 @@ namespace HospiceNiagara.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-
-
+        }    
     }
 }

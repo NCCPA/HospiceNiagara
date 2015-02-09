@@ -160,6 +160,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -170,10 +172,52 @@
     <Compile Include="Migrations\201502080248167_InitialCreate.Designer.cs">
       <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502081808082_addedFiles.cs" />
+    <Compile Include="Migrations\201502081808082_addedFiles.Designer.cs">
+      <DependentUpon>201502081808082_addedFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502081809052_addedFiles2.cs" />
+    <Compile Include="Migrations\201502081809052_addedFiles2.Designer.cs">
+      <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082153185_addedDemoBooks.cs" />
+    <Compile Include="Migrations\201502082153185_addedDemoBooks.Designer.cs">
+      <DependentUpon>201502082153185_addedDemoBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082218503_BooksDemo.cs" />
+    <Compile Include="Migrations\201502082218503_BooksDemo.Designer.cs">
+      <DependentUpon>201502082218503_BooksDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082224545_BooksDemo2.cs" />
+    <Compile Include="Migrations\201502082224545_BooksDemo2.Designer.cs">
+      <DependentUpon>201502082224545_BooksDemo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082226157_BooksDemo3.cs" />
+    <Compile Include="Migrations\201502082226157_BooksDemo3.Designer.cs">
+      <DependentUpon>201502082226157_BooksDemo3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082318410_removedDemo.cs" />
+    <Compile Include="Migrations\201502082318410_removedDemo.Designer.cs">
+      <DependentUpon>201502082318410_removedDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502082352141_fixIssue2.cs" />
+    <Compile Include="Migrations\201502082352141_fixIssue2.Designer.cs">
+      <DependentUpon>201502082352141_fixIssue2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502090033343_MemberViewModelAdded.cs" />
+    <Compile Include="Migrations\201502090033343_MemberViewModelAdded.Designer.cs">
+      <DependentUpon>201502090033343_MemberViewModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502090039418_RemovedDumbFields.cs" />
+    <Compile Include="Migrations\201502090039418_RemovedDumbFields.Designer.cs">
+      <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Files.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MemberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -184,8 +228,43 @@
     <Content Include="Content\custom-nav.css" />
     <Content Include="Content\Dash.css" />
     <Content Include="Content\dashbar.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\login-custom.css" />
     <Content Include="Content\page-content.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,14 +277,23 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom-sidebar.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\NavBar.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -260,6 +348,12 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Profile\_ModalPicture.cshtml" />
+    <Content Include="Views\Admin\_ResourceList.cshtml" />
+    <Content Include="Views\Admin\_BookDetails.cshtml" />
+    <Content Include="Views\Admin\_File.cshtml" />
+    <Content Include="Views\File\Index.cshtml" />
+    <Content Include="Views\File\Delete.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +368,36 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502080248167_InitialCreate.resx">
       <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502081808082_addedFiles.resx">
+      <DependentUpon>201502081808082_addedFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502081809052_addedFiles2.resx">
+      <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082153185_addedDemoBooks.resx">
+      <DependentUpon>201502082153185_addedDemoBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082218503_BooksDemo.resx">
+      <DependentUpon>201502082218503_BooksDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082224545_BooksDemo2.resx">
+      <DependentUpon>201502082224545_BooksDemo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082226157_BooksDemo3.resx">
+      <DependentUpon>201502082226157_BooksDemo3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082318410_removedDemo.resx">
+      <DependentUpon>201502082318410_removedDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502082352141_fixIssue2.resx">
+      <DependentUpon>201502082352141_fixIssue2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502090033343_MemberViewModelAdded.resx">
+      <DependentUpon>201502090033343_MemberViewModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502090039418_RemovedDumbFields.resx">
+      <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

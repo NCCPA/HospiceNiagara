@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiceNiagara.Models.ApplicationUser>
+﻿@model IEnumerable<HospiceNiagara.Models.MemberViewModel>
 
 <div class="page-header" style="border-bottom:none;">
     <h1>Member List</h1>
@@ -32,7 +32,7 @@
                         <td>@Html.DisplayFor(modelItem => item.Email)</td>
                         <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
                         <td>@Html.DisplayFor(modelItem => item.DOB)</td>
-                        <td><a class="btn btn-default btn-green col-md-7" href="@Url.Action("Index","Profile", new { ID = item.Id })"><span class="glyphicon pull-left glyphicon-user"></span> View Profiles</a></td>
+                        <td><a class="btn btn-default btn-green col-md-7" href="@Url.Action("Index","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-user"></span> View Profiles</a></td>
                     </tr>
                 }
             </tbody>

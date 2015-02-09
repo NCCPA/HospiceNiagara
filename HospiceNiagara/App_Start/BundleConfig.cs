@@ -9,10 +9,13 @@ namespace HospiceNiagara
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-1.10.2.js",
                         "~/Scripts/custom-sidebar.js",
                         "~/Scripts/bootstrap-fileinput.js",
-                        "~/Scripts/NavBar.js"));
+                        "~/Scripts/NavBar.js",
+                        "~/Scripts/moment.min.js",
+                        "~/Scripts/fullcalendar.min.js",
+                        "~/Scripts/gcal.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -31,7 +34,9 @@ namespace HospiceNiagara
                       "~/Content/custom.css",
                       "~/Content/custom-nav.css",
                       "~/Content/page-content.css",
-                      "~/Content/bootstrap-fileinput.css"));
+                      "~/Content/bootstrap-fileinput.css",
+                      "~/Content/fullcalendar.css",
+                      "~/Content/fullcalendar.print.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
