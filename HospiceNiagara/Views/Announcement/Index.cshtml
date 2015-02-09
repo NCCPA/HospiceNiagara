@@ -1,0 +1,23 @@
+﻿<!-- Nav tabs -->
+<div role="tabpanel">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Announcements</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Death Notice</a></li>
+    </ul>
+    <br />
+
+    <div class="row">
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">@Html.Partial("_AnnouncementControl")</div>
+            <div role="tabpanel" class="tab-pane" id="profile"></div>
+            <div role="tabpanel" class="tab-pane" id="messages"></div>
+            <div role="tabpanel" class="tab-pane" id="settings"></div>
+        </div>
+
+    </div>
+</div>
+

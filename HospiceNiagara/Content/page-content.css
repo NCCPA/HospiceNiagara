@@ -1,6 +1,5 @@
 ﻿.container {
     padding:0px;
-
 }
 
 .page-content {
@@ -8,7 +7,8 @@
 }
 
 .panel-default > .panel-heading {
-    background-color:#9ACD32;
+    background-color:#4da14e;
+    color:white;
 }
 
 .panel {
@@ -39,6 +39,7 @@ footer {
     overflow:auto;
     background-color:#fff;
     height:100%;
+    margin-top:50px;
 }
 
 html,body
