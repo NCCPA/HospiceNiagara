@@ -120,6 +120,10 @@ a:active.showfile {
    background-color:#1a3275;
 }
 
+.navbar {
+    border-bottom: none;
+}
+
 /*Fix Caret*/
 .navbar-default .navbar-nav>.dropdown>a:hover .caret,
 .navbar-default .navbar-nav>.dropdown>a .caret
