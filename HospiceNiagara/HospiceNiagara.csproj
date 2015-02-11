@@ -393,6 +393,7 @@
     <Content Include="Views\Admin\_EventsList.cshtml" />
     <Content Include="Views\Admin\_DeathsList.cshtml" />
     <Content Include="Views\Admin\_ScheduleList.cshtml" />
+    <Content Include="Views\Announcement\_MeetingControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
