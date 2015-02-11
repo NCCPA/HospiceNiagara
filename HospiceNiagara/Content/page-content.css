@@ -218,3 +218,8 @@ body {
     font-weight:bolder;
     font-size:large;
 }
+
+
+.tab-content{
+    overflow:hidden;
+}
