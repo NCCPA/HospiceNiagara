@@ -8,7 +8,7 @@
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">User Management</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Resource Management</a></li>
+        <li role="presentation"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">Resource Management</a></li>
     </ul>
     <br />
 
@@ -17,7 +17,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="home">@Html.Partial("_MemberList")</div>
-            <div role="tabpanel" class="tab-pane" id="profile">@Html.Partial("_File", new List<HospiceNiagara.Models.FileViewModel>())</div>
+            <div role="tabpanel" class="tab-pane" id="file">@Html.Partial("_File", new List<HospiceNiagara.Models.FileViewModel>())</div>
         </div>
 
     </div>
