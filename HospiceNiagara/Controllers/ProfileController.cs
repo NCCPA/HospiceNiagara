@@ -47,7 +47,6 @@ namespace HospiceNiagara.Controllers
             //If Id is null then not coming from admin page
             if (id == null)
             {
-
                 //Get Current Id and Display it to the User
                 var currentUserId = User.Identity.GetUserId();
                 var curUser = manager.FindById(currentUserId);

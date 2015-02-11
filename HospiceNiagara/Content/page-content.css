@@ -213,3 +213,8 @@ body {
 .page-header {
     border-bottom:2px solid #3b5998;
 }
+
+.nav-tabs {
+    font-weight:bolder;
+    font-size:large;
+}

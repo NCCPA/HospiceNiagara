@@ -4,53 +4,24 @@
     <h1>Manage Notices</h1>
 </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Notice Name</th>
-            <th>Notice Date</th>
-            <th>Notice Original Poster</th>
-            <th>Notice R.S.V.P</th>
-            <th>Current Status</th>
-        </tr>
-    </thead>
 
-    <tbody>
-     @for (var i = 0; i < 8; i++)
-     { 
-        <tr>
-            <td>Movie Night</td>
-            <td>2/11/2015</td>
-            <td>Andrei Morozov</td>
-            <td>
-                <a href="#" class="btn btn-green btn-default col-md-3"><span class="glyphicon glyphicon-check"></span> Accpet </a>
-                <div class="col-md-1"></div>
-                <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
-            </td>
-            <td>
-                <a href="#" class="btn btn-red btn-default col-md-4">Not Attending</a>
-            </td>
-        </tr>
-     }
+<!-- Tabs and partial view to each tab-->
+<!-- Nav tabs -->
+<div role="tabpanel">
 
-        @for (var i = 0; i < 2; i++)
-        {
-            <tr>
-                <td>Movie Night</td>
-                <td>2/11/2015</td>
-                <td>Andrei Morozov</td>
-                <td>
-                    <!--<a href="#" class="btn btn-green btn-default col-md-3"><span class="glyphicon glyphicon-check"></span> Accpet </a>
-                    <div class="col-md-1"></div> -->
-                    <a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>
-                </td>
-                <td>
-                    <a href="#" class="btn btn-green btn-default col-md-4">Attending</a>
-                </td>
-            </tr>
-        }
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Notice Updates</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">R.S.V.P</a></li>
+    </ul>
+    <br />
 
-    
+    <div class="row">
 
-    </tbody>
-</table>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">@Html.Partial("_Notices")</div>
+            <div role="tabpanel" class="tab-pane" id="profile">@Html.Partial("_RSVP")</div>
+        </div>
+
+    </div>
+</div>
