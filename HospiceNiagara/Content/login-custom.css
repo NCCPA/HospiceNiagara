@@ -88,3 +88,7 @@ hr {
     margin-bottom:10px;
     text-align:center;
 }
+
+    .wrapper {
+        background-color: transparent;
+    }
