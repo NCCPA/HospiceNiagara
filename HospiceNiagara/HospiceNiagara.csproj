@@ -394,6 +394,7 @@
     <Content Include="Views\Admin\_DeathsList.cshtml" />
     <Content Include="Views\Admin\_ScheduleList.cshtml" />
     <Content Include="Views\Announcement\_MeetingControl.cshtml" />
+    <Content Include="Views\Home\_Links.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

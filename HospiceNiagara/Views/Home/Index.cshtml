@@ -1,16 +1,16 @@
 ﻿<div class="page-header">
     <h1>Home - <small>Welcome @User.Identity.Name</small></h1>
 </div>
+    <div class="row">
+        @Html.Partial("_EventsControl")
+        @Html.Partial("_AnnounceControl")
+        @Html.Partial("_DeathControl")
+        @Html.Partial("_NoticeRSVP")
+        </div>
+        <div class="row">
+            @Html.Partial("_MiniCalendarControl")
+            @Html.Partial("_MeetingControl")
+            @Html.Partial("_Links")
+        </div>
 
-<div class="row">
-    @Html.Partial("_EventsControl")
-    @Html.Partial("_AnnounceControl")
-    @Html.Partial("_DeathControl")
-    @Html.Partial("_NoticeRSVP")
-</div>
-
-<div class="row">
-    @Html.Partial("_MeetingControl")
-    @Html.Partial("_MiniCalendarControl")
-</div>
 
