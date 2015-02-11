@@ -69,19 +69,32 @@ padding-right: 0px !important;
 }
 
 
-/*Button Colors*/
+/****************************************
+    Button Colors
+******************************************/
+
+.btn-red,.btn-red:focus {
+    background-color:#ad2b2b;
+    color:#fff;
+}
+
+.btn-red:hover {
+    background-color:#721919;
+    color:#fff;
+}
+
 .btn-blue {
     background-color:#2d52b7;
     color:white;
 }
 
-.btn-green{
+.btn-green, .btn-green:focus{
     background-color:#9ACD32;
     color:#000;
 }
 
 .btn-green:hover {
-    background-color:#65871f;
+    background-color:#6e9324;
 }
 
 .btn {
@@ -98,6 +111,8 @@ padding-right: 0px !important;
     color:black;
 }
 
+
+/*End Of Button Section*/
 
 a:link.showfile{
     text-decoration: none;

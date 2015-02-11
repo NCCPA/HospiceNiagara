@@ -1,0 +1,32 @@
+﻿<!--- Notice Page which will Hold all the R.S.V.P information-->
+
+<div class="page-header">
+    <h1>Manage Notices</h1>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Notice Name</th>
+            <th>Notice Date</th>
+            <th>Notice Original Poster</th>
+            <th>Notice R.S.V.P</th>
+        </tr>
+    </thead>
+
+    <tbody>
+     @for (var i = 0; i < 10; i++)
+     { 
+        <tr>
+            <td>Movie Night</td>
+            <td>2/11/2015</td>
+            <td>Andrei Morozov</td>
+            <td>
+                <a href="#" class="btn btn-green btn-default col-md-3"><span class="glyphicon glyphicon-check"></span> Attending </a>
+                <div class="col-md-1"></div>
+                <a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Not Attending</a>
+            </td>
+        </tr>
+     }
+    </tbody>
+</table>

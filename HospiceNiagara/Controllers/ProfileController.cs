@@ -61,7 +61,14 @@ namespace HospiceNiagara.Controllers
 
                 return View(curUser);
             }
-            
         }
+
+        //
+        // GET: Notice
+        public ActionResult Notice()
+        {
+            return View();
+        }
+
     }
 }
