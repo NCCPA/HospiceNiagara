@@ -15,7 +15,7 @@
                 <span class="glyphicon glyphicon-plus-sign pull-left"></span> Upload Picture
             </button>
         </div>
-        <a href="@Url.Action("Edit","Profile")" class="btn btn-default btn-blue col-md-12"><span class="glyphicon pull-left glyphicon-pencil"></span> Edit Profile</a>
+        <a href="@Url.Action("Edit", "Profile", new { ID = Model.Id })" class="btn btn-default btn-blue col-md-12"><span class="glyphicon pull-left glyphicon-pencil"></span> Edit Profile</a>
     </div>
 
     <div class="col-xs-9 col-md-10">
