@@ -2,9 +2,9 @@
 <div role="tabpanel">
 
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Announcements</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Events</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Death Notice</a></li>
+        <li role="presentation" class="active"><a href="#announceTab" aria-controls="announceTab" role="tab" data-toggle="tab">Announcements</a></li>
+        <li role="presentation"><a href="#eventTab" aria-controls="eventTab" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation"><a href="#dnTab" aria-controls="dnTab" role="tab" data-toggle="tab">Death Notice</a></li>
     </ul>
     <br />
 
@@ -12,10 +12,9 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">@Html.Partial("_AnnouncementControl")</div>
-            <div role="tabpanel" class="tab-pane" id="profile"></div>
-            <div role="tabpanel" class="tab-pane" id="messages"></div>
-            <div role="tabpanel" class="tab-pane" id="settings"></div>
+            <div role="tabpanel" class="tab-pane active" id="announceTab">@Html.Partial("_AnnouncementControl")</div>
+            <div role="tabpanel" class="tab-pane" id="eventTab">@Html.Partial("_EventControl")</div>
+            <div role="tabpanel" class="tab-pane" id="dnTab">@Html.Partial("_dnControl")</div>
         </div>
 
     </div>
