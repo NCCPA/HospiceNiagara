@@ -8,14 +8,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/Home/Index">Hosepice Niagara</a>
+            <a class="navbar-brand" href="/Home/Index">Hospice Niagara</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/Home/Index">Home</a></li>
+                @if (User.IsInRole("Admin")) { 
                 <li><a href="/Admin/Index">Admin</a></li>
+                }
                 <li><a href="/Announcement/Index">Announcements</a></li>
                 <li><a href="/Contact/Index">Contacts</a></li>
                 <li><a href="/Meeting/Index">Meetings</a></li>
