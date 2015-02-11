@@ -387,6 +387,12 @@
     <Content Include="Views\Announcement\_EventControl.cshtml" />
     <Content Include="Views\Announcement\_dnControl.cshtml" />
     <Content Include="Views\Profile\_RSVP.cshtml" />
+    <Content Include="Views\Admin\_ContactsList.cshtml" />
+    <Content Include="Views\Admin\_MeetingsList.cshtml" />
+    <Content Include="Views\Admin\_AnouncementsList.cshtml" />
+    <Content Include="Views\Admin\_EventsList.cshtml" />
+    <Content Include="Views\Admin\_DeathsList.cshtml" />
+    <Content Include="Views\Admin\_ScheduleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
