@@ -220,14 +220,21 @@
     <Compile Include="Migrations\201502180751054_db.Designer.cs">
       <DependentUpon>201502180751054_db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502180826069_ddFull.cs" />
+    <Compile Include="Migrations\201502180826069_ddFull.Designer.cs">
+      <DependentUpon>201502180826069_ddFull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnounceFile.cs" />
     <Compile Include="Models\Anouncement.cs" />
     <Compile Include="Models\AnouncePrivacy.cs" />
+    <Compile Include="Models\CJ.cs" />
+    <Compile Include="Models\CJType.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventPrivacy.cs" />
     <Compile Include="Models\EventResource.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileFolder.cs" />
     <Compile Include="Models\Files.cs" />
     <Compile Include="Models\Folder.cs" />
@@ -245,6 +252,7 @@
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RSVP.cs" />
+    <Compile Include="Models\Snippet.cs" />
     <Compile Include="Models\SubRole.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserSubRole.cs" />
@@ -468,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502180751054_db.resx">
       <DependentUpon>201502180751054_db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502180826069_ddFull.resx">
+      <DependentUpon>201502180826069_ddFull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
