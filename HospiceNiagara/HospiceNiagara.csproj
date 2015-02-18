@@ -216,14 +216,31 @@
     <Compile Include="Migrations\201502090039418_RemovedDumbFields.Designer.cs">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502180751054_db.cs" />
+    <Compile Include="Migrations\201502180751054_db.Designer.cs">
+      <DependentUpon>201502180751054_db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnounceFile.cs" />
     <Compile Include="Models\Anouncement.cs" />
     <Compile Include="Models\AnouncePrivacy.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventPrivacy.cs" />
+    <Compile Include="Models\EventResource.cs" />
+    <Compile Include="Models\FileFolder.cs" />
     <Compile Include="Models\Files.cs" />
+    <Compile Include="Models\Folder.cs" />
+    <Compile Include="Models\FolderGroup.cs" />
+    <Compile Include="Models\FolderGroupPrivacy.cs" />
+    <Compile Include="Models\FolderPrivacy.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LinkHome.cs" />
+    <Compile Include="Models\LinkStaff.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meeting.cs" />
+    <Compile Include="Models\MeetingPrivacy.cs" />
+    <Compile Include="Models\MeetingResource.cs" />
     <Compile Include="Models\MemberViewModel.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Role.cs" />
@@ -448,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502090039418_RemovedDumbFields.resx">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502180751054_db.resx">
+      <DependentUpon>201502180751054_db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

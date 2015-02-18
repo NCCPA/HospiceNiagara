@@ -47,6 +47,7 @@ namespace HospiceNiagara.Models
             return new ApplicationDbContext();
         }
 
+
         public DbSet<Files> Files { get; set; }
     }
 }
