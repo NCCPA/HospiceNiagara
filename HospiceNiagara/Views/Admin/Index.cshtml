@@ -20,10 +20,10 @@
 
     <div class="row">
 
-        <!-- Tab panes -->
+        <!-- Tab panes new List<HospiceNiagara.Models.FileViewModel>() -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Partial("_MemberList")</div>
-            <div role="tabpanel" class="tab-pane" id="file">@Html.Partial("_File", new List<HospiceNiagara.Models.FileViewModel>())</div>
+            <div role="tabpanel" class="tab-pane" id="file">@Html.Action("_File", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Partial("_ContactsList")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_meetingsList")</div>
             <div role="tabpanel" class="tab-pane" id="anouncementsTab">@Html.Partial("_anouncementsList")</div>

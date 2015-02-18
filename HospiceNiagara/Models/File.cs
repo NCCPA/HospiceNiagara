@@ -8,10 +8,11 @@ namespace HospiceNiagara.Models
     public class File
     {
         public File()
-            {
-                
-            }
-          public int ID { get; set; }
+        {
+
+        }
+
+        public int ID { get; set; }
 
     }
 }

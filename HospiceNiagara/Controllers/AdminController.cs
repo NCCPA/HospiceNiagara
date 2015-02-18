@@ -24,8 +24,6 @@ namespace HospiceNiagara.Controllers
             var currentUserId = User.Identity.GetUserId();
             var Users = manager.Users;
 
-            
-
             var viewModel = (from u in db.Users
                              select new MemberViewModel
                              {
