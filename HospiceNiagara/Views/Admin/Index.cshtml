@@ -11,7 +11,7 @@
         <li role="presentation"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">Resources</a></li>
         <li role="presentation"><a href="#contactsTab" aria-controls="contactsTab" role="tab" data-toggle="tab">Contacts</a></li>
         <li role="presentation"><a href="#meetingsTab" aria-controls="meetingsTab" role="tab" data-toggle="tab">Meetings</a></li>
-        <li role="presentation"><a href="#anouncementsTab" aria-controls="anouncementsTab" role="tab" data-toggle="tab">Anouncements</a></li>
+        <li role="presentation"><a href="#announcementsTab" aria-controls="announcementsTab" role="tab" data-toggle="tab">Announcements</a></li>
         <li role="presentation"><a href="#eventsTab" aria-controls="eventsTab" role="tab" data-toggle="tab">Events</a></li>
         <li role="presentation"><a href="#deathsTab" aria-controls="deathsTab" role="tab" data-toggle="tab">Deaths</a></li>
         <li role="presentation"><a href="#scheduleTab" aria-controls="scheduleTab" role="tab" data-toggle="tab">Schedule</a></li>
@@ -25,11 +25,11 @@
             <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Partial("_MemberList")</div>
             <div role="tabpanel" class="tab-pane" id="file">@Html.Action("_File", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Partial("_ContactsList")</div>
-            <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_meetingsList")</div>
-            <div role="tabpanel" class="tab-pane" id="anouncementsTab">@Html.Partial("_anouncementsList")</div>
-            <div role="tabpanel" class="tab-pane" id="eventsTab">@Html.Partial("_eventsList")</div>
-            <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Partial("_deathsList")</div>
-            <div role="tabpanel" class="tab-pane" id="scheduleTab">@Html.Partial("_scheduleList")</div>
+            <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_MeetingsList")</div>
+            <div role="tabpanel" class="tab-pane" id="announcementsTab">@Html.Partial("_AnnouncementsList")</div>
+            <div role="tabpanel" class="tab-pane" id="eventsTab">@Html.Partial("_EventsList")</div>
+            <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Partial("_DeathsList")</div>
+            <div role="tabpanel" class="tab-pane" id="scheduleTab">@Html.Partial("_ScheduleList")</div>
         </div>
 
     </div>

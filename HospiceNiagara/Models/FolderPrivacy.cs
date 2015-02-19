@@ -19,7 +19,7 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         // [Required(ErrorMessage = "You must select a Sub Role.")]
-        [Display(Name = "FolderD")]
+        [Display(Name = "FolderID")]
         [Required(ErrorMessage = "You cannot leave the FolderID blank.")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
         public int FolderID { get; set; }

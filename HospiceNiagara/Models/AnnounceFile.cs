@@ -7,12 +7,12 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public class AnounceFile
+    public class AnnounceFile
     {
-        public AnounceFile()
+        public AnnounceFile()
         {
         //    this.Filez = new HashSet<File>();
-            this.Anouncement = new HashSet<Anouncement>();
+            this.Announcement = new HashSet<Announcement>();
         }
 
         public int ID { get; set; }
@@ -28,6 +28,6 @@ namespace HospiceNiagara.Models
         public int FileID { get; set; }
 
        // public virtual ICollection<File> Filez { get; set; }
-        public virtual ICollection<Anouncement> Anouncement { get; set; }
+        public virtual ICollection<Announcement> Announcement { get; set; }
     }
 }

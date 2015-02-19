@@ -12,7 +12,7 @@ namespace HospiceNiagara.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        folderID = c.Int(nullable: false),
+                        FolderID = c.Int(nullable: false),
                         FileContent = c.Binary(nullable: false),
                         MimeType = c.String(nullable: false, maxLength: 256),
                         FileName = c.String(nullable: false, maxLength: 100),

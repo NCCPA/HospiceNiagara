@@ -6,9 +6,9 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public class Anouncement
+    public class Announcement
     {
-         public Anouncement()
+         public Announcement()
         {
             this.User = new HashSet<User>();
         }

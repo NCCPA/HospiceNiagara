@@ -23,14 +23,14 @@ namespace HospiceNiagara.Controllers
                                  FileName = f.FileName,
                                  MimeType = f.MimeType,
                                  FileDescription = f.FileDescription,
-                                 folderID = f.folderID
+                                 FolderID = f.FolderID
                              };
             return View(fileList.ToList());
         }
 
         // POST: Home/Delete/5
         [HttpPost, ActionName("Index")]
-        public ActionResult IndexUpload(string fileDescription)
+        public ActionResult IndexUpload(string fileDescription, int folder)
         {
             string mimeType = Request.Files[0].ContentType;
             string fileName = Path.GetFileName(Request.Files[0].FileName);
@@ -46,7 +46,8 @@ namespace HospiceNiagara.Controllers
                     FileContent = fileData,
                     MimeType = mimeType,
                     FileName = fileName,
-                    FileDescription = fileDescription
+                    FileDescription = fileDescription,
+                    FolderID = folder
                 };
 
                 db.Files.Add(newFile);

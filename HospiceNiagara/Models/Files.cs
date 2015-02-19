@@ -11,7 +11,7 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         [Required]
-        public int folderID { get; set; }
+        public int FolderID { get; set; }
 
         [Required]
         public byte[] FileContent { get; set; }
@@ -32,7 +32,7 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         [Required]
-        public int folderID { get; set; }
+        public int FolderID { get; set; }
 
         [Required]
         [StringLength(256)]

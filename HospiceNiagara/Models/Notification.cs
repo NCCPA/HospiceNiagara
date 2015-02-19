@@ -31,7 +31,7 @@ namespace HospiceNiagara.Models
         [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
-        //1 is Anounce | 2 is  Meeting | 3 is Schedule
+        //1 is Announce | 2 is  Meeting | 3 is Schedule
         [Display(Name = "Notification Type (Announce/Meeting/Schedule)")]
         [Required(ErrorMessage = "You cannot leave the Notification Type blank.")]
         [Range(1, 3, ErrorMessage = "The number is not valid.")]

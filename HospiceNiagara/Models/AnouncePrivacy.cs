@@ -6,22 +6,22 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public class AnouncePrivacy
+    public class AnnouncePrivacy
     {
-        public AnouncePrivacy()
+        public AnnouncePrivacy()
         {
             this.Role = new HashSet<Role>();
             this.User = new HashSet<User>();
             this.SubRole = new HashSet<SubRole>();
-            this.Anouncement = new HashSet<Anouncement>();
+            this.Announcement = new HashSet<Announcement>();
         }
 
         public int ID { get; set; }
 
-        [Display(Name = "AnounceID")]
-        [Required(ErrorMessage = "You cannot leave the Anouncement blank.")]
+        [Display(Name = "AnnounceID")]
+        [Required(ErrorMessage = "You cannot leave the Announcement blank.")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
-        public int AnounceID { get; set; }
+        public int AnnounceID { get; set; }
 
         // [Required(ErrorMessage = "You must select a Sub Role.")]
         [Display(Name = "RoleID")]
@@ -44,6 +44,6 @@ namespace HospiceNiagara.Models
         public virtual ICollection<User> User { get; set; }
         public virtual ICollection<SubRole> SubRole { get; set; }
         public virtual ICollection<Role> Role { get; set; }
-        public virtual ICollection<Anouncement> Anouncement { get; set; }
+        public virtual ICollection<Announcement> Announcement { get; set; }
     }
 }

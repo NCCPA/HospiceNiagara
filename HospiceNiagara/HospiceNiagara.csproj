@@ -176,10 +176,6 @@
     <Compile Include="Migrations\201502080248167_InitialCreate.Designer.cs">
       <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502081808082_addedFiles.cs" />
-    <Compile Include="Migrations\201502081808082_addedFiles.Designer.cs">
-      <DependentUpon>201502081808082_addedFiles.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201502081809052_addedFiles2.cs" />
     <Compile Include="Migrations\201502081809052_addedFiles2.Designer.cs">
       <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
@@ -216,17 +212,9 @@
     <Compile Include="Migrations\201502090039418_RemovedDumbFields.Designer.cs">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502180751054_db.cs" />
-    <Compile Include="Migrations\201502180751054_db.Designer.cs">
-      <DependentUpon>201502180751054_db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502180826069_ddFull.cs" />
-    <Compile Include="Migrations\201502180826069_ddFull.Designer.cs">
-      <DependentUpon>201502180826069_ddFull.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AnounceFile.cs" />
+    <Compile Include="Models\AnnounceFile.cs" />
     <Compile Include="Models\Anouncement.cs" />
     <Compile Include="Models\AnouncePrivacy.cs" />
     <Compile Include="Models\CJ.cs" />
@@ -423,12 +411,13 @@
     <Content Include="Views\Profile\_RSVP.cshtml" />
     <Content Include="Views\Admin\_ContactsList.cshtml" />
     <Content Include="Views\Admin\_MeetingsList.cshtml" />
-    <Content Include="Views\Admin\_AnouncementsList.cshtml" />
+    <Content Include="Views\Admin\_AnnouncementsList.cshtml" />
     <Content Include="Views\Admin\_EventsList.cshtml" />
     <Content Include="Views\Admin\_DeathsList.cshtml" />
     <Content Include="Views\Admin\_ScheduleList.cshtml" />
     <Content Include="Views\Announcement\_MeetingControl.cshtml" />
     <Content Include="Views\Home\_Links.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,9 +432,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502080248167_InitialCreate.resx">
       <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502081808082_addedFiles.resx">
-      <DependentUpon>201502081808082_addedFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502081809052_addedFiles2.resx">
       <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
@@ -473,12 +459,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502090039418_RemovedDumbFields.resx">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502180751054_db.resx">
-      <DependentUpon>201502180751054_db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502180826069_ddFull.resx">
-      <DependentUpon>201502180826069_ddFull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

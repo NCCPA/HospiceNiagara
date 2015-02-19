@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,10 +50,44 @@ namespace HospiceNiagara.Controllers
                                FileName = f.FileName,
                                MimeType = f.MimeType,
                                FileDescription = f.FileDescription,
-                               folderID = f.folderID
+                               FolderID = f.FolderID
                            };
             return PartialView(fileList.ToList());
         }
 
+
+        // GET: Home/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            FileViewModel filetoDelete = (from f in db.Files
+                                          where f.ID == id
+                                          select new FileViewModel
+                                          {
+                                              ID = f.ID,
+                                              FileName = f.FileName,
+                                              MimeType = f.MimeType,
+                                              FileDescription = f.FileDescription
+                                          }).SingleOrDefault();
+            if (filetoDelete == null)
+            {
+                return HttpNotFound();
+            }
+            return View(filetoDelete);
+        }
+
+        // POST: Home/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            HospiceNiagara.Models.Files fileStore = db.Files.Find(id);
+            db.Files.Remove(fileStore);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }   
 }
