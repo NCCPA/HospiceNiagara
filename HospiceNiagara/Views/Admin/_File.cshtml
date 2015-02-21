@@ -2,50 +2,62 @@
 <br />
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <div class="col-md-4">
-                <label for="folder">Folder</label>
-                <select name="folder" class="form-control">
-                    <option value="1">Organizational</option>
-                    <option value="2">Board</option>
-                    <option value="3">Staff</option>
-                    <option value="4">Volunteer</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label for="fileDescription" class="control-label">Description</label>
-                <input type="text" class="form-control" name="fileDescription" />
-            </div>
-            <div class="col-md-4">
-                <label class="control-label">Select File</label>
-                <input type="file" id="input-1a" class="file" name="FileUpload1" /><br />
-            </div>
-        }
-        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Folder Container </a><br />  <div class="row">
-    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td>
-                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Organizational Resources - 1 </a><br />
-                            <br />
-                            <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
-                                                    <br />
-                                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                                        <table class="table panel-heading well well-sm ">
-                                                            <tr>
-                                                                <th>@Html.DisplayNameFor(model => model.FileName)</th>
-                                                                <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
-                                                                <th></th>
-                                                            </tr>
+    @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="folder">Category</label>
+                    <select name="folder" class="form-control">
+                        <option value="1">Organizational</option>
+                        <option value="2">Board</option>
+                        <option value="3">Staff</option>
+                        <option value="4">Volunteer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="folder">Folder</label>
+                    <select name="folder" class="form-control">
+                        <option value="1">Sample</option>
+                        <option value="2">Blample</option>
+                        <option value="3">Dample</option>
+                        <option value="4">Crample</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fileDescription" class="control-label">Description</label>
+                    <input type="text" class="form-control" name="fileDescription" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Select File</label>
+                    <input type="file" id="input-1a" class="file" name="FileUpload1" /><br />
+                </div>
+            </form>
+            <br />
+            }
+            <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Folder Container </a><br />  <div class="row">
+                <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Organizational Resources - 1 </a><br />
+                                    <br />
+                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
+                                                        <br />
+                                                        <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                                            <table class="table panel-heading well well-sm ">
+                                                                <tr>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileName)</th>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
+                                                                    <th></th>
+                                                                </tr>
 
-                                                            @foreach (var item in Model)
+                                                                @foreach (var item in Model)
                                                             {
                                                                 if (item.FolderID == 1)
                                                                 {
@@ -63,36 +75,36 @@
                                                                     </tr>
                                                                 }
                                                             }
-                                                        </table>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                    </td>
-                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Board Resources </a><br />
-                            <br />
-                            <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
-                                                    <br />
-                                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                                        <table class="table panel-heading well well-sm ">
-                                                            <tr>
-                                                                <th>@Html.DisplayNameFor(model => model.FileName)</th>
-                                                                <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
-                                                                <th></th>
-                                                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Board Resources </a><br />
+                                    <br />
+                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
+                                                        <br />
+                                                        <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                                            <table class="table panel-heading well well-sm ">
+                                                                <tr>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileName)</th>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
+                                                                    <th></th>
+                                                                </tr>
 
-                                                            @foreach (var item in Model)
+                                                                @foreach (var item in Model)
                                                             {
                                                                 if (item.FolderID == 2)
                                                                 {
@@ -110,36 +122,36 @@
                                                                     </tr>
                                                                 }
                                                             }
-                                                        </table>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                    </td>
-                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Staff Resources </a><br />
-                            <br />
-                            <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
-                                                    <br />
-                                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                                        <table class="table panel-heading well well-sm ">
-                                                            <tr>
-                                                                <th>@Html.DisplayNameFor(model => model.FileName)</th>
-                                                                <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
-                                                                <th></th>
-                                                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Staff Resources </a><br />
+                                    <br />
+                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
+                                                        <br />
+                                                        <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                                            <table class="table panel-heading well well-sm ">
+                                                                <tr>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileName)</th>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
+                                                                    <th></th>
+                                                                </tr>
 
-                                                            @foreach (var item in Model)
+                                                                @foreach (var item in Model)
                                                             {
                                                                 if (item.FolderID == 3)
                                                                 {
@@ -157,36 +169,36 @@
                                                                     </tr>
                                                                 }
                                                             }
-                                                        </table>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                    </td>
-                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Volunteer Resources </a><br />
-                            <br />
-                            <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
-                                                    <br />
-                                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-                                                        <table class="table panel-heading well well-sm ">
-                                                            <tr>
-                                                                <th>@Html.DisplayNameFor(model => model.FileName)</th>
-                                                                <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
-                                                                <th></th>
-                                                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Volunteer Resources </a><br />
+                                    <br />
+                                    <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />
+                                                        <br />
+                                                        <div class="col-xs-12 col-sm-10  col-sm-push-1">
+                                                            <table class="table panel-heading well well-sm ">
+                                                                <tr>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileName)</th>
+                                                                    <th>@Html.DisplayNameFor(model => model.FileDescription)</th>
+                                                                    <th></th>
+                                                                </tr>
 
-                                                            @foreach (var item in Model)
+                                                                @foreach (var item in Model)
                                                             {
                                                                 if (item.FolderID == 4)
                                                                 {
@@ -204,18 +216,18 @@
                                                                     </tr>
                                                                 }
                                                             }
-                                                        </table>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-    </div>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 </div>
