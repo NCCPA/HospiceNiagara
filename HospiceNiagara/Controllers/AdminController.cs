@@ -55,21 +55,22 @@ namespace HospiceNiagara.Controllers
             return PartialView(fileList.ToList());
         }
 
-       /*  public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
-        {
-              var deathList = from d in db.Death
-                              select new deathList
-                              {
-                                   ID = d.id,
-                                   Name = d.name,
-                                   Date = d.date,
-                                   Location = d.location,
-                                   Note = d.note,
-                                   isVisible = d.visible
-                              }; 
-               return PartialView(deathList.ToList()); 
-        } 
-        */
+         /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
+         {
+             HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
+             {
+                 ID = id,
+                 Name = name,
+                 Date = date,
+                 Location = location,
+                 Note = note,
+                 isVisible = visible
+             };
+
+             //db.Deaths.Add(deathObj);
+             db.SaveChanges();
+         } */
+         
 
         // GET: Home/Delete/5
         public ActionResult Delete(int? id)
