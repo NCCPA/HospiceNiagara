@@ -219,6 +219,8 @@
     <Compile Include="Models\AnouncePrivacy.cs" />
     <Compile Include="Models\CJ.cs" />
     <Compile Include="Models\CJType.cs" />
+    <Compile Include="Models\Death.cs" />
+    <Compile Include="Models\DeathPrivacy.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventPrivacy.cs" />
     <Compile Include="Models\EventResource.cs" />
@@ -239,6 +241,7 @@
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RSVP.cs" />
+    <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Snippet.cs" />
     <Compile Include="Models\SubRole.cs" />
     <Compile Include="Models\User.cs" />

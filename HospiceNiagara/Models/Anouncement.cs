@@ -27,9 +27,6 @@ namespace HospiceNiagara.Models
         [Display(Name = "isVisible")]
         public bool isVisible { get; set; }
 
-        [Display(Name = "isDeath")]
-        public bool isDeath { get; set; }
-
         //id of person
        // [Required(ErrorMessage = "You must select a User.")]
         public int CreatedByID { get; set; }
