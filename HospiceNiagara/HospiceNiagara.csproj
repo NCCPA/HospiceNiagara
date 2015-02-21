@@ -223,7 +223,6 @@
     <Compile Include="Models\EventPrivacy.cs" />
     <Compile Include="Models\EventResource.cs" />
     <Compile Include="Models\File.cs" />
-    <Compile Include="Models\FileFolder.cs" />
     <Compile Include="Models\Files.cs" />
     <Compile Include="Models\Folder.cs" />
     <Compile Include="Models\FolderGroup.cs" />
