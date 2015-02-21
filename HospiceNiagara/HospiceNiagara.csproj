@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201502090039418_RemovedDumbFields.Designer.cs">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502212037156_UPDATE.cs" />
+    <Compile Include="Migrations\201502212037156_UPDATE.Designer.cs">
+      <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -461,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502090039418_RemovedDumbFields.resx">
       <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502212037156_UPDATE.resx">
+      <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
