@@ -54,6 +54,21 @@ namespace HospiceNiagara.Controllers
                            };
             return PartialView(fileList.ToList());
         }
+       /* public ActionResult AddDeath(int id, string name, DateTime date, string location, string note, bool visible)
+       {
+           HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
+           {
+               ID = id,
+               Name = name,
+               Date = date,
+               Location = location,
+               Note = note,
+               isVisible = visible
+           };
+
+         //  db.Death.Add(deathObj);
+           db.SaveChanges();
+       } 
 
         /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
         {

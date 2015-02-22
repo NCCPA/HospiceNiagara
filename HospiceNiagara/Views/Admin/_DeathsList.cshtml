@@ -56,44 +56,139 @@
 
 
 <div class="row" id="addDeath">
-    <div class="col-md-10 col-md-offset-1">
-       poo
-        <br />
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Notes</th>
-                            <th>State</th>
-                            <th><a href="#" class="btn btn-default btn-blue"><span class="glyphicon pull-left glyphicon-plus "></span> Add Notice</a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Quin Jay</td>
-                            <td>January 12 2015</td>
-                            <td>Stable Center</td>
-                            <td> </td>
-                            <td><a href="#" class="btn btn-default btn-blue"><span class="glyphicon pull-left glyphicon-plus "></span> Visable</a></td>
-                            <td><a href="#" class="btn btn-default btn-red"><span class="glyphicon pull-left glyphicon-plus "></span> Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td>Quin Jay</td>
-                            <td>January 12 2015</td>
-                            <td>Stable Center</td>
-                            <td> </td>
-                            <td><a href="#" class="btn btn-default btn-blue"><span class="glyphicon pull-left glyphicon-plus "></span> Hidden</a></td>
-                            <td><a href="#" class="btn btn-default btn-red"><span class="glyphicon pull-left glyphicon-plus "></span> Edit</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+    @model HospiceNiagara.Models.DeathViewModel
+
+@using (Html.BeginForm("Register", "Death", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    
+
+    
+<div class="row">
+        <div class="col-md-12" >
+            <div class="panel-heading"><h1>Register</h1></div>
+            <hr class="hr-style" />
+        </div>
+    <div class="col-md-8">
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", type = "tel" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneExt, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.PhoneExt, new { @class = "form-control", type = "tel" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DOB, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", type = "date" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">User Type:</label>
+            <div class="col-md-6">
+                <select class="form-control">
+                    <option>Admin</option>
+                    <option>Staff</option>
+                    <option>Volunteer</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Check Boxes -->
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.IsContact) Appear In Contacts
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.CanCreateMeeting) Ability to Create Meetings
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /End Check Boxes -->
+        <!-- What is Position? -->
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PositionDescription, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.PositionDescription, new { @class = "form-control", })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Bio, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.Bio, new { @class = "form-control", })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-6">
+                <input type="submit" class="btn btn-default" value="Register" />
             </div>
         </div>
     </div>
+
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 </div>
 
 
