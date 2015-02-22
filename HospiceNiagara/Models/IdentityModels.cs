@@ -49,5 +49,38 @@ namespace HospiceNiagara.Models
 
 
         public DbSet<Files> Files { get; set; }
+
+        public DbSet<SubRole> SubRoles { get; set; }
+        public DbSet<UserSubRole> UserSubRoles { get; set; }
+
+        public DbSet<Folder> Folders { get; set; }
+        public DbSet<FolderPrivacy> FolderPrivacy { get; set; }
+        public DbSet<FolderGroup> FolderGroups { get; set; }
+        public DbSet<FolderGroupPrivacy> FolderGroupPrivacy { get; set; }
+
+        public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<MeetingPrivacy> MeetingPrivacy { get; set; }
+        public DbSet<MeetingResource> MeetingResources { get; set; }
+
+        //announcements
+        public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<AnnouncePrivacy> AnnouncePrivacy { get; set; }
+        public DbSet<AnnounceFile> AnnounceFiles { get; set; }
+
+        //events
+
+
+        public DbSet<RSVP> RSVPs { get; set; }
+        // public DbSet<Schedule> Shedules { get; set; }
+        //  public DbSet<SchedulePrivacy> SchedulePrivacys { get; set; }
+
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<LinkHome> LinkHomes { get; set; }
+        public DbSet<LinkStaff> LinkStaffs { get; set; }
+
+
+        public DbSet<Death> Deaths { get; set; }
+        public DbSet<DeathPrivacy> DeathPrivacy { get; set; }
+
     }
 }

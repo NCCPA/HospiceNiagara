@@ -13,7 +13,6 @@ namespace HospiceNiagara.Models
                 this.Role = new HashSet<Role>();
                 this.User = new HashSet<User>();
                 this.SubRole = new HashSet<SubRole>();
-                this.Folder = new HashSet<Folder>();
             }
 
             public int ID { get; set; }
@@ -45,6 +44,5 @@ namespace HospiceNiagara.Models
             public virtual ICollection<User> User { get; set; }
             public virtual ICollection<SubRole> SubRole { get; set; }
             public virtual ICollection<Role> Role { get; set; }
-            public virtual ICollection<Folder> Folder { get; set; }
     }
 }

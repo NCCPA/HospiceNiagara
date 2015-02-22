@@ -216,11 +216,15 @@
     <Compile Include="Migrations\201502212037156_UPDATE.Designer.cs">
       <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502222149026_CHEA.cs" />
+    <Compile Include="Migrations\201502222149026_CHEA.Designer.cs">
+      <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
-    <Compile Include="Models\Anouncement.cs" />
-    <Compile Include="Models\AnouncePrivacy.cs" />
+    <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\AnnouncePrivacy.cs" />
     <Compile Include="Models\CJ.cs" />
     <Compile Include="Models\CJType.cs" />
     <Compile Include="Models\Death.cs" />
@@ -468,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502212037156_UPDATE.resx">
       <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502222149026_CHEA.resx">
+      <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
