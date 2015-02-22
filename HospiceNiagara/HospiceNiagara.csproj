@@ -426,7 +426,7 @@
     <Content Include="Views\Admin\_ContactsList.cshtml" />
     <Content Include="Views\Admin\_MeetingsList.cshtml" />
     <Content Include="Views\Admin\_EventsList.cshtml" />
-    <Content Include="Views\Admin\_DeathsList.cshtml" />
+    <Content Include="Views\Admin\_Death.cshtml" />
     <Content Include="Views\Admin\_ScheduleList.cshtml" />
     <Content Include="Views\Announcement\_MeetingControl.cshtml" />
     <Content Include="Views\Home\_Links.cshtml" />

@@ -54,7 +54,24 @@ namespace HospiceNiagara.Controllers
                            };
             return PartialView(fileList.ToList());
         }
-       /* public ActionResult AddDeath(int id, string name, DateTime date, string location, string note, bool visible)
+
+        public ActionResult _Death()
+        {
+            var deathList = from f in db.Deaths
+                           select new DeathViewModel
+                           {
+                               ID = f.ID,
+                               Name = f.Name,
+                               Date = f.Date,
+                               Location = f.Location,
+                               Note = f.Note,
+                               isVisible = f.isVisible,
+                               CreatedByID = f.CreatedByID
+                           };
+            return PartialView(deathList.ToList());
+        }
+
+       public ActionResult AddDeath(int id, string name, DateTime date, string location, string note, bool visible)
        {
            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
            {
@@ -66,8 +83,9 @@ namespace HospiceNiagara.Controllers
                isVisible = visible
            };
 
-         //  db.Death.Add(deathObj);
+           db.Deaths.Add(deathObj);
            db.SaveChanges();
+           return RedirectToAction("Index");
        } 
 
         /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
