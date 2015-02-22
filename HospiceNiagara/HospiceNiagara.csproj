@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201502222149026_CHEA.Designer.cs">
       <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502222220246_CHEACHea.cs" />
+    <Compile Include="Migrations\201502222220246_CHEACHea.Designer.cs">
+      <DependentUpon>201502222220246_CHEACHea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -475,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502222149026_CHEA.resx">
       <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502222220246_CHEACHea.resx">
+      <DependentUpon>201502222220246_CHEACHea.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
