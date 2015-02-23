@@ -33,6 +33,15 @@ namespace HospiceNiagara.Models
         public string Position { get; set; }
         public string PositionDescription { get; set; }
         public string Bio { get; set; }
+
+
+        //Fields for Profile Picture
+        [Required]
+        public byte[] ProfilePicture { get; set; }
+
+        [Required]
+        [StringLength(256)]
+        public string MimeType { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
