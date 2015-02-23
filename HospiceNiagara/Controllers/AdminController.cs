@@ -68,6 +68,26 @@ namespace HospiceNiagara.Controllers
             return PartialView(fileList.ToList());
         }
 
+        [HttpGet, ActionName("_File")]
+        public ActionResult _File(string searchString)
+        {
+            var fileList = from f in db.Files
+                           select new FileViewModel
+                           {
+                               ID = f.ID,
+                               FileName = f.FileName,
+                               MimeType = f.MimeType,
+                               FileDescription = f.FileDescription,
+                               FolderID = f.FolderID
+                           };
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                fileList = fileList.Where(s => s.FileName.Contains(searchString)
+                                       || s.FileDescription.Contains(searchString));
+            }
+            return PartialView(fileList.ToList());
+        }
+
         public ActionResult _Death()
         {
             var deathList = from f in db.Deaths
