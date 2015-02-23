@@ -23,7 +23,7 @@ namespace HospiceNiagara.Controllers
            
 
             //If Id is null then not coming from admin page
-            if (id == null)
+            if (id == null || id == "")
             {
                            
                 //Get Current Id and Display it to the User
@@ -61,7 +61,7 @@ namespace HospiceNiagara.Controllers
                 var manager = new UserManager<ApplicationUser>(store);
 
                 //If Id is null then not coming from admin page
-                if (id == null)
+                if (id == null || id == "")
                 {
 
                     //Get Current Id and Display it to the User
@@ -108,7 +108,7 @@ namespace HospiceNiagara.Controllers
 
 
             //If Id is null then not coming from admin page
-            if (id == null)
+            if (id == null || id == "")
             {
                 //Get Current Id and Display it to the User
                 var currentUserId = User.Identity.GetUserId();
@@ -132,7 +132,7 @@ namespace HospiceNiagara.Controllers
 
 
             //If Id is null then not coming from admin page
-            if (id == null)
+            if (id == null || id == "")
             {
                 //Get Current Id and Grab Profile Picture
                 var currentUserId = User.Identity.GetUserId();

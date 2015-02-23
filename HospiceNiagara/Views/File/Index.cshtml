@@ -8,10 +8,14 @@
 </p>
 <form class="form-inline">
     <div class="form-group">
-        <label for="txtSearch" class="sr-only">Search By Name</label>
-        <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
+        @using (Html.BeginForm("Index", "File", FormMethod.Get))
+        {
+            <p>
+                Filter by name or description: @Html.TextBox("searchString")
+                <input type="submit" class="btn btn-default" value="Filter" />
+            </p>
+        }
     </div>
-    <button type="submit" class="btn btn-default">Search</button>
 </form>
 <br />
 <br />
