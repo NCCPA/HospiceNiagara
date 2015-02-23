@@ -15,6 +15,19 @@ namespace HospiceNiagara.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /*  todo 2/23:
+         *  use green for headers
+            blue for buttons
+            change nav-bar to dark button blue
+            change nav-bar active color to blue hover button color
+            add padding-right: 5px; to + in buttons
+            auto expand folders when searching
+         *  -jord
+         * 
+         */
+
+
+
         // GET: Admin
         public ActionResult Index()
         {

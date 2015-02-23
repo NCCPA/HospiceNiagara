@@ -28,6 +28,27 @@ namespace HospiceNiagara.Controllers
             return View(fileList.ToList());
         }
 
+        [HttpGet, ActionName("Index")]
+        public ActionResult Index(string searchString)
+        {
+            var fileList = from f in db.Files
+                           //where f.FileName.Contains(searchString) || f.FileDescription.Contains(searchString)
+                           select new FileViewModel
+                           {
+                               ID = f.ID,
+                               FileName = f.FileName,
+                               MimeType = f.MimeType,
+                               FileDescription = f.FileDescription,
+                               FolderID = f.FolderID
+                           };
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                fileList = fileList.Where(s => s.FileName.Contains(searchString)
+                                       || s.FileDescription.Contains(searchString));
+            }
+            return View(fileList.ToList());
+        }
+
         // POST: Home/Delete/5
         [HttpPost, ActionName("Index")]
         public ActionResult IndexUpload(string fileDescription, int folder)
