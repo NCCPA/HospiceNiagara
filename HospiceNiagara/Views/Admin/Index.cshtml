@@ -8,7 +8,7 @@
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#usersTab" aria-controls="usersTab" role="tab" data-toggle="tab">Users</a></li>
-        <li role="presentation"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">Resources</a></li>
+        <li role="presentation"><a href="#filesTab" aria-controls="filesTab" role="tab" data-toggle="tab">Resources</a></li>
         <li role="presentation"><a href="#contactsTab" aria-controls="contactsTab" role="tab" data-toggle="tab">Contacts</a></li>
         <li role="presentation"><a href="#meetingsTab" aria-controls="meetingsTab" role="tab" data-toggle="tab">Meetings</a></li>
         <li role="presentation"><a href="#announcementsTab" aria-controls="announcementsTab" role="tab" data-toggle="tab">Announcements</a></li>
@@ -23,7 +23,7 @@
         <!-- Tab panes new List<HospiceNiagara.Models.FileViewModel>() -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Partial("_MemberList")</div>
-            <div role="tabpanel" class="tab-pane" id="file">@Html.Action("_File", "Admin")</div>
+            <div role="tabpanel" class="tab-pane" id="filesTab">@Html.Action("_File", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Partial("_ContactsList")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_MeetingsList")</div>
             <div role="tabpanel" class="tab-pane" id="announcementsTab">@Html.Partial("_AnnouncementList")</div>

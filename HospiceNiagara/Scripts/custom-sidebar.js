@@ -1,4 +1,5 @@
-﻿//Change the active class on the sidebar depending on the page...
+﻿
+//Change the active class on the sidebar depending on the page...
 $(document).ready(function () {
 
     $("#input-1a").fileinput();
@@ -22,6 +23,16 @@ $(document).ready(function () {
        $(this).nextAll('.fileList:first').slideToggle();
     });
 
+
+   var url = document.location.toString();
+   if (url.match('#')) {
+       $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab('show');
+   }
+   $(this).scrollTop(0);
+    // Change hash for page-reload
+   /*$('.nav-tabs a').on('shown', function (e) {
+       window.location.hash = e.target.hash;
+   })*/
 
     /*Please DONT DELETE THIS AGAIN RYAN*/
     $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
