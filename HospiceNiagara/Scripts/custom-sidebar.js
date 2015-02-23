@@ -1,4 +1,5 @@
-﻿//Change the active class on the sidebar depending on the page...
+﻿
+//Change the active class on the sidebar depending on the page...
 $(document).ready(function () {
 
     $("#input-1a").fileinput();
@@ -27,7 +28,7 @@ $(document).ready(function () {
    if (url.match('#')) {
        $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab('show');
    }
-
+   $(this).scrollTop(0);
     // Change hash for page-reload
    /*$('.nav-tabs a').on('shown', function (e) {
        window.location.hash = e.target.hash;
