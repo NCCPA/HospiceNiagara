@@ -66,6 +66,7 @@ namespace HospiceNiagara.Migrations
             //Create admin user
             var adminUser = new ApplicationUser
             {
+                
                 UserName = "admin@outlook.com",
                 Email = "admin@outlook.com",
                 FirstName = "Amanda",

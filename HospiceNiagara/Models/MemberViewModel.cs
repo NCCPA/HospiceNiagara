@@ -10,7 +10,9 @@ namespace HospiceNiagara.Models
     {
         //Add Children ViewModels
         public List<FileViewModel> FileViewModel { get; set; }
-        public List<DeathViewModel> DeathViewModel { get; set; }
+        public List<Death> Death { get; set; }
+        
+
 
         public string ID { get; set; }
         public string FirstName { get; set; }
