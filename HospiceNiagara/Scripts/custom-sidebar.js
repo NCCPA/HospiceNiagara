@@ -27,8 +27,10 @@ $(document).ready(function () {
    var url = document.location.toString();
    if (url.match('#')) {
        $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab('show');
+       $('html, body').animate({ scrollTop: 0 }, 0);
+       
    }
-   $(this).scrollTop(0);
+   
     // Change hash for page-reload
    /*$('.nav-tabs a').on('shown', function (e) {
        window.location.hash = e.target.hash;
