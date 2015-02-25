@@ -228,6 +228,14 @@
     <Compile Include="Migrations\201502230042208_Profile_Picture.Designer.cs">
       <DependentUpon>201502230042208_Profile_Picture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502250648059_seedDataTry1.cs" />
+    <Compile Include="Migrations\201502250648059_seedDataTry1.Designer.cs">
+      <DependentUpon>201502250648059_seedDataTry1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502250652470_seedDataTry2.cs" />
+    <Compile Include="Migrations\201502250652470_seedDataTry2.Designer.cs">
+      <DependentUpon>201502250652470_seedDataTry2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -489,6 +497,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502230042208_Profile_Picture.resx">
       <DependentUpon>201502230042208_Profile_Picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502250648059_seedDataTry1.resx">
+      <DependentUpon>201502250648059_seedDataTry1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502250652470_seedDataTry2.resx">
+      <DependentUpon>201502250652470_seedDataTry2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

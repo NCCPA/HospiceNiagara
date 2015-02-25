@@ -4,6 +4,7 @@ namespace HospiceNiagara.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
@@ -137,6 +138,44 @@ namespace HospiceNiagara.Migrations
                 manager.Create(volunteerUser, "Pass!23");
                 manager.AddToRole(volunteerUser.Id, "Volunteer");
             }
+
+            //var roles = new List<Role> 
+            //{ 
+            //    new Role { roleName = "Volunteer"}, 
+            //    new Role { roleName = "Board"}, 
+            //    new Role { roleName = "Staff"}, 
+            //    new Role { roleName = "Admin"}
+            //};
+
+            //roles.ForEach(d => context.Roles.AddOrUpdate(x => x.roleName, d));
+            //context.SaveChanges();
+
+            var subroles = new List<SubRole> 
+            { 
+                new SubRole { roleName = "Bereavement", RoleID = 0},
+                new SubRole { roleName = "Community", RoleID = 0},
+                new SubRole { roleName = "Day Hospice", RoleID = 0},
+                new SubRole { roleName = "Residential", RoleID = 0},
+                new SubRole { roleName = "Welcome Desk", RoleID = 0},
+                new SubRole { roleName = "Event (non client)", RoleID = 0},
+                new SubRole { roleName = "Admin (non client)", RoleID = 0},
+                new SubRole { roleName = "New Volunteers", RoleID = 0},
+                new SubRole { roleName = "Audit & Finance Committee", RoleID = 1},
+                new SubRole { roleName = "Community Relations Committee", RoleID = 1},
+                new SubRole { roleName = "Governance Committee", RoleID = 1},
+                new SubRole { roleName = "Operations and Quality Improvement Committee", RoleID = 1},
+                new SubRole { roleName = "New Board Members", RoleID = 1},
+                new SubRole { roleName = "Leadership", RoleID = 2},
+                new SubRole { roleName = "Admin", RoleID = 2},
+                new SubRole { roleName = "Community", RoleID = 2},
+                new SubRole { roleName = "Outreach", RoleID = 2},
+                new SubRole { roleName = "Residential", RoleID = 2},
+                new  SubRole { roleName = "New Staff", RoleID = 2}
+              //  new Hospice.Models.SubRole { roleName = "New Staff", RoleID = 2}
+            };
+
+            subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.roleName, d));
+            SaveChanges(context);
         }
         private void SaveChanges(DbContext context)
         {
