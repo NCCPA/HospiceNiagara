@@ -2,15 +2,19 @@
     <h1>Home - <small>Welcome @User.Identity.Name</small></h1>
 </div>
     <div class="row">
-        @Html.Partial("_EventsControl")
-        @Html.Partial("_AnnounceControl")
-        @Html.Partial("_DeathControl")
-        @Html.Partial("_NoticeRSVP")
+        <div class="col-sm-12 col-md-10 col-md-push-1">
+            @Html.Partial("_EventsControl")
+            @Html.Partial("_AnnounceControl")
+            @Html.Partial("_DeathControl")
+            @Html.Partial("_NoticeRSVP")
+            </div>
         </div>
         <div class="row">
-            @Html.Partial("_MiniCalendarControl")
-            @Html.Partial("_MeetingControl")
-            @Html.Partial("_Links")
-        </div>
+            <div class="col-sm-12 col-md-10 col-md-push-1">
+                @Html.Partial("_MiniCalendarControl")
+                @Html.Partial("_MeetingControl")
+                @Html.Partial("_Links")
+                </div>
+            </div>
 
 

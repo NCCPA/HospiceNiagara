@@ -3,24 +3,32 @@
 <div class="page-header">
     <h1>Resources</h1>
 </div>
-<p>
-    Search for a file bellow.
-</p>
-<form class="form-inline">
-    <div class="form-group">
-        @using (Html.BeginForm("Index", "File", FormMethod.Get))
-        {
-            <p>
-                Filter by name or description: @Html.TextBox("searchString")
-                <input type="submit" class="btn btn-default" value="Filter" />
-            </p>
-        }
-    </div>
-</form>
-<br />
-<br />
 <div class="row">
     <div class="col-xs-12 col-sm-10  col-sm-push-1">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="txtSearch" class="sr-only">Search By Name</label>
+                <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
+            </div>
+            <div class="form-group">
+                <select name="ddlScheduleSelection" class="form-control">
+                    <option value="all">All</option>
+                    <option value="current">Organizational Resources</option>
+                    <option value="past">Board Resources</option>
+                    <option value="past">Staff Resources</option>
+                    <option value="past">Volunteer Resources</option>
+                </select>
+            </div>
+            <div class="form-group">
+                @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                {
+                    <input type="submit" class="btn btn-blue btn-default" value="Filter" />
+                }
+            </div>
+        </form>
+
+        <br />
+        <br />
         <table class="table">
             <tbody>
                 <tr>
@@ -44,8 +52,8 @@
 
                                                             @foreach (var item in Model)
                                                             {
-                                                                if (item.FolderID == 1) 
-                                                                { 
+                                                                if (item.FolderID == 1)
+                                                                {
                                                                     <tr>
                                                                         <td>
                                                                             @Html.DisplayFor(modelItem => item.FileName)
@@ -92,8 +100,8 @@
 
                                                             @foreach (var item in Model)
                                                             {
-                                                                if (item.FolderID == 2) 
-                                                                { 
+                                                                if (item.FolderID == 2)
+                                                                {
                                                                     <tr>
                                                                         <td>
                                                                             @Html.DisplayFor(modelItem => item.FileName)
@@ -140,8 +148,8 @@
 
                                                             @foreach (var item in Model)
                                                             {
-                                                                if (item.FolderID == 3) 
-                                                                { 
+                                                                if (item.FolderID == 3)
+                                                                {
                                                                     <tr>
                                                                         <td>
                                                                             @Html.DisplayFor(modelItem => item.FileName)
@@ -188,8 +196,8 @@
 
                                                             @foreach (var item in Model)
                                                             {
-                                                                if (item.FolderID == 4) 
-                                                                { 
+                                                                if (item.FolderID == 4)
+                                                                {
                                                                     <tr>
                                                                         <td>
                                                                             @Html.DisplayFor(modelItem => item.FileName)

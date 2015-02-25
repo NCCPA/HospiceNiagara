@@ -117,26 +117,4 @@ $(document).ready(function () {
     //    $('.sidebar').css(top, $(this).scrollTop());
     //});
 
-
-
-    //--------Admin Code
- //   $("#editDeath").hide();
-  //  $("#addDeath").hide();
-    deathToggle();
-    $("#showDeath").show();
-    //--Deaths
-    
-
-    $(".deathAdd").click(function () {
-        $("#showDeath").hide();
-        $("#editDeath").hide();
-        $("#addDeath").show();
-    });
-
-    function deathToggle (){
-        $("#showDeath").hide();
-        $("#editDeath").hide();
-        $("#addDeath").hide();
-    }
-
 });

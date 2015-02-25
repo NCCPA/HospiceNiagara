@@ -9,6 +9,7 @@
         <li role="presentation"><a href="#stablerLTab" aria-controls="stablerLTab" role="tab" data-toggle="tab">Stable Center Locations</a></li>
         <li role="presentation"><a href="#nnTab" aria-controls="nnTab" role="tab" data-toggle="tab">Niagara North Shared Care</a></li>
         <li role="presentation"><a href="#nsTab" aria-controls="nsTab" role="tab" data-toggle="tab">Niagara South Shared Care</a></li>
+        <li role="presentation"><a href="#searchTab" aria-controls="nsTab" role="tab" data-toggle="tab">Search</a></li>
     </ul>
     <br />
 
@@ -413,7 +414,58 @@
                                      </div>
                                  </div>
                              </div>
-                        </div>
+            
+                       <div role="tabpanel" class="tab-pane" id="searchTab">
+                           <div class="col-xs-12 col-lg-10 col-lg-push-1">
+                               <form class="form-inline">
+                                   <div class="form-group">
+                                       <label for="txtSearch" class="sr-only">Search By Name</label>
+                                       <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
+                                   </div>
+                                   <div class="form-group">
+                                       <select name="ddlScheduleSelection" class="form-control">
+                                           <option value="all">All</option>
+                                           <option value="current">Organizational Resources</option>
+                                           <option value="past">Board Resources</option>
+                                           <option value="past">Staff Resources</option>
+                                           <option value="past">Volunteer Resources</option>
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                                       {
+                                       <input type="submit" class="btn btn-blue btn-default" value="Filter" />
+                                       }
+                                   </div>
+                                   </form>
+                               <br/>
+                                   <div class="panel panel-default">
+                                       <table class="table">
+                                           <thead>
+                                               <tr>
+                                                   <th>#</th>
+                                                   <th>Staff Member</th>
+                                                   <th>Position</th>
+                                                   <th>Email</th>
+                                                   <th>Phone</th>
+                                                   <th>Office Cell</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                                               <tr>
+                                                   <th scope="row">1</th>
+                                                   <td> <a href="#" data-toggle="modal" data-target="#myDiscription"></a></td>
+                                                   <td> </td>
+                                                   <td> </td>
+                                                   <td> </td>
+                                                   <td> </td>
+                                               </tr>
+
+                                           </tbody>
+                                       </table>
+                                   </div>
+                           </div>
+                           </div>
 
                     </div>
 </div>

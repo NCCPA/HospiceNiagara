@@ -4,8 +4,23 @@
         <label for="txtSearch" class="sr-only">Search By Name</label>
         <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
     </div>
-    <button type="submit" class="btn btn-default">Search</button>
+    <div class="form-group">
+        <select name="ddlScheduleSelection" class="form-control">
+            <option value="all">All</option>
+            <option value="current">Organizational Resources</option>
+            <option value="past">Board Resources</option>
+            <option value="past">Staff Resources</option>
+            <option value="past">Volunteer Resources</option>
+        </select>
+    </div>
+    <div class="form-group">
+        @using (Html.BeginForm("Index", "File", FormMethod.Get))
+        {
+            <input type="submit" class="btn btn-blue btn-default" value="Filter" />
+        }
+    </div>
 </form>
+
 <br />
 <table class="table table-hover">
     <thead>

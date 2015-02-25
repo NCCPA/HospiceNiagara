@@ -15,6 +15,7 @@ namespace HospiceNiagara
                         "~/Scripts/NavBar.js",
                         "~/Scripts/moment.min.js",
                         "~/Scripts/fullcalendar.min.js",
+                        "~/Scripts/admin.js",
                         "~/Scripts/gcal.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

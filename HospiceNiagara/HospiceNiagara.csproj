@@ -334,6 +334,7 @@
     <Content Include="img\demo.png" />
     <Content Include="img\Hopspice-Niagara-Logo.png" />
     <Content Include="img\photobg_stockFree.jpg" />
+    <Content Include="Scripts\admin.js" />
     <Content Include="Scripts\bootstrap-fileinput.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
