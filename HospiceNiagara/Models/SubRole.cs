@@ -9,12 +9,6 @@ namespace HospiceNiagara.Models
     public class SubRole
     {
 
-
-            public SubRole()
-            {
-                this.Role = new HashSet<Role>();
-            }
-
             public int ID { get; set; }
 
             [Display(Name = "Sub Role Name")]
@@ -24,7 +18,5 @@ namespace HospiceNiagara.Models
 
             [Required(ErrorMessage = "You must select a Role.")]
             public int RoleID { get; set; }
-
-            public virtual ICollection<Role> Role { get; set; }
     }
 }

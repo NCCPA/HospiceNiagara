@@ -174,7 +174,7 @@ namespace HospiceNiagara.Migrations
               //  new Hospice.Models.SubRole { roleName = "New Staff", RoleID = 2}
             };
 
-            subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.roleName, d));
+            subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
         }
         private void SaveChanges(DbContext context)
