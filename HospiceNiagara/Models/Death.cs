@@ -12,25 +12,27 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         [Display(Name = "Name")]
-        [Required(ErrorMessage = "You cannot leave the title blank.")]
-        [StringLength(100, ErrorMessage = "The Name cannot be more than 100 characters long.")]
+        [Required(ErrorMessage = "You cannot leave the name blank.")]
+        [StringLength(100, ErrorMessage = "The name can be no more than 100 characters long.")]
         public string Name { get; set; }
 
         [Display(Name = "Date")]
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "You cannot leave the date blank.")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Date { get; set; }
 
         [Display(Name = "Location")]
-        [StringLength(100, ErrorMessage = "The Location cannot be more than 100 characters long.")]
+        [StringLength(100, ErrorMessage = "The location can be more no more than 100 characters long.")]
         public string Location { get; set; }
 
         [Display(Name = "Note")]
-        [StringLength(100, ErrorMessage = "The Location cannot be more than 100 characters long.")]
+        [StringLength(200, ErrorMessage = "The note can be no more than 200 characters long.")]
         public string Note { get; set; }
 
         [Display(Name = "isVisible")]
-        public bool isVisible { get; set; }
+        [Range(0, 2, ErrorMessage = "The visable value is not valid.")]
+        public int isVisible { get; set; }
 
         //id of person
        // [Required(ErrorMessage = "You must select a User.")]
@@ -44,7 +46,7 @@ namespace HospiceNiagara.Models
 
         [Display(Name = "Name")]
         [Required(ErrorMessage = "You cannot leave the title blank.")]
-        [StringLength(100, ErrorMessage = "The Name cannot be more than 100 characters long.")]
+        [StringLength(100, ErrorMessage = "The name can be no more than 100 characters long.")]
         public string Name { get; set; }
 
         [Display(Name = "Date")]
@@ -53,15 +55,17 @@ namespace HospiceNiagara.Models
         public DateTime? Date { get; set; }
 
         [Display(Name = "Location")]
-        [StringLength(100, ErrorMessage = "The Location cannot be more than 100 characters long.")]
+        [StringLength(100, ErrorMessage = "The location can be no more than 100 characters long.")]
         public string Location { get; set; }
 
         [Display(Name = "Note")]
-        [StringLength(100, ErrorMessage = "The Location cannot be more than 100 characters long.")]
+        [StringLength(250, ErrorMessage = "The note can be no more than 250 characters long.")]
         public string Note { get; set; }
 
         [Display(Name = "isVisible")]
-        public bool isVisible { get; set; }
+        [Required]
+        [Range(1, 10, ErrorMessage = "The visible range is  invalid.")]
+        public int isVisible { get; set; }
 
         //id of person
         // [Required(ErrorMessage = "You must select a User.")]
