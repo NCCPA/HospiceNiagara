@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201503110337097_manys.Designer.cs">
       <DependentUpon>201503110337097_manys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503111808305_manys1.cs" />
+    <Compile Include="Migrations\201503111808305_manys1.Designer.cs">
+      <DependentUpon>201503111808305_manys1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -529,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503110337097_manys.resx">
       <DependentUpon>201503110337097_manys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503111808305_manys1.resx">
+      <DependentUpon>201503111808305_manys1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
