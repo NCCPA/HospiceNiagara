@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace HospiceNiagara.Models
 {
@@ -42,6 +43,9 @@ namespace HospiceNiagara.Models
         [Required]
         [StringLength(256)]
         public string MimeType { get; set; }
+
+
+        public virtual ICollection<SubRole> SubRole { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -60,7 +64,6 @@ namespace HospiceNiagara.Models
         public DbSet<Files> Files { get; set; }
 
         public DbSet<SubRole> SubRoles { get; set; }
-        public DbSet<UserSubRole> UserSubRoles { get; set; }
 
         public DbSet<Folder> Folders { get; set; }
         public DbSet<FolderPrivacy> FolderPrivacy { get; set; }

@@ -18,5 +18,6 @@ namespace HospiceNiagara.Models
 
             [Required(ErrorMessage = "You must select a Role.")]
             public int RoleID { get; set; }
+            public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
     }
 }

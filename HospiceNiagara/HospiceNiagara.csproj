@@ -244,6 +244,14 @@
     <Compile Include="Migrations\201503110231249_subfix.Designer.cs">
       <DependentUpon>201503110231249_subfix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503110241583_poo.cs" />
+    <Compile Include="Migrations\201503110241583_poo.Designer.cs">
+      <DependentUpon>201503110241583_poo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503110337097_manys.cs" />
+    <Compile Include="Migrations\201503110337097_manys.Designer.cs">
+      <DependentUpon>201503110337097_manys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -276,8 +284,6 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Snippet.cs" />
     <Compile Include="Models\SubRole.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserSubRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -517,6 +523,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503110231249_subfix.resx">
       <DependentUpon>201503110231249_subfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503110241583_poo.resx">
+      <DependentUpon>201503110241583_poo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503110337097_manys.resx">
+      <DependentUpon>201503110337097_manys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

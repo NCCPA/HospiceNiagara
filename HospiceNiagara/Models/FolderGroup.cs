@@ -11,7 +11,7 @@ namespace HospiceNiagara.Models
              public FolderGroup()
             {
                 this.Role = new HashSet<Role>();
-                this.User = new HashSet<User>();
+                this.ApplicationUser = new HashSet<ApplicationUser>();
                 this.SubRole = new HashSet<SubRole>();
             }
 
@@ -41,7 +41,7 @@ namespace HospiceNiagara.Models
             [Range(1, 99999, ErrorMessage = "The number is not valid.")]
             public int SubRoleID { get; set; }
 
-            public virtual ICollection<User> User { get; set; }
+            public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
             public virtual ICollection<SubRole> SubRole { get; set; }
             public virtual ICollection<Role> Role { get; set; }
     }

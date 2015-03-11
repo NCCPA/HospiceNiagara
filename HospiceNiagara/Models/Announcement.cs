@@ -10,7 +10,7 @@ namespace HospiceNiagara.Models
     {
          public Announcement()
         {
-            this.User = new HashSet<User>();
+            this.ApplicationUser = new HashSet<ApplicationUser>();
         }
 
         public int ID { get; set; }
@@ -31,6 +31,6 @@ namespace HospiceNiagara.Models
        // [Required(ErrorMessage = "You must select a User.")]
         public int CreatedByID { get; set; }
 
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
     }
 }

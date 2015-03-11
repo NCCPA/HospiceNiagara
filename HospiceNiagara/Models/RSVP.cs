@@ -10,7 +10,7 @@ namespace HospiceNiagara.Models
     {
         public RSVP()
         {
-            this.User = new HashSet<User>();
+            this.ApplicationUser = new HashSet<ApplicationUser>();
         }
 
         public int ID { get; set; }
@@ -29,6 +29,6 @@ namespace HospiceNiagara.Models
         [Display(Name = "Note")]
         [StringLength(1000, ErrorMessage = "The note cannot be more than 1000 characters long.")]
         public string Note { get; set; }
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
     }
 }
