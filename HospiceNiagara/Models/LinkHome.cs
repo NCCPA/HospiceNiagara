@@ -8,26 +8,21 @@ namespace HospiceNiagara.Models
 {
     public class LinkHome
     {
-        public LinkHome()
-        {
-            // this.Users = new HashSet<Users>();
-        }
 
         public int ID { get; set; }
 
         [Display(Name = "Name")]
-        [Required(ErrorMessage = "You cannot leave the name blank.")]
-        [StringLength(50, ErrorMessage = "Name cannot be more than 50 characters long.")]
+        [Required(ErrorMessage = "You must supply a name.")]
+        [StringLength(100, ErrorMessage = "Name can be no more than 100 characters long.")]
         public string Name { get; set; }
 
         [Display(Name = "Link")]
-        [Required(ErrorMessage = "You cannot leave the link blank.")]
-        [StringLength(1000, ErrorMessage = "Link cannot be more than 1000 characters long.")]
+        [Required(ErrorMessage = "You must supply a link.")]
+        [StringLength(250, ErrorMessage = "Link can be no more than 250 characters long.")]
         public string Link { get; set; }
 
-        [Display(Name = "isVisible")]
-        public bool isVisible { get; set; }
-
-        //public virtual ICollection<Users> Users { get; set; }
+        [Display(Name = "Visible")]
+        [Range(1, 10, ErrorMessage = "The visible range is invalid.")]
+        public int Visible { get; set; }
     }
 }

@@ -176,6 +176,39 @@ namespace HospiceNiagara.Migrations
 
             subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
+
+            //General Links
+
+            var LinkHome = new List<LinkHome> 
+            { 
+               new LinkHome { Name="dample", Link = "Volunteer", Visible=1}
+            };
+
+            LinkHome.ForEach(d => context.LinkHomes.AddOrUpdate(x => x.Link, d));
+            context.SaveChanges();
+
+            //Staff Links
+
+            var LinkStaff = new List<LinkStaff> 
+            { 
+               new LinkStaff { Name="dample", Link = "Volunteer", Visible=1}
+            };
+
+            LinkStaff.ForEach(d => context.LinkStaffs .AddOrUpdate(x => x.Link, d));
+            context.SaveChanges();
+
+            //Deaths
+
+            var Death = new List<Death> 
+            { 
+               new Death { Name="dample", Date = Convert.ToDateTime("2015-01-01"), Location = "", Note = "", Visible=1, CreatedByID = 0}
+            };
+
+            Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
+            context.SaveChanges();
+
+
+
         }
         private void SaveChanges(DbContext context)
         {

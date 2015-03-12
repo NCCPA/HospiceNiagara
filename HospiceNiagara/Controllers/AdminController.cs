@@ -98,7 +98,7 @@ namespace HospiceNiagara.Controllers
                                Date = f.Date,
                                Location = f.Location,
                                Note = f.Note,
-                               isVisible = f.isVisible,
+                               Visible = f.Visible,
                                CreatedByID = f.CreatedByID
                            };
             return PartialView(deathList.ToList());

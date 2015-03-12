@@ -12,7 +12,7 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         [Display(Name = "Name")]
-        [Required(ErrorMessage = "You cannot leave the name blank.")]
+        [Required(ErrorMessage = "You must supply a name.")]
         [StringLength(100, ErrorMessage = "The name can be no more than 100 characters long.")]
         public string Name { get; set; }
 
@@ -30,9 +30,9 @@ namespace HospiceNiagara.Models
         [StringLength(200, ErrorMessage = "The note can be no more than 200 characters long.")]
         public string Note { get; set; }
 
-        [Display(Name = "isVisible")]
+        [Display(Name = "Visible")]
         [Range(0, 2, ErrorMessage = "The visable value is not valid.")]
-        public int isVisible { get; set; }
+        public int Visible { get; set; }
 
         //id of person
        // [Required(ErrorMessage = "You must select a User.")]
@@ -45,7 +45,7 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         [Display(Name = "Name")]
-        [Required(ErrorMessage = "You cannot leave the title blank.")]
+        [Required(ErrorMessage = "You must supply a name.")]
         [StringLength(100, ErrorMessage = "The name can be no more than 100 characters long.")]
         public string Name { get; set; }
 
@@ -62,13 +62,14 @@ namespace HospiceNiagara.Models
         [StringLength(250, ErrorMessage = "The note can be no more than 250 characters long.")]
         public string Note { get; set; }
 
-        [Display(Name = "isVisible")]
+        [Display(Name = "Visible")]
         [Required]
-        [Range(1, 10, ErrorMessage = "The visible range is  invalid.")]
-        public int isVisible { get; set; }
+        [Range(0, 2, ErrorMessage = "The visible range is invalid.")]
+        public int Visible { get; set; }
 
         //id of person
         // [Required(ErrorMessage = "You must select a User.")]
+        [Range(1, 9999, ErrorMessage = "The user range is invalid.")]
         public int CreatedByID { get; set; }
     }
 }
