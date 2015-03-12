@@ -19,19 +19,24 @@ namespace HospiceNiagara.Models
         public int ID { get; set; }
 
         // [Required(ErrorMessage = "You must select a Sub Role.")]
-        [Display(Name = "RoleID")]
+        [Display(Name = "Role ID")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
         public int RoleID { get; set; }
 
         // [Required(ErrorMessage = "You must select a User.")]
-        [Display(Name = "UserID")]
+        [Display(Name = "User ID")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
         public int UserID { get; set; }
 
         // [Required(ErrorMessage = "You must select a Sub Role.")]
-        [Display(Name = "SubRoleID")]
+        [Display(Name = "SubRole ID")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
         public int SubRoleID { get; set; }
+
+        // [Required(ErrorMessage = "You must select a Sub Role.")]
+        [Display(Name = "SubRole ID")]
+        [Range(1, 99999, ErrorMessage = "The number is not valid.")]
+        public int DeathID { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
         public virtual ICollection<SubRole> SubRole { get; set; }
