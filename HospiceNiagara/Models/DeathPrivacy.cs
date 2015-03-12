@@ -34,7 +34,7 @@ namespace HospiceNiagara.Models
         public int SubRoleID { get; set; }
 
         // [Required(ErrorMessage = "You must select a Sub Role.")]
-        [Display(Name = "SubRole ID")]
+        [Display(Name = "Death ID")]
         [Range(1, 99999, ErrorMessage = "The number is not valid.")]
         public int DeathID { get; set; }
 
