@@ -240,30 +240,6 @@
     <Compile Include="Migrations\201503060035188_baseline.Designer.cs">
       <DependentUpon>201503060035188_baseline.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503110231249_subfix.cs" />
-    <Compile Include="Migrations\201503110231249_subfix.Designer.cs">
-      <DependentUpon>201503110231249_subfix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503110241583_poo.cs" />
-    <Compile Include="Migrations\201503110241583_poo.Designer.cs">
-      <DependentUpon>201503110241583_poo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503110337097_manys.cs" />
-    <Compile Include="Migrations\201503110337097_manys.Designer.cs">
-      <DependentUpon>201503110337097_manys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503111808305_manys1.cs" />
-    <Compile Include="Migrations\201503111808305_manys1.Designer.cs">
-      <DependentUpon>201503111808305_manys1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503112330200_test.cs" />
-    <Compile Include="Migrations\201503112330200_test.Designer.cs">
-      <DependentUpon>201503112330200_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503120333513_check.cs" />
-    <Compile Include="Migrations\201503120333513_check.Designer.cs">
-      <DependentUpon>201503120333513_check.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -532,24 +508,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503060035188_baseline.resx">
       <DependentUpon>201503060035188_baseline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503110231249_subfix.resx">
-      <DependentUpon>201503110231249_subfix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503110241583_poo.resx">
-      <DependentUpon>201503110241583_poo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503110337097_manys.resx">
-      <DependentUpon>201503110337097_manys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503111808305_manys1.resx">
-      <DependentUpon>201503111808305_manys1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503112330200_test.resx">
-      <DependentUpon>201503112330200_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503120333513_check.resx">
-      <DependentUpon>201503120333513_check.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

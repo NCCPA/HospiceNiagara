@@ -33,7 +33,7 @@ namespace HospiceNiagara.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
+            /*
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             //create Role admin if it does not exist
@@ -138,7 +138,7 @@ namespace HospiceNiagara.Migrations
                 manager.Create(volunteerUser, "Pass!23");
                 manager.AddToRole(volunteerUser.Id, "Volunteer");
             }
-
+            */
             //var roles = new List<Role> 
             //{ 
             //    new Role { roleName = "Volunteer"}, 
