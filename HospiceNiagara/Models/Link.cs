@@ -6,7 +6,12 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public class LinkStaff
+    public enum Group
+    {
+       S,V,C //Staff View Comunity
+    }
+
+    public class Link
     {
     
         public int ID { get; set; }
@@ -19,10 +24,13 @@ namespace HospiceNiagara.Models
         [Display(Name = "Link")]
         [Required(ErrorMessage = "You must supply a link.")]
         [StringLength(250, ErrorMessage = "Link can be no more than 250 characters long.")]
-        public string Link { get; set; }
+        public string URL { get; set; }
 
         [Display(Name = "Visible")]
         [Range(1, 10, ErrorMessage = "The visible range is invalid.")]
         public int Visible { get; set; }
+        
+        [DisplayFormat(NullDisplayText = "Everyone")]
+        public Group? Group { get; set; }
     }
 }

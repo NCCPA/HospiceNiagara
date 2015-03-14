@@ -177,37 +177,30 @@ namespace HospiceNiagara.Migrations
             subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
 
-            //General Links
 
-            var LinkHome = new List<LinkHome> 
+            //Links
+
+            var Link = new List<Link> 
             { 
-               new LinkHome { Name="dample", Link = "Volunteer", Visible=1}
+               new Link { Name="Hospice Niagara Website", URL = "www.hospiceniagara.ca", Visible=1},
+               new Link { Name="InfoAnywhere", URL = "www.infoanywhere.com", Visible=1}
             };
 
-            LinkHome.ForEach(d => context.LinkHomes.AddOrUpdate(x => x.Link, d));
-            context.SaveChanges();
-
-            //Staff Links
-
-            var LinkStaff = new List<LinkStaff> 
-            { 
-               new LinkStaff { Name="dample", Link = "Volunteer", Visible=1}
-            };
-
-            LinkStaff.ForEach(d => context.LinkStaffs .AddOrUpdate(x => x.Link, d));
+            Link.ForEach(d => context.Links.AddOrUpdate(x => x.URL, d));
             context.SaveChanges();
 
             //Deaths
 
             var Death = new List<Death> 
             { 
-               new Death { Name="dample", Date = Convert.ToDateTime("2015-01-01"), Location = "", Note = "", Visible=1, CreatedByID = 0}
+               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible=1, CreatedByID = 0},
+               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=1, CreatedByID = 0},
+               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1, CreatedByID = 0},
+               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1, CreatedByID = 0}
             };
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
-
-
 
         }
         private void SaveChanges(DbContext context)
