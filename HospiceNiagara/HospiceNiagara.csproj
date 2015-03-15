@@ -172,9 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503151918257_m1.cs" />
-    <Compile Include="Migrations\201503151918257_m1.Designer.cs">
-      <DependentUpon>201503151918257_m1.cs</DependentUpon>
+    <Compile Include="Migrations\201503152108374_TEMP.cs" />
+    <Compile Include="Migrations\201503152108374_TEMP.Designer.cs">
+      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201503152046249_RemovedModels.cs" />
     <Compile Include="Migrations\201503152046249_RemovedModels.Designer.cs">
@@ -407,8 +407,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503151918257_m1.resx">
-      <DependentUpon>201503151918257_m1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503152108374_TEMP.resx">
+      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503152046249_RemovedModels.resx">
       <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
