@@ -1,54 +1,41 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.MemberViewModel>
 <br />
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-<form class="form-inline">
-    <div class="form-group">
-        <label for="txtSearch" class="sr-only">Search By Name</label>
-        <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-    </div>
-    <div class="form-group">
-        <select name="ddlScheduleSelection" class="form-control">
-            <option value="All">All</option>
-            <option value="Name">Name</option>
-            <option value="Email">E-Mail</option>
-            <option value="Phone">Phone</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-blue btn-default">Search</button>
-</form>
-<br />
-<div class="row">
-    <div class="col-md-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>E-Mail</th>
-                    <th>Phone</th>
-                    <th>Date Of Birth</th>
-                    <th><a href="/Account/Register" class="btn btn-default btn-green col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span> Add User</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+
+<!-- Add Search Here -->
+
+
+<!-- End of Search -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DOB)</td>
-                        <td>
-                            <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Index","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-user"></span> View</a>
-                            <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Edit","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-edit"></span> Edit</a>
-                        </td>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                        <th>Phone</th>
+                        <th>Date Of Birth</th>
+                        <th><a href="/Account/Register" class="btn btn-default btn-green col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span> Add User</a></th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</div>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DOB)</td>
+                            <td>
+                                <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Index","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-user"></span> View</a>
+                                <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Edit","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-edit"></span> Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
+
 
 

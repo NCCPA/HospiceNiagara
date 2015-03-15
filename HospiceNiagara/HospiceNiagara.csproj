@@ -264,6 +264,11 @@
     <Compile Include="Migrations\201503120333513_check.Designer.cs">
       <DependentUpon>201503120333513_check.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503121746158_ModelChange_3\12\15.cs" />
+    <Compile Include="Migrations\201503121746326_ModelChange_3_12_2015.cs" />
+    <Compile Include="Migrations\201503121746326_ModelChange_3_12_2015.Designer.cs">
+      <DependentUpon>201503121746326_ModelChange_3_12_2015.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -550,6 +555,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503120333513_check.resx">
       <DependentUpon>201503120333513_check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503121746326_ModelChange_3_12_2015.resx">
+      <DependentUpon>201503121746326_ModelChange_3_12_2015.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
