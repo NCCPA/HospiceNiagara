@@ -37,11 +37,9 @@ namespace HospiceNiagara.Models
 
 
         //Fields for Profile Picture
-        [Required]
         public byte[] ProfilePicture { get; set; }
 
-        [Required]
-        [StringLength(256)]
+
         public string MimeType { get; set; }
 
 

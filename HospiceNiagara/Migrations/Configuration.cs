@@ -21,19 +21,6 @@ namespace HospiceNiagara.Migrations
 
         protected override void Seed(HospiceNiagara.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-            /*
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             //create Role admin if it does not exist
@@ -64,16 +51,28 @@ namespace HospiceNiagara.Migrations
             //Create a generic user
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
+
+
+            // Test Method for User
+            /*
+            var users = new List<ApplicationUser>
+            {
+                new ApplicationUser { UserName = "admin@outlook.com", Email = "admin@outlook.com", FirstName = "Amanda", LastName = "cage", PhoneNumber = "905-642-2322"}
+            };
+            users.ForEach(d => context.Users.AddOrUpdate(x => x.Email, d));
+            SaveChanges(context);
+            */
+            
             //Create admin user
             var adminUser = new ApplicationUser
             {
-                
                 UserName = "admin@outlook.com",
                 Email = "admin@outlook.com",
                 FirstName = "Amanda",
                 LastName = "Cage",
                 PhoneNumber = "905-341-3222",
                 DOB = new DateTime(1989, 04, 22)
+                
             };
 
 
@@ -93,8 +92,8 @@ namespace HospiceNiagara.Migrations
             {
                 UserName = "board@outlook.com",
                 Email = "board@outlook.com",
-                FirstName = "Jack",
-                LastName = "Sparrow",
+                FirstName = "Board",
+                LastName = "Meele",
                 PhoneNumber = "905-341-3222",
                 DOB = DateTime.Today
             };
@@ -109,36 +108,37 @@ namespace HospiceNiagara.Migrations
                 PhoneNumber = "905-341-3222",
                 DOB = DateTime.Today
             };
-
+           
 
             //Create admin account account and add to admin role
             if (!context.Users.Any(u => u.Email == adminUser.UserName))
             {
-                manager.Create(adminUser, "Pass!23");
+                manager.Create(adminUser, "password");
                 manager.AddToRole(adminUser.Id, "Admin");
             }
 
             //Create Staff account and add to staff role
             if (!context.Users.Any(u => u.Email == staffUser.UserName))
             {
-                manager.Create(staffUser, "Pass!23");
+                manager.Create(staffUser, "password");
                 manager.AddToRole(staffUser.Id, "Staff");
             }
 
             //create board user and add to board role
             if (!context.Users.Any(u => u.Email == boardUser.UserName))
             {
-                manager.Create(boardUser, "Pass!23");
+                manager.Create(boardUser, "password");
                 manager.AddToRole(boardUser.Id, "Board");
             }
 
             //create volunteer user and add to Vounteer role
             if (!context.Users.Any(u => u.Email == volunteerUser.UserName))
             {
-                manager.Create(volunteerUser, "Pass!23");
+                manager.Create(volunteerUser, "password");
                 manager.AddToRole(volunteerUser.Id, "Volunteer");
             }
-            */
+            
+
             //var roles = new List<Role> 
             //{ 
             //    new Role { roleName = "Volunteer"}, 
@@ -150,6 +150,7 @@ namespace HospiceNiagara.Migrations
             //roles.ForEach(d => context.Roles.AddOrUpdate(x => x.roleName, d));
             //context.SaveChanges();
 
+            /*
             var subroles = new List<SubRole> 
             { 
                 new SubRole { roleName = "Bereavement", RoleID = 0},
@@ -177,9 +178,10 @@ namespace HospiceNiagara.Migrations
             subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
 
-
+            */
             //Links
 
+            /*
             var Link = new List<Link> 
             { 
                new Link { Name="Hospice Niagara Website", URL = "www.hospiceniagara.ca", Visible=1, Group=0},
@@ -222,7 +224,7 @@ namespace HospiceNiagara.Migrations
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
-
+            */
         }
         private void SaveChanges(DbContext context)
         {
