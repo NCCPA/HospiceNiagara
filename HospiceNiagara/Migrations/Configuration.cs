@@ -198,6 +198,7 @@ namespace HospiceNiagara.Migrations
                new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1, CreatedByID = 0},
                new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1, CreatedByID = 0}
             };
+            //comment
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
