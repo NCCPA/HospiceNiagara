@@ -53,23 +53,6 @@ namespace HospiceNiagara.Controllers
             return View(viewModel.ToList());
         }
 
-        [HttpPost]
-        public ActionResult searchMember()
-        {
-            var viewModel = from u in db.Users
-                         select new MemberViewModel
-                         {
-                             FirstName = u.FirstName,
-                             LastName = u.LastName,
-                             PhoneNumber = u.PhoneNumber,
-                             PhoneExt = u.PhoneExt,
-                             DOB = u.DOB
-                         };
-
-
-
-            return View(viewModel.ToList());
-        }
 
         public ActionResult _File()
         {
