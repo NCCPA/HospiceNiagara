@@ -6,11 +6,7 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public enum Group
-    {
-       S,V,C //Staff View Comunity
-    }
-
+  
     public class Link
     {
     
@@ -27,10 +23,12 @@ namespace HospiceNiagara.Models
         public string URL { get; set; }
 
         [Display(Name = "Visible")]
-        [Range(1, 10, ErrorMessage = "The visible range is invalid.")]
+        [Required(ErrorMessage = "You must supply a visability state.")]
+        [Range(0, 1, ErrorMessage = "The visible range is invalid.")]
         public int Visible { get; set; }
         
-        [DisplayFormat(NullDisplayText = "Everyone")]
-        public Group? Group { get; set; }
+        [Required(ErrorMessage = "You must supply a group.")]
+       [Range(0, 3, ErrorMessage = "The group range is invalid.")]
+        public int Group { get; set; }
     }
 }

@@ -172,13 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503151812462_wipe.cs" />
-    <Compile Include="Migrations\201503151812462_wipe.Designer.cs">
-      <DependentUpon>201503151812462_wipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503151813327_wipe1.cs" />
-    <Compile Include="Migrations\201503151813327_wipe1.Designer.cs">
-      <DependentUpon>201503151813327_wipe1.cs</DependentUpon>
+    <Compile Include="Migrations\201503151918257_m1.cs" />
+    <Compile Include="Migrations\201503151918257_m1.Designer.cs">
+      <DependentUpon>201503151918257_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -397,11 +393,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503151812462_wipe.resx">
-      <DependentUpon>201503151812462_wipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503151813327_wipe1.resx">
-      <DependentUpon>201503151813327_wipe1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503151918257_m1.resx">
+      <DependentUpon>201503151918257_m1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
