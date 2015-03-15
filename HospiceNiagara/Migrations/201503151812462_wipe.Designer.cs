@@ -7,13 +7,13 @@ namespace HospiceNiagara.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class removedDemo : IMigrationMetadata
+    public sealed partial class wipe : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedDemo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(wipe));
         
         string IMigrationMetadata.Id
         {
-            get { return "201502082318410_removedDemo"; }
+            get { return "201503151812462_wipe"; }
         }
         
         string IMigrationMetadata.Source

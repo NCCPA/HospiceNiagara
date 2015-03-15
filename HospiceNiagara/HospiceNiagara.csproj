@@ -172,77 +172,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502080248167_InitialCreate.cs" />
-    <Compile Include="Migrations\201502080248167_InitialCreate.Designer.cs">
-      <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201503151812462_wipe.cs" />
+    <Compile Include="Migrations\201503151812462_wipe.Designer.cs">
+      <DependentUpon>201503151812462_wipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502081809052_addedFiles2.cs" />
-    <Compile Include="Migrations\201502081809052_addedFiles2.Designer.cs">
-      <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082153185_addedDemoBooks.cs" />
-    <Compile Include="Migrations\201502082153185_addedDemoBooks.Designer.cs">
-      <DependentUpon>201502082153185_addedDemoBooks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082218503_BooksDemo.cs" />
-    <Compile Include="Migrations\201502082218503_BooksDemo.Designer.cs">
-      <DependentUpon>201502082218503_BooksDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082224545_BooksDemo2.cs" />
-    <Compile Include="Migrations\201502082224545_BooksDemo2.Designer.cs">
-      <DependentUpon>201502082224545_BooksDemo2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082226157_BooksDemo3.cs" />
-    <Compile Include="Migrations\201502082226157_BooksDemo3.Designer.cs">
-      <DependentUpon>201502082226157_BooksDemo3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082318410_removedDemo.cs" />
-    <Compile Include="Migrations\201502082318410_removedDemo.Designer.cs">
-      <DependentUpon>201502082318410_removedDemo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502082352141_fixIssue2.cs" />
-    <Compile Include="Migrations\201502082352141_fixIssue2.Designer.cs">
-      <DependentUpon>201502082352141_fixIssue2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502090033343_MemberViewModelAdded.cs" />
-    <Compile Include="Migrations\201502090033343_MemberViewModelAdded.Designer.cs">
-      <DependentUpon>201502090033343_MemberViewModelAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502090039418_RemovedDumbFields.cs" />
-    <Compile Include="Migrations\201502090039418_RemovedDumbFields.Designer.cs">
-      <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502212037156_UPDATE.cs" />
-    <Compile Include="Migrations\201502212037156_UPDATE.Designer.cs">
-      <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502222149026_CHEA.cs" />
-    <Compile Include="Migrations\201502222149026_CHEA.Designer.cs">
-      <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502222220246_CHEACHea.cs" />
-    <Compile Include="Migrations\201502222220246_CHEACHea.Designer.cs">
-      <DependentUpon>201502222220246_CHEACHea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502230042208_Profile_Picture.cs" />
-    <Compile Include="Migrations\201502230042208_Profile_Picture.Designer.cs">
-      <DependentUpon>201502230042208_Profile_Picture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502250648059_seedDataTry1.cs" />
-    <Compile Include="Migrations\201502250648059_seedDataTry1.Designer.cs">
-      <DependentUpon>201502250648059_seedDataTry1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502250652470_seedDataTry2.cs" />
-    <Compile Include="Migrations\201502250652470_seedDataTry2.Designer.cs">
-      <DependentUpon>201502250652470_seedDataTry2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503060035188_baseline.cs" />
-    <Compile Include="Migrations\201503060035188_baseline.Designer.cs">
-      <DependentUpon>201503060035188_baseline.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503141954254_oneLink.cs" />
-    <Compile Include="Migrations\201503141954254_oneLink.Designer.cs">
-      <DependentUpon>201503141954254_oneLink.cs</DependentUpon>
+    <Compile Include="Migrations\201503151813327_wipe1.cs" />
+    <Compile Include="Migrations\201503151813327_wipe1.Designer.cs">
+      <DependentUpon>201503151813327_wipe1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -461,59 +397,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502080248167_InitialCreate.resx">
-      <DependentUpon>201502080248167_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503151812462_wipe.resx">
+      <DependentUpon>201503151812462_wipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502081809052_addedFiles2.resx">
-      <DependentUpon>201502081809052_addedFiles2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082153185_addedDemoBooks.resx">
-      <DependentUpon>201502082153185_addedDemoBooks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082218503_BooksDemo.resx">
-      <DependentUpon>201502082218503_BooksDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082224545_BooksDemo2.resx">
-      <DependentUpon>201502082224545_BooksDemo2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082226157_BooksDemo3.resx">
-      <DependentUpon>201502082226157_BooksDemo3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082318410_removedDemo.resx">
-      <DependentUpon>201502082318410_removedDemo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502082352141_fixIssue2.resx">
-      <DependentUpon>201502082352141_fixIssue2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502090033343_MemberViewModelAdded.resx">
-      <DependentUpon>201502090033343_MemberViewModelAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502090039418_RemovedDumbFields.resx">
-      <DependentUpon>201502090039418_RemovedDumbFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502212037156_UPDATE.resx">
-      <DependentUpon>201502212037156_UPDATE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502222149026_CHEA.resx">
-      <DependentUpon>201502222149026_CHEA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502222220246_CHEACHea.resx">
-      <DependentUpon>201502222220246_CHEACHea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502230042208_Profile_Picture.resx">
-      <DependentUpon>201502230042208_Profile_Picture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502250648059_seedDataTry1.resx">
-      <DependentUpon>201502250648059_seedDataTry1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502250652470_seedDataTry2.resx">
-      <DependentUpon>201502250652470_seedDataTry2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503060035188_baseline.resx">
-      <DependentUpon>201503060035188_baseline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503141954254_oneLink.resx">
-      <DependentUpon>201503141954254_oneLink.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503151813327_wipe1.resx">
+      <DependentUpon>201503151813327_wipe1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -45,7 +45,7 @@ namespace HospiceNiagara.Models
         public string MimeType { get; set; }
 
 
-        public virtual ICollection<SubRole> SubRole { get; set; }
+      //  public virtual ICollection<SubRole> SubRole { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
