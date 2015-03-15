@@ -6,7 +6,8 @@ using System.Web;
 
 namespace HospiceNiagara.Models
 {
-    public class LinkStaff
+  
+    public class Link
     {
     
         public int ID { get; set; }
@@ -19,10 +20,15 @@ namespace HospiceNiagara.Models
         [Display(Name = "Link")]
         [Required(ErrorMessage = "You must supply a link.")]
         [StringLength(250, ErrorMessage = "Link can be no more than 250 characters long.")]
-        public string Link { get; set; }
+        public string URL { get; set; }
 
         [Display(Name = "Visible")]
-        [Range(1, 10, ErrorMessage = "The visible range is invalid.")]
+        [Required(ErrorMessage = "You must supply a visability state.")]
+        [Range(0, 1, ErrorMessage = "The visible range is invalid.")]
         public int Visible { get; set; }
+        
+        [Required(ErrorMessage = "You must supply a group.")]
+       [Range(0, 3, ErrorMessage = "The group range is invalid.")]
+        public int Group { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace HospiceNiagara.Models
         public string MimeType { get; set; }
 
 
-        public virtual ICollection<SubRole> SubRole { get; set; }
+      //  public virtual ICollection<SubRole> SubRole { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -87,8 +87,7 @@ namespace HospiceNiagara.Models
         //  public DbSet<SchedulePrivacy> SchedulePrivacys { get; set; }
 
         public DbSet<Notification> Notifications { get; set; }
-        public DbSet<LinkHome> LinkHomes { get; set; }
-        public DbSet<LinkStaff> LinkStaffs { get; set; }
+        public DbSet<Link> Links { get; set; }
 
 
         public DbSet<Death> Deaths { get; set; }

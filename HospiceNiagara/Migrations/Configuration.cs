@@ -33,7 +33,7 @@ namespace HospiceNiagara.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
+            /*
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             //create Role admin if it does not exist
@@ -138,7 +138,7 @@ namespace HospiceNiagara.Migrations
                 manager.Create(volunteerUser, "Pass!23");
                 manager.AddToRole(volunteerUser.Id, "Volunteer");
             }
-
+            */
             //var roles = new List<Role> 
             //{ 
             //    new Role { roleName = "Volunteer"}, 
@@ -177,37 +177,51 @@ namespace HospiceNiagara.Migrations
             subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
 
-            //General Links
 
-            var LinkHome = new List<LinkHome> 
+            //Links
+
+            var Link = new List<Link> 
             { 
-               new LinkHome { Name="dample", Link = "Volunteer", Visible=1}
+               new Link { Name="Hospice Niagara Website", URL = "www.hospiceniagara.ca", Visible=1, Group=0},
+               new Link { Name="Hospice Niagara Newsletter", URL = "http://www.hospiceniagara.ca/resources/default/index/", Visible=1, Group=0},
+               new Link { Name="HPC Education Website", URL = "www.hpceducation.ca", Visible=1, Group=0},
+               new Link { Name="Hospice Niagara Online Donation website", URL = "https://www.hospiceniagara.ca/donations/donate.php", Visible=1, Group=0},
+               new Link { Name="Facebook Account", URL = "https://www.facebook.com/pages/Hospice-Niagara/157424072710?ref=ts", Visible=1, Group=0},
+               new Link { Name="Twitter Account", URL = "https://twitter.com/HospiceNiagara", Visible=1, Group=0},
+               new Link { Name="5 Car Draw Website", URL = "www.hospiceniagara.ca", Visible=0, Group=0},
+               new Link { Name="HN Hike for Hospice Website", URL = "http://www.hikeforhospiceniagara.ca", Visible=1, Group=0},
+
+
+               new Link { Name="Hospice Palliative Care Ontario", URL = "www.hpco.ca", Visible=1, Group=1},
+               new Link { Name="HNHB LHIN", URL = "http://www.hnhblhin.on.ca/home.aspx", Visible=1, Group=1},
+               new Link { Name="MOHLTC", URL = "http://www.health.gov.on.ca/en/", Visible=1, Group=1},
+               new Link { Name="HNHB CCAC", URL = "http://healthcareathome.ca/hnhb/en", Visible=1, Group=1},
+
+                new Link { Name="LogVolunteerTime.com", URL = "www.logvolunteertime.com", Visible=1, Group=2},
+
+                 new Link { Name="InfoAnywhere", URL = "www.infoanywhere.com", Visible=1, Group=3},
+                 new Link { Name="QHR Net", URL = "https://css.hr.ccim.on.ca/HospiceNiagara", Visible=1, Group=3},
+                 new Link { Name="Office 365 Web Login", URL = "https://portal.microsoftonline.com", Visible=1, Group=3},
+                 new Link { Name="Green Shield (Group Plan Benefits)", URL = "www.greenshield.ca", Visible=1, Group=3},
+                 new Link { Name="Sumac Training", URL = "http://sumac.com/training/", Visible=1, Group=3}
             };
 
-            LinkHome.ForEach(d => context.LinkHomes.AddOrUpdate(x => x.Link, d));
-            context.SaveChanges();
-
-            //Staff Links
-
-            var LinkStaff = new List<LinkStaff> 
-            { 
-               new LinkStaff { Name="dample", Link = "Volunteer", Visible=1}
-            };
-
-            LinkStaff.ForEach(d => context.LinkStaffs .AddOrUpdate(x => x.Link, d));
+            Link.ForEach(d => context.Links.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
 
             //Deaths
 
             var Death = new List<Death> 
             { 
-               new Death { Name="dample", Date = Convert.ToDateTime("2015-01-01"), Location = "", Note = "", Visible=1, CreatedByID = 0}
+               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible=1, CreatedByID = 0},
+               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=1, CreatedByID = 0},
+               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1, CreatedByID = 0},
+               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1, CreatedByID = 0}
             };
+            //comment
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
-
-
 
         }
         private void SaveChanges(DbContext context)
