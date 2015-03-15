@@ -3,16 +3,23 @@
         <label for="txtSearch" class="sr-only">Search By Name</label>
         <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
     </div>
-    <button type="submit" class="btn btn-default">Search</button>
+    <div class="form-group">
+        <select name="ddlScheduleSelection" class="form-control">
+            <option value="all">All</option>
+            <option value="current">Current</option>
+            <option value="past">Past</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-blue btn-default">Search</button>
 </form>
 <br />
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Type</th>
             <th>Name</th>
-            <th>Date Of</th>
-            <th>Current Status</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Status</th>
             <th>Option</th> 
         </tr>
     </thead>
@@ -21,8 +28,8 @@
         @for (var i = 0; i < 2; i++)
         {
             <tr>
+                <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
                 <td>Meet n Greet</td>
-                <td>Stabler Movie Night</td>
                 <td>2/11/2015</td>
                 <td>
                     Pending
@@ -38,8 +45,8 @@
         @for (var i = 0; i < 2; i++)
         {
             <tr>
+                <td><a href="http://localhost:61986/Announcement/">Spring Bake Sale</a></td>
                 <td>Event</td>
-                <td>Spring Bake Sale</td>
                 <td>2/11/2015</td>
                 <td>
                    Attending
@@ -55,8 +62,8 @@
         @for (var i = 0; i < 1; i++)
         {
             <tr>
+                <td><a href="http://localhost:61986/Announcement/">Mid Spring Bake Sale</a></td>
                 <td>Event</td>
-                <td>Spring Bake Sale</td>
                 <td>2/11/2015</td>
                 <td>
                     Not Attending
@@ -72,8 +79,8 @@
         @for (var i = 0; i < 2; i++)
         {
             <tr>
+                <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
                 <td>Meet n Greet</td>
-                <td>Stabler Movie Night</td>
                 <td>2/11/2015</td>
                 <td>
                    Attending
