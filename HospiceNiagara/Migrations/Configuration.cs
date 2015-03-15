@@ -113,28 +113,28 @@ namespace HospiceNiagara.Migrations
             //Create admin account account and add to admin role
             if (!context.Users.Any(u => u.Email == adminUser.UserName))
             {
-                manager.Create(adminUser, "password");
+                manager.Create(adminUser, "Pass!23");
                 manager.AddToRole(adminUser.Id, "Admin");
             }
 
             //Create Staff account and add to staff role
             if (!context.Users.Any(u => u.Email == staffUser.UserName))
             {
-                manager.Create(staffUser, "password");
+                manager.Create(staffUser, "Pass!23");
                 manager.AddToRole(staffUser.Id, "Staff");
             }
 
             //create board user and add to board role
             if (!context.Users.Any(u => u.Email == boardUser.UserName))
             {
-                manager.Create(boardUser, "password");
+                manager.Create(boardUser, "Pass!23");
                 manager.AddToRole(boardUser.Id, "Board");
             }
 
             //create volunteer user and add to Vounteer role
             if (!context.Users.Any(u => u.Email == volunteerUser.UserName))
             {
-                manager.Create(volunteerUser, "password");
+                manager.Create(volunteerUser, "Pass!23");
                 manager.AddToRole(volunteerUser.Id, "Volunteer");
             }
             

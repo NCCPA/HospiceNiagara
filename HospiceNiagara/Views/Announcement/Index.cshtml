@@ -1,4 +1,6 @@
-﻿<div class="page-header">
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.MyHospiceViewModel>
+
+<div class="page-header">
     <h1>My Hospice</h1>
 </div>
 
@@ -18,7 +20,7 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="announcementsTab">@Html.Partial("_AnnouncementControl")</div>
+            <div role="tabpanel" class="tab-pane active" id="announcementsTab">@Html.Action("_announcement","announcement")</div>
             <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Partial("_dnControl")</div>
             <div role="tabpanel" class="tab-pane" id="eventsTab">@Html.Partial("_EventControl")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_MeetingControl")</div>

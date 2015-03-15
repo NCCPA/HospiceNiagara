@@ -13,5 +13,12 @@ namespace HospiceNiagara.Controllers
         {
             return View();
         }
+
+        //Get Partial View Announcement
+        public ActionResult _announcement()
+        {
+            return PartialView();
+        }
+
     }
 }

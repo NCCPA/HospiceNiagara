@@ -147,12 +147,18 @@ namespace HospiceNiagara.Controllers
             else //Coming from Admin page therefor get user by the id passed
             {
                 //Get Current Id and Display it to the User
+
                 var curUser = manager.FindById(id);
                 Response.Buffer = true;
                 Response.Clear();
                 Response.ContentType = curUser.MimeType;
+
+                //if it does not equal Null
+                if (!(curUser.ProfilePicture == null ))
+                {
                 Response.BinaryWrite(curUser.ProfilePicture);
                 Response.End();
+                }
             }
         }
 
