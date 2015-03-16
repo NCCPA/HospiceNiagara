@@ -4,15 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace HospiceNiagara.Models
+namespace HospiceNiagara.Models.ViewModels
 {
-    public class Meeting
+    public class MeetingsViewModel
     {
-        public Meeting()
-        {
-            this.ApplicationUser = new HashSet<ApplicationUser>();
-        }
-
         public int ID { get; set; }
 
         [Display(Name = "Type")]
@@ -54,11 +49,11 @@ namespace HospiceNiagara.Models
         [Display(Name = "isVisible")]
         public bool isVisible { get; set; }
 
-       // [Required(ErrorMessage = "You must select a Staff Lead.")]
+        [Required(ErrorMessage = "You must select a Staff Lead.")]
         public int StaffLeadID { get; set; }
 
         //id of person
-        //[Required(ErrorMessage = "You must select a User.")]
+        [Required(ErrorMessage = "You must select a User.")]
         public int CreatedByID { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }

@@ -155,6 +155,21 @@ namespace HospiceNiagara.Migrations
             announcement.ForEach(a => context.Announcements.AddOrUpdate(x => x.ID, a));
             context.SaveChanges();
 
+
+            //Add Meetings
+            var meetings = new List<Meeting>
+            {
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"}
+            };
+            meetings.ForEach(a => context.Meetings.AddOrUpdate(x => x.ID, a));
+            context.SaveChanges();
+
             //var roles = new List<Role> 
             //{ 
             //    new Role { roleName = "Volunteer"}, 
