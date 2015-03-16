@@ -1,4 +1,5 @@
 ﻿using HospiceNiagara.Models;
+using HospiceNiagara.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -173,5 +174,24 @@ namespace HospiceNiagara.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //GET AnnouncementList
+        [HttpGet]
+        public ActionResult _Announcement()
+        {
+            var viewModel = from v in db.Announcements
+                            select new AnnouncementViewModel
+                            {
+                                ID = v.ID,
+                                Title = v.Title,
+                                Description = v.Description,
+                                isVisible = v.isVisible,
+                                CreatedByID = v.CreatedByID,
+                                Date = v.Date
+                            };
+
+            return PartialView(viewModel.ToList());
+        }
+
     }   
 }

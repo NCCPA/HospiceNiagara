@@ -172,10 +172,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503152108374_TEMP.cs" />
-    <Compile Include="Migrations\201503152108374_TEMP.Designer.cs">
-      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201503152046249_RemovedModels.cs" />
     <Compile Include="Migrations\201503152046249_RemovedModels.Designer.cs">
       <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
@@ -187,6 +183,14 @@
     <Compile Include="Migrations\201503152110158_Readded_Models.cs" />
     <Compile Include="Migrations\201503152110158_Readded_Models.Designer.cs">
       <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.cs" />
+    <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.Designer.cs">
+      <DependentUpon>201503160157085_addedDate_toAnnouncements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503160256267_addedFormateDate.cs" />
+    <Compile Include="Migrations\201503160256267_addedFormateDate.Designer.cs">
+      <DependentUpon>201503160256267_addedFormateDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,6 +224,7 @@
     <Compile Include="Models\Snippet.cs" />
     <Compile Include="Models\SubRole.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModels\AnnouncementViewModel.cs" />
     <Compile Include="Models\ViewModels\MyHospiceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -394,7 +399,7 @@
     <Content Include="Views\Announcement\_MeetingControl.cshtml" />
     <Content Include="Views\Home\_Links.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
-    <Content Include="Views\Admin\_AnnouncementList.cshtml" />
+    <Content Include="Views\Admin\_Announcement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,9 +412,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503152108374_TEMP.resx">
-      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503152046249_RemovedModels.resx">
       <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +420,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503152110158_Readded_Models.resx">
       <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503160157085_addedDate_toAnnouncements.resx">
+      <DependentUpon>201503160157085_addedDate_toAnnouncements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503160256267_addedFormateDate.resx">
+      <DependentUpon>201503160256267_addedFormateDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

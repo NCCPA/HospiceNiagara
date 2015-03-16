@@ -139,6 +139,22 @@ namespace HospiceNiagara.Migrations
             }
             
 
+            //Add Announcement
+            var announcement = new List<Announcement>
+            {
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now}
+            };
+            announcement.ForEach(a => context.Announcements.AddOrUpdate(x => x.ID, a));
+            context.SaveChanges();
+
             //var roles = new List<Role> 
             //{ 
             //    new Role { roleName = "Volunteer"}, 

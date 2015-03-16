@@ -1,17 +1,52 @@
-﻿
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.AnnouncementViewModel>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3 col-sm-10">
         <!-- Search -->
-        @using (Html.BeginForm("SearchAnnouncements","Announcement", FormMethod.Post))
+        @using (Html.BeginForm("_announcement", "Announcement", FormMethod.Get))
         {
-            
+            <form class="form-inline" role="form">
 
+                <div class="form-group">
+                    <select class="form-control">
+                        <option>Title</option>
+                        <option>Date</option>
+                    </select>
+                </div>
 
+                <div class="form-group">
+                    <input type="text" placeholder="Search Announcements" class="form-control" name="searchAnnouncement">
+                </div>
 
+                <input type="submit" value="Search" class="btn btn-blue btn-default" />
+            </form>
         }
         <!-- End Search -->
-       
+
     </div>
 </div>
 
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Announcement Title</th>
+                    <th>Announcement Date</th>
+                    <th>Announcement Description</th>
 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.CreatedByID</td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

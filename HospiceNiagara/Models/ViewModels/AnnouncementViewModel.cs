@@ -4,14 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace HospiceNiagara.Models
+namespace HospiceNiagara.Models.ViewModels
 {
-    public class Announcement
+    public class AnnouncementViewModel
     {
-         public Announcement()
-        {
-            this.ApplicationUser = new HashSet<ApplicationUser>();
-        }
 
         public int ID { get; set; }
 
@@ -27,12 +23,13 @@ namespace HospiceNiagara.Models
         [Display(Name = "isVisible")]
         public bool isVisible { get; set; }
 
-        [Display(Name = "Date" )]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        
+        [Display(Name = "Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         //id of person
-       // [Required(ErrorMessage = "You must select a User.")]
+        // [Required(ErrorMessage = "You must select a User.")]
         public int CreatedByID { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
