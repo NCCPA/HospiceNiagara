@@ -150,7 +150,7 @@ namespace HospiceNiagara.Migrations
             //roles.ForEach(d => context.Roles.AddOrUpdate(x => x.roleName, d));
             //context.SaveChanges();
 
-            /*
+            
             var subroles = new List<SubRole> 
             { 
                 new SubRole { roleName = "Bereavement", RoleID = 0},
@@ -178,10 +178,10 @@ namespace HospiceNiagara.Migrations
             subroles.ForEach(d => context.SubRoles.AddOrUpdate(x => x.ID, d));
             SaveChanges(context);
 
-            */
+            
             //Links
 
-            /*
+            
             var Link = new List<Link> 
             { 
                new Link { Name="Hospice Niagara Website", URL = "www.hospiceniagara.ca", Visible=1, Group=0},
@@ -224,7 +224,7 @@ namespace HospiceNiagara.Migrations
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
             context.SaveChanges();
-            */
+            
         }
         private void SaveChanges(DbContext context)
         {

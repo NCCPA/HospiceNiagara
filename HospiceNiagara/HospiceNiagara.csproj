@@ -172,21 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503152108374_TEMP.cs" />
-    <Compile Include="Migrations\201503152108374_TEMP.Designer.cs">
-      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503152046249_RemovedModels.cs" />
-    <Compile Include="Migrations\201503152046249_RemovedModels.Designer.cs">
-      <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503152107277_removedRequired.cs" />
-    <Compile Include="Migrations\201503152107277_removedRequired.Designer.cs">
-      <DependentUpon>201503152107277_removedRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503152110158_Readded_Models.cs" />
-    <Compile Include="Migrations\201503152110158_Readded_Models.Designer.cs">
-      <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
+    <Compile Include="Migrations\201503160048591_test.cs" />
+    <Compile Include="Migrations\201503160048591_test.Designer.cs">
+      <DependentUpon>201503160048591_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -407,17 +395,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503152108374_TEMP.resx">
-      <DependentUpon>201503152108374_TEMP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503152046249_RemovedModels.resx">
-      <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503152107277_removedRequired.resx">
-      <DependentUpon>201503152107277_removedRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503152110158_Readded_Models.resx">
-      <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503160048591_test.resx">
+      <DependentUpon>201503160048591_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
