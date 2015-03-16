@@ -172,13 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.cs" />
-    <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.Designer.cs">
-      <DependentUpon>201503160157085_addedDate_toAnnouncements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503160256267_addedFormateDate.cs" />
-    <Compile Include="Migrations\201503160256267_addedFormateDate.Designer.cs">
-      <DependentUpon>201503160256267_addedFormateDate.cs</DependentUpon>
+    <Compile Include="Migrations\201503161233001_removedMigrations.cs" />
+    <Compile Include="Migrations\201503161233001_removedMigrations.Designer.cs">
+      <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -213,6 +209,7 @@
     <Compile Include="Models\SubRole.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="Models\ViewModels\MeetingsViewModel.cs" />
     <Compile Include="Models\ViewModels\MyHospiceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -400,8 +397,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503160256267_addedFormateDate.resx">
-      <DependentUpon>201503160256267_addedFormateDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503161233001_removedMigrations.resx">
+      <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

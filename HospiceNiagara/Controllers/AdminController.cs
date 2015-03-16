@@ -175,6 +175,11 @@ namespace HospiceNiagara.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        //
+        //Announcement Section
+
         //GET AnnouncementList
         [HttpGet]
         public ActionResult _Announcement()
@@ -192,6 +197,30 @@ namespace HospiceNiagara.Controllers
 
             return PartialView(viewModel.ToList());
         }
+
+        //End Announcement Section
+        //
+
+        //
+        //Meeting Section
+        [HttpGet]
+        public ActionResult _MeetingsList()
+        {
+
+            var viewModel = from m in db.Meetings
+                            select new MeetingsViewModel
+                            {
+                                ID = m.ID,
+                                Date = m.Date,
+                                Name = m.Name
+                            };
+
+            return PartialView(viewModel.ToList());
+        }
+
+        //End of Meeting Section
+        //
+
 
     }   
 }
