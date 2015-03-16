@@ -25,7 +25,7 @@
                         <td>@item.Date</td>
                         <td>@item.Name</td>
                         <td>
-                            <button type="button" class="btn btn-default btn-blue col-md-10" data-toggle="modal" data-target="#@item.ID">
+                            <button type="button" class="btn btn-default btn-blue col-md-10" data-toggle="modal" data-target="#Meeting-@item.ID">
                                 <span class="glyphicon pull-left glyphicon-edit"></span> Edit Announcement
                             </button>
                         </td>
@@ -75,7 +75,7 @@
 <!-- Edit Meeting Modal -->
 @foreach (var items in Model)
 {
-    <div class="modal fade" id="@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Meeting-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

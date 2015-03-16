@@ -38,7 +38,7 @@
                     <th>Announcement Date</th>
                     <th>Announcement Description</th>
                     <td>
-                        <button type="button" class="btn col-md-10 btn-default btn-green" data-toggle="modal" data-target="#addAnnouncement">
+                        <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addAnnouncement">
                             <span class="glyphicon pull-left glyphicon-plus"></span> Add Announcement
                         </button>
                     </td>
@@ -52,9 +52,10 @@
                         <td>@Html.DisplayFor(i => item.Date)</td>
                         <td>@item.Description</td>
                         <td>
-                            <button type="button" class="btn btn-default btn-blue col-md-10" data-toggle="modal" data-target="#@item.ID">
-                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit Announcement
+                            <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Announcement-@item.ID">
+                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit
                             </button>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_AnnouncementDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
                 }
@@ -75,22 +76,25 @@
             <div class="modal-body">
 
                 <!-- Form For Adding Announcement -->
-                <form>
-                    <div class="form-group">
-                        <label for="announceTitle">Announcement Title</label>
-                        <input type="text" class="form-control" id="announceTitle" placeholder="Announcement Title">
-                    </div>
-                    <div class="form-group">
-                        <label for="announcDate">Date of Announcement</label>
-                        <input type="date" class="form-control" id="announcDate">
-                    </div>
-                    <div class="form-group">
-                        <label for="announcDetails">Announcement Details</label>
-                        <textarea class="form-control" id="announcDetails"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
-                    <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                </form>
+                @using (Html.BeginForm("_AnnouncementAdd", "Admin", FormMethod.Get))
+                {
+                    <form>
+                        <div class="form-group">
+                            <label for="announceTitle">Announcement Title</label>
+                            <input type="text" class="form-control" name="announceTitle" id="announceTitle" placeholder="Announcement Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcDate">Date of Announcement</label>
+                            <input type="date" class="form-control" id="announcDate" name="announceDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcDetails">Announcement Details</label>
+                            <textarea class="form-control" name="announceDesc" id="announcDetails"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                }
                 <!-- /END of form -->
 
 
@@ -103,8 +107,8 @@
 <!-- Button trigger modal -->
 <!-- Modal -->
 @foreach (var items in Model)
-{ 
-    <div class="modal fade" id="@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+{
+    <div class="modal fade" id="Announcement-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,27 +116,27 @@
                     <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
                 </div>
                 <div class="modal-body">
-                   
-                     <!-- Form For Edditing Announcement -->
+
+                    <!-- Form For Edditing Announcement -->
                     <form class="form-horizontal">
                         <div class="form-group">
-                            @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })    
+                            @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(i => items.Title, new { @class = "form-control" })
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
-                                <input type="date" value="@Html.DisplayFor(i => items.Date)"  class="form-control" />
+                                <input type="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
                             </div>
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(i => items.Description, new { @class = "form-control"})
+                                @Html.TextAreaFor(i => items.Description, new { @class = "form-control" })
                             </div>
                         </div>
 
@@ -140,7 +144,7 @@
                         <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
                     </form>
                     <!-- /END of form -->
-                    
+
                 </div>
             </div>
         </div>

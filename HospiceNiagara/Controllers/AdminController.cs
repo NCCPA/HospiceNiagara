@@ -198,6 +198,37 @@ namespace HospiceNiagara.Controllers
             return PartialView(viewModel.ToList());
         }
 
+        //Add Announcement
+        public void _AnnouncementAdd(string announceTitle, DateTime announceDate, string announceDesc)
+        {
+            if (ModelState.IsValid)
+            {
+                //Create new Object announcement
+                Announcement newAnnounce = new Announcement();
+
+                //Give Properties to the properties from the form
+                newAnnounce.Title = announceTitle;
+                newAnnounce.Date = announceDate;
+                newAnnounce.Description = announceDesc;
+
+                //Save to the database
+                db.Announcements.Add(newAnnounce);
+                db.SaveChanges();
+                Response.Redirect("~/Admin/Index#announcementsTab#Top");
+            }
+        }
+
+
+        //Delete Announcement
+        public void _AnnouncementDelete(int id)
+        {
+            Announcement announcement = db.Announcements.Find(id);
+            db.Announcements.Remove(announcement);
+            db.SaveChanges();
+            Response.Redirect("~/Admin/Index#announcementsTab#Top");
+
+        }
+
         //End Announcement Section
         //
 
