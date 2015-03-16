@@ -1,100 +1,103 @@
-﻿<form class="form-inline">
-    <div class="form-group">
-        <label for="txtSearch" class="sr-only">Search By Name</label>
-        <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-    </div>
-    <div class="form-group">
-        <select name="ddlScheduleSelection" class="form-control">
-            <option value="all">All</option>
-            <option value="current">Current</option>
-            <option value="past">Past</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-blue btn-default">Search</button>
-</form>
+﻿<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="txtSearch" class="sr-only">Search By Name</label>
+                <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
+            </div>
+            <div class="form-group">
+                <select name="ddlScheduleSelection" class="form-control">
+                    <option value="all">All</option>
+                    <option value="current">Current</option>
+                    <option value="past">Past</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-blue btn-default">Search</button>
+        </form>
 <br />
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Option</th> 
-        </tr>
-    </thead>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
 
-    <tbody>
-        @for (var i = 0; i < 2; i++)
-        {
-            <tr>
-                <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
-                <td>Meet n Greet</td>
-                <td>2/11/2015</td>
-                <td>
-                    Pending
-                </td>
-                <td>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
-                    <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
-                    <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
-                </td>
-            </tr>
-        }
-        @for (var i = 0; i < 2; i++)
-        {
-            <tr>
-                <td><a href="http://localhost:61986/Announcement/">Spring Bake Sale</a></td>
-                <td>Event</td>
-                <td>2/11/2015</td>
-                <td>
-                   Attending
-                </td>
-                <td>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
-                    <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
-                    <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
-                </td>
-            </tr>
-        }
-        @for (var i = 0; i < 1; i++)
-        {
-            <tr>
-                <td><a href="http://localhost:61986/Announcement/">Mid Spring Bake Sale</a></td>
-                <td>Event</td>
-                <td>2/11/2015</td>
-                <td>
-                    Not Attending
-                </td>
-                <td>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
-                    <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
-                    <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
-                </td>
-            </tr>
-        }
-        @for (var i = 0; i < 2; i++)
-        {
-            <tr>
-                <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
-                <td>Meet n Greet</td>
-                <td>2/11/2015</td>
-                <td>
-                   Attending
-                </td>
-                <td>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
-                    <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
-                    <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
-                    <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
-                </td>
-            </tr>
-        }
+            <tbody>
+                @for (var i = 0; i < 2; i++)
+                {
+                    <tr>
+                        <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
+                        <td>Meet n Greet</td>
+                        <td>2/11/2015</td>
+                        <td>
+                            Pending
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
+                            <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
+                            <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
+                        </td>
+                    </tr>
+                }
+                @for (var i = 0; i < 2; i++)
+                {
+                    <tr>
+                        <td><a href="http://localhost:61986/Announcement/">Spring Bake Sale</a></td>
+                        <td>Event</td>
+                        <td>2/11/2015</td>
+                        <td>
+                            Attending
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
+                            <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
+                            <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
+                        </td>
+                    </tr>
+                }
+                @for (var i = 0; i < 1; i++)
+                {
+                    <tr>
+                        <td><a href="http://localhost:61986/Announcement/">Mid Spring Bake Sale</a></td>
+                        <td>Event</td>
+                        <td>2/11/2015</td>
+                        <td>
+                            Not Attending
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
+                            <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
+                            <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
+                        </td>
+                    </tr>
+                }
+                @for (var i = 0; i < 2; i++)
+                {
+                    <tr>
+                        <td><a href="http://localhost:61986/Announcement/">Stabler Movie Night</a></td>
+                        <td>Meet n Greet</td>
+                        <td>2/11/2015</td>
+                        <td>
+                            Attending
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Accept</a>
+                            <a href="#" class="btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-minus "></span>&nbsp; Pending</a>
+                            <a href="#" class="meetEdit btn btn-default btn-md btn-blue col-md-2"><span class="glyphicon pull-left glyphicon-remove "></span>&nbsp; Decline</a>
+                            <!--<a href="#" class="btn btn-red btn-default col-md-3"><span class="glyphicon glyphicon-remove"></span> Decline</a>-->
+                        </td>
+                    </tr>
+                }
 
-    <th><a href="#">View Past RSVPs</a></th>
-
-    </tbody>
-</table>
+            </tbody>
+        </table>
+        <a href="#">View Past RSVPs</a>
+</div>
+</div>
