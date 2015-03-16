@@ -172,18 +172,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503152046249_RemovedModels.cs" />
-    <Compile Include="Migrations\201503152046249_RemovedModels.Designer.cs">
-      <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503152107277_removedRequired.cs" />
-    <Compile Include="Migrations\201503152107277_removedRequired.Designer.cs">
-      <DependentUpon>201503152107277_removedRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503152110158_Readded_Models.cs" />
-    <Compile Include="Migrations\201503152110158_Readded_Models.Designer.cs">
-      <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.cs" />
     <Compile Include="Migrations\201503160157085_addedDate_toAnnouncements.Designer.cs">
       <DependentUpon>201503160157085_addedDate_toAnnouncements.cs</DependentUpon>
@@ -412,18 +400,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503152046249_RemovedModels.resx">
-      <DependentUpon>201503152046249_RemovedModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503152107277_removedRequired.resx">
-      <DependentUpon>201503152107277_removedRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503152110158_Readded_Models.resx">
-      <DependentUpon>201503152110158_Readded_Models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503160157085_addedDate_toAnnouncements.resx">
-      <DependentUpon>201503160157085_addedDate_toAnnouncements.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503160256267_addedFormateDate.resx">
       <DependentUpon>201503160256267_addedFormateDate.cs</DependentUpon>
     </EmbeddedResource>
