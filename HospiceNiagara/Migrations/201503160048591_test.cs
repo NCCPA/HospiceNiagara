@@ -3,10 +3,141 @@ namespace HospiceNiagara.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Readded_Models : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.AnnounceFiles",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        AnnounceID = c.Int(nullable: false),
+                        FileID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Announcements",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Title = c.String(nullable: false, maxLength: 50),
+                        Description = c.String(maxLength: 1000),
+                        isVisible = c.Boolean(nullable: false),
+                        CreatedByID = c.Int(nullable: false),
+                        AnnounceFile_ID = c.Int(),
+                        AnnouncePrivacy_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.AnnounceFiles", t => t.AnnounceFile_ID)
+                .ForeignKey("dbo.AnnouncePrivacies", t => t.AnnouncePrivacy_ID)
+                .Index(t => t.AnnounceFile_ID)
+                .Index(t => t.AnnouncePrivacy_ID);
+            
+            CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        DOB = c.DateTime(),
+                        PhoneExt = c.String(),
+                        IsActive = c.Boolean(nullable: false),
+                        IsContact = c.Boolean(nullable: false),
+                        CanCreateMeeting = c.Boolean(nullable: false),
+                        Position = c.String(),
+                        PositionDescription = c.String(),
+                        Bio = c.String(),
+                        ProfilePicture = c.Binary(),
+                        MimeType = c.String(),
+                        Email = c.String(maxLength: 256),
+                        EmailConfirmed = c.Boolean(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
+                        PhoneNumberConfirmed = c.Boolean(nullable: false),
+                        TwoFactorEnabled = c.Boolean(nullable: false),
+                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEnabled = c.Boolean(nullable: false),
+                        AccessFailedCount = c.Int(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 256),
+                        Announcement_ID = c.Int(),
+                        AnnouncePrivacy_ID = c.Int(),
+                        SubRole_ID = c.Int(),
+                        DeathPrivacy_ID = c.Int(),
+                        FolderGroupPrivacy_ID = c.Int(),
+                        FolderGroup_ID = c.Int(),
+                        FolderPrivacy_ID = c.Int(),
+                        MeetingPrivacy_ID = c.Int(),
+                        Meeting_ID = c.Int(),
+                        Notification_ID = c.Int(),
+                        RSVP_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Announcements", t => t.Announcement_ID)
+                .ForeignKey("dbo.AnnouncePrivacies", t => t.AnnouncePrivacy_ID)
+                .ForeignKey("dbo.SubRoles", t => t.SubRole_ID)
+                .ForeignKey("dbo.DeathPrivacies", t => t.DeathPrivacy_ID)
+                .ForeignKey("dbo.FolderGroupPrivacies", t => t.FolderGroupPrivacy_ID)
+                .ForeignKey("dbo.FolderGroups", t => t.FolderGroup_ID)
+                .ForeignKey("dbo.FolderPrivacies", t => t.FolderPrivacy_ID)
+                .ForeignKey("dbo.MeetingPrivacies", t => t.MeetingPrivacy_ID)
+                .ForeignKey("dbo.Meetings", t => t.Meeting_ID)
+                .ForeignKey("dbo.Notifications", t => t.Notification_ID)
+                .ForeignKey("dbo.RSVPs", t => t.RSVP_ID)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.Announcement_ID)
+                .Index(t => t.AnnouncePrivacy_ID)
+                .Index(t => t.SubRole_ID)
+                .Index(t => t.DeathPrivacy_ID)
+                .Index(t => t.FolderGroupPrivacy_ID)
+                .Index(t => t.FolderGroup_ID)
+                .Index(t => t.FolderPrivacy_ID)
+                .Index(t => t.MeetingPrivacy_ID)
+                .Index(t => t.Meeting_ID)
+                .Index(t => t.Notification_ID)
+                .Index(t => t.RSVP_ID);
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
             CreateTable(
                 "dbo.AnnouncePrivacies",
                 c => new
@@ -93,6 +224,36 @@ namespace HospiceNiagara.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.Deaths",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 100),
+                        Date = c.DateTime(nullable: false),
+                        Location = c.String(maxLength: 100),
+                        Note = c.String(maxLength: 200),
+                        Visible = c.Int(nullable: false),
+                        CreatedByID = c.Int(nullable: false),
+                        DeathPrivacy_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.DeathPrivacies", t => t.DeathPrivacy_ID)
+                .Index(t => t.DeathPrivacy_ID);
+            
+            CreateTable(
+                "dbo.Files",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        FolderID = c.Int(nullable: false),
+                        FileContent = c.Binary(nullable: false),
+                        MimeType = c.String(nullable: false, maxLength: 256),
+                        FileName = c.String(nullable: false, maxLength: 100),
+                        FileDescription = c.String(maxLength: 100),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.FolderGroupPrivacies",
                 c => new
                     {
@@ -130,6 +291,19 @@ namespace HospiceNiagara.Migrations
                         SubRoleID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Folders",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        FileName = c.String(nullable: false, maxLength: 100),
+                        FileDescription = c.String(maxLength: 100),
+                        FolderPrivacy_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.FolderPrivacies", t => t.FolderPrivacy_ID)
+                .Index(t => t.FolderPrivacy_ID);
             
             CreateTable(
                 "dbo.Links",
@@ -204,6 +378,16 @@ namespace HospiceNiagara.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
                 "dbo.RSVPs",
                 c => new
                     {
@@ -215,50 +399,12 @@ namespace HospiceNiagara.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
-            AddColumn("dbo.Announcements", "AnnouncePrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "AnnouncePrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "SubRole_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "DeathPrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "FolderGroupPrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "FolderGroup_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "FolderPrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "MeetingPrivacy_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "Meeting_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "Notification_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "RSVP_ID", c => c.Int());
-            AddColumn("dbo.Deaths", "DeathPrivacy_ID", c => c.Int());
-            AddColumn("dbo.Folders", "FolderPrivacy_ID", c => c.Int());
-            CreateIndex("dbo.Announcements", "AnnouncePrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "AnnouncePrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "SubRole_ID");
-            CreateIndex("dbo.AspNetUsers", "DeathPrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "FolderGroupPrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "FolderGroup_ID");
-            CreateIndex("dbo.AspNetUsers", "FolderPrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "MeetingPrivacy_ID");
-            CreateIndex("dbo.AspNetUsers", "Meeting_ID");
-            CreateIndex("dbo.AspNetUsers", "Notification_ID");
-            CreateIndex("dbo.AspNetUsers", "RSVP_ID");
-            CreateIndex("dbo.Deaths", "DeathPrivacy_ID");
-            CreateIndex("dbo.Folders", "FolderPrivacy_ID");
-            AddForeignKey("dbo.Announcements", "AnnouncePrivacy_ID", "dbo.AnnouncePrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "AnnouncePrivacy_ID", "dbo.AnnouncePrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "SubRole_ID", "dbo.SubRoles", "ID");
-            AddForeignKey("dbo.AspNetUsers", "DeathPrivacy_ID", "dbo.DeathPrivacies", "ID");
-            AddForeignKey("dbo.Deaths", "DeathPrivacy_ID", "dbo.DeathPrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "FolderGroupPrivacy_ID", "dbo.FolderGroupPrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "FolderGroup_ID", "dbo.FolderGroups", "ID");
-            AddForeignKey("dbo.AspNetUsers", "FolderPrivacy_ID", "dbo.FolderPrivacies", "ID");
-            AddForeignKey("dbo.Folders", "FolderPrivacy_ID", "dbo.FolderPrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "MeetingPrivacy_ID", "dbo.MeetingPrivacies", "ID");
-            AddForeignKey("dbo.AspNetUsers", "Meeting_ID", "dbo.Meetings", "ID");
-            AddForeignKey("dbo.AspNetUsers", "Notification_ID", "dbo.Notifications", "ID");
-            AddForeignKey("dbo.AspNetUsers", "RSVP_ID", "dbo.RSVPs", "ID");
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUsers", "RSVP_ID", "dbo.RSVPs");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.SubRoles", "Notification_ID", "dbo.Notifications");
             DropForeignKey("dbo.Roles", "Notification_ID", "dbo.Notifications");
             DropForeignKey("dbo.AspNetUsers", "Notification_ID", "dbo.Notifications");
@@ -288,6 +434,12 @@ namespace HospiceNiagara.Migrations
             DropForeignKey("dbo.Roles", "AnnouncePrivacy_ID", "dbo.AnnouncePrivacies");
             DropForeignKey("dbo.AspNetUsers", "AnnouncePrivacy_ID", "dbo.AnnouncePrivacies");
             DropForeignKey("dbo.Announcements", "AnnouncePrivacy_ID", "dbo.AnnouncePrivacies");
+            DropForeignKey("dbo.Announcements", "AnnounceFile_ID", "dbo.AnnounceFiles");
+            DropForeignKey("dbo.AspNetUsers", "Announcement_ID", "dbo.Announcements");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Meetings", new[] { "MeetingResource_ID" });
             DropIndex("dbo.Meetings", new[] { "MeetingPrivacy_ID" });
             DropIndex("dbo.Folders", new[] { "FolderPrivacy_ID" });
@@ -307,6 +459,10 @@ namespace HospiceNiagara.Migrations
             DropIndex("dbo.Roles", new[] { "FolderGroup_ID" });
             DropIndex("dbo.Roles", new[] { "DeathPrivacy_ID" });
             DropIndex("dbo.Roles", new[] { "AnnouncePrivacy_ID" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "RSVP_ID" });
             DropIndex("dbo.AspNetUsers", new[] { "Notification_ID" });
             DropIndex("dbo.AspNetUsers", new[] { "Meeting_ID" });
@@ -317,33 +473,33 @@ namespace HospiceNiagara.Migrations
             DropIndex("dbo.AspNetUsers", new[] { "DeathPrivacy_ID" });
             DropIndex("dbo.AspNetUsers", new[] { "SubRole_ID" });
             DropIndex("dbo.AspNetUsers", new[] { "AnnouncePrivacy_ID" });
+            DropIndex("dbo.AspNetUsers", new[] { "Announcement_ID" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Announcements", new[] { "AnnouncePrivacy_ID" });
-            DropColumn("dbo.Folders", "FolderPrivacy_ID");
-            DropColumn("dbo.Deaths", "DeathPrivacy_ID");
-            DropColumn("dbo.AspNetUsers", "RSVP_ID");
-            DropColumn("dbo.AspNetUsers", "Notification_ID");
-            DropColumn("dbo.AspNetUsers", "Meeting_ID");
-            DropColumn("dbo.AspNetUsers", "MeetingPrivacy_ID");
-            DropColumn("dbo.AspNetUsers", "FolderPrivacy_ID");
-            DropColumn("dbo.AspNetUsers", "FolderGroup_ID");
-            DropColumn("dbo.AspNetUsers", "FolderGroupPrivacy_ID");
-            DropColumn("dbo.AspNetUsers", "DeathPrivacy_ID");
-            DropColumn("dbo.AspNetUsers", "SubRole_ID");
-            DropColumn("dbo.AspNetUsers", "AnnouncePrivacy_ID");
-            DropColumn("dbo.Announcements", "AnnouncePrivacy_ID");
+            DropIndex("dbo.Announcements", new[] { "AnnounceFile_ID" });
             DropTable("dbo.RSVPs");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.Notifications");
             DropTable("dbo.MeetingResources");
             DropTable("dbo.Meetings");
             DropTable("dbo.MeetingPrivacies");
             DropTable("dbo.Links");
+            DropTable("dbo.Folders");
             DropTable("dbo.FolderPrivacies");
             DropTable("dbo.FolderGroups");
             DropTable("dbo.FolderGroupPrivacies");
+            DropTable("dbo.Files");
+            DropTable("dbo.Deaths");
             DropTable("dbo.DeathPrivacies");
             DropTable("dbo.SubRoles");
             DropTable("dbo.Roles");
             DropTable("dbo.AnnouncePrivacies");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Announcements");
+            DropTable("dbo.AnnounceFiles");
         }
     }
 }
