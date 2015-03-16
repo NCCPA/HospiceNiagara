@@ -127,4 +127,8 @@
         $("#editContact").hide();
     }
 
+    $("#adminFile").click(function () {
+        location.href = 'http://localhost:61986/Admin/Index?searchString=bob#filesTab#top';
+    });
+
 });
