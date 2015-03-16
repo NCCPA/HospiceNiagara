@@ -127,8 +127,30 @@
         $("#editContact").hide();
     }
 
+    //do on load
+    //strip data from http://stackoverflow.com/questions/19491336/get-url-parameter-jquery
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    }
+
+    var getSearch = getUrlParameter('searchString');
+    if (getSearch != null)
+        $("#txtFileSearch").val(getSearch);
+
     $("#adminFile").click(function () {
-        location.href = 'http://localhost:61986/Admin/Index?searchString=bob#filesTab#top';
+        var txtSearch = $("#txtFileSearch").val();
+        var ddlList = $("#ddlFileShedule").val();
+       
+        txtSearch = $.trim(txtSearch);
+        txtSearch = txtSearch.replace(/\s+/g, '+');
+        location.href = 'http://localhost:61986/Admin/Index?searchString=' + txtSearch + '#filesTab#top';
     });
 
 });
