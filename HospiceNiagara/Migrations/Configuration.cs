@@ -246,10 +246,10 @@ namespace HospiceNiagara.Migrations
 
             var Death = new List<Death> 
             { 
-               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible=1, CreatedByID = 0},
-               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=1, CreatedByID = 0},
-               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1, CreatedByID = 0},
-               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1, CreatedByID = 0}
+               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible=1},
+               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=1},
+               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1},
+               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1}
             };
             //comment
 

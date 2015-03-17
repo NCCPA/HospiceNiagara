@@ -387,7 +387,7 @@ namespace HospiceNiagara.Controllers
 
 
         //Delete Death
-        public void _MeetingDelete(int id)
+        public void _DeleteDeath(int id)
         {
             //Find Death Obj
             Death death = db.Deaths.Find(id);
