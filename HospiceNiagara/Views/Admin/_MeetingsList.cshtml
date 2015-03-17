@@ -1,5 +1,25 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.MeetingsViewModel>
 
+<!-- Search Meetings -->
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
+
+        <!-- Search -->
+        @using (Html.BeginForm("meetingFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline" role="form">
+
+                <div class="form-group">
+                    <input type="text" placeholder="Search Meetings" class="form-control" id="meetingsSearchString" name="meetingsSearchString">
+                </div>
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
+            </form>
+        }
+
+        <!-- End Search -->
+
+    </div>
+</div>
 
 <!-- Meeting Table Content -->
 <div class="row">
@@ -7,15 +27,12 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Date</th>
                     <th>Name</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Date</th>
+                    <th>Description</th>
                     <th>
-                        <button type="button" class="btn col-md-10 btn-default btn-green" data-toggle="modal" data-target="#addMeeting">
-                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Announcement
+                        <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addMeeting">
+                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Meeting
                         </button>
                     </th>
                 </tr>
@@ -24,16 +41,14 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.ID</td>
-                        <td>@item.Date</td>
                         <td>@item.Name</td>
-                        <td>@item.Length</td>
-                        <td>@item.Location</td>
-                        <td>@item.Requirements</td>
+                        <td>@item.Date</td>
+                        <td>@item.Description</td>
                         <td>
-                            <button type="button" class="btn btn-default btn-blue col-md-10" data-toggle="modal" data-target="#Meeting-@item.ID">
+                            <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Meeting-@item.ID">
                                 <span class="glyphicon pull-left glyphicon-edit"></span> Edit
                             </button>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_MeetingDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
                 }
@@ -49,27 +64,30 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Announcement</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Meeting</h4>
             </div>
             <div class="modal-body">
 
                 <!-- Form For Adding Announcement -->
-                <form>
-                    <div class="form-group">
-                        <label for="meetingTitle">Meeting Title</label>
-                        <input type="text" class="form-control" id="meetingTitle" placeholder="Meeting Title">
-                    </div>
-                    <div class="form-group">
-                        <label for="meetingDate">Date of Meeting</label>
-                        <input type="date" class="form-control" id="meetingDate">
-                    </div>
-                    <div class="form-group">
-                        <label for="meetingDetails">Meeting Details</label>
-                        <textarea class="form-control" id="meetingDetails"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
-                    <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                </form>
+                @using (Html.BeginForm("_MeetingAdd", "Admin", FormMethod.Get))
+                {
+                    <form>
+                        <div class="form-group">
+                            <label for="meetingTitle">Meeting Title</label>
+                            <input type="text" class="form-control" id="meetingTitle" name="Name" placeholder="Meeting Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="meetingDate">Date of Meeting</label>
+                            <input type="date" name="date" class="form-control" id="meetingDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="meetingDetails">Meeting Details</label>
+                            <textarea class="form-control" id="meetingDetails" name="Description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                }
                 <!-- /END of form -->
 
 
@@ -91,31 +109,38 @@
                 <div class="modal-body">
 
                     <!-- Form For Edditing Announcement -->
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.ID, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(i => items.ID, new { @class = "form-control" })
-                            </div>
-                        </div>
+                    @using (Html.BeginForm("_MeetingEdit", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" value="@items.ID" name="id" />
 
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                <input type="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="text" value="@items.Name" class="form-control" name="name" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(i => items.Name, new { @class = "form-control" })
+                            <div class="form-group">
+
+                                @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="date" name="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                                </div>
                             </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
-                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                    </form>
+                            <div class="form-group">
+
+                                @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <textarea name="description" class="form-control">@items.Description</textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
                     <!-- /END of form -->
 
                 </div>

@@ -220,10 +220,10 @@ namespace HospiceNiagara.Controllers
         //End Announcement Section
         //******************************************************************
 
-        //
+        //*******************************************************************
         //Meeting Section
         [HttpGet]
-        public ActionResult _MeetingsList()
+        public ActionResult _MeetingsList(string meetingsSearchString)
         {
 
             var viewModel = from m in db.Meetings
@@ -233,6 +233,7 @@ namespace HospiceNiagara.Controllers
                                 Type = m.Type, //req
                                 Name = m.Name,
                                 Date = m.Date,
+                                Description = m.Description,
                                 Length = m.Length,//req
                                 Location = m.Location,//req
                                 Requirements = m.Requirements,//req
@@ -242,11 +243,77 @@ namespace HospiceNiagara.Controllers
 
                             };
 
+            if (!String.IsNullOrEmpty(meetingsSearchString))
+            {
+                viewModel = viewModel.Where(s => s.Name.Contains(meetingsSearchString));
+            }
+
             return PartialView(viewModel.ToList());
         }
 
-        //End of Meeting Section
         //
+        //Filter Meeting
+        [HttpGet]
+        public void meetingFilter(string meetingsSearchString)
+        {
+            Response.Redirect("~/Admin/Index?meetingsSearchString=" + meetingsSearchString + "#meetingsTab#Top");
+        }
+
+        //
+        //Add Meeting
+        public void _MeetingAdd(DateTime date, string Name, string Description)
+        {
+
+            //Create New Meeting
+            Meeting meeting = new Meeting();
+
+            //Add Information to meeting obj
+            meeting.Name = Name;
+            meeting.Date = date;
+            meeting.Description = Description;
+
+            //Add obj to Database
+            db.Meetings.Add(meeting);
+
+            //Save Changes
+            db.SaveChanges();
+
+            //Redirect to proper tab
+            Response.Redirect("~/Admin/Index#meetingsTab#Top");
+        }
+
+        //
+        //Edit Meeting
+        public void _MeetingEdit(string name, DateTime date, string description, int id)
+        {
+            //Find Current meeting
+            Meeting meeting = db.Meetings.Find(id);
+
+            //change current fields into newly inputted
+            meeting.Name = name;
+            meeting.Date = date;
+            meeting.Description = description;
+
+            //Save Changes
+            db.SaveChanges();
+
+            //redirect tot Admin Page with AnnouncementsTab Open
+            Response.Redirect("~/Admin/Index#meetingsTab#Top");
+        }
+
+
+        //
+        //Delete Meeting
+        public void _MeetingDelete(int id)
+        {
+            Meeting meeting = db.Meetings.Find(id);
+            db.Meetings.Remove(meeting);
+            db.SaveChanges();
+            Response.Redirect("~/Admin/Index#meetingsTab#Top");
+        }
+
+        //End of Meeting Section
+        //*************************************************************************
 
 
         public ActionResult _Death()
