@@ -341,6 +341,8 @@ namespace HospiceNiagara.Controllers
             return PartialView(deathList.ToList());
         }
         
+
+
         //Add Death
         public void _AddDeath(string name, DateTime date, string location, string note, bool visible, string CreatedByID)
         {

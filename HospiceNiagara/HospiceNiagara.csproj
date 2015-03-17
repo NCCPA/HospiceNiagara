@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201503170357538_allEvents.Designer.cs">
       <DependentUpon>201503170357538_allEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.cs" />
+    <Compile Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.Designer.cs">
+      <DependentUpon>201503172048321_changed_CreatedBYID_Deaths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -415,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503170357538_allEvents.resx">
       <DependentUpon>201503170357538_allEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.resx">
+      <DependentUpon>201503172048321_changed_CreatedBYID_Deaths.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
