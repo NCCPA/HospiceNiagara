@@ -229,9 +229,17 @@ namespace HospiceNiagara.Controllers
             var viewModel = from m in db.Meetings
                             select new MeetingsViewModel
                             {
-                                ID = m.ID,
+                                ID = m.ID, //req
+                                Type = m.Type, //req
+                                Name = m.Name,
                                 Date = m.Date,
-                                Name = m.Name
+                                Length = m.Length,//req
+                                Location = m.Location,//req
+                                Requirements = m.Requirements,//req
+                                isVisible = m.isVisible,
+                                StaffLeadID = m.StaffLeadID,
+                                CreatedByID = m.CreatedByID
+
                             };
 
             return PartialView(viewModel.ToList());

@@ -15,7 +15,7 @@ namespace HospiceNiagara.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "HospiceNiagara.Models.ApplicationDbContext";
         }
 
