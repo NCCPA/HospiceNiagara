@@ -76,7 +76,9 @@ namespace HospiceNiagara.Models
         public DbSet<AnnounceFile> AnnounceFiles { get; set; }
 
         //events
-
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventPrivacy> EventPrivacys { get; set; }
+        public DbSet<EventResource> EventResources { get; set; }
 
         public DbSet<RSVP> RSVPs { get; set; }
         // public DbSet<Schedule> Shedules { get; set; }
