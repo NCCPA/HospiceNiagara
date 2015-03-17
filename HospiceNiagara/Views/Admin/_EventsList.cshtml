@@ -1,1 +1,154 @@
-﻿
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.EventsViewModel>
+
+<!-- Search Events -->
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
+
+        <!-- Search -->
+        @using (Html.BeginForm("eventsFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline" role="form">
+
+                <div class="form-group">
+                    <input type="text" placeholder="Search Events" class="form-control" id="eventsSearchString" name="eventsSearchString">
+                </div>
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="eventsSearchString" />
+            </form>
+        }
+
+        <!-- End Search -->
+
+    </div>
+</div>
+<!--End Search Events-->
+
+
+<!-- Event Table Content -->
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>
+                        <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addEvent">
+                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Event
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Date</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Event-@item.ID">
+                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit
+                            </button>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_EventsDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /End Table Content-->
+
+
+<!-- Add Meeting Modal -->
+<div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Event</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- Form For Adding event -->
+                @using (Html.BeginForm("_EventAdd", "Admin", FormMethod.Get))
+                {
+                    <form>
+                        <div class="form-group">
+                            <label for="eventTitle">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" name="Name" placeholder="Event Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Date of Event</label>
+                            <input type="date" name="date" class="form-control" id="eventDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDetails">Event Details</label>
+                            <textarea class="form-control" id="eventDetails" name="Description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                }
+                <!-- /END of form -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /End Meeting Modal -->
+
+
+<!-- Edit Meeting Modal -->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="Event-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form For Edditing Announcement -->
+                    @using (Html.BeginForm("_MeetingEdit", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" value="@items.ID" name="id" />
+
+                        <form class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
+                                <input type="text" value="@items.Name" class="form-control" name="name" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
+                                <input type="date" name="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
+                                <textarea name="description" class="form-control">@items.Description</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                                <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    }
+                    <!-- /END of form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- /End Model Edit announcement-->
+<!-- /Edit Meeting Modal -->
+
+

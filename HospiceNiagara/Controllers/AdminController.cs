@@ -377,35 +377,62 @@ namespace HospiceNiagara.Controllers
         public ActionResult _EventsList(string eventSearchString)
         {
 
-          /*  var viewModel = from v in db
-                            select new AnnouncementViewModel
+           var viewModel = from v in db.Events
+                            select new EventsViewModel
                             {
                                 ID = v.ID,
-                                Title = v.Title,
+                                Name = v.Name,
                                 Description = v.Description,
                                 isVisible = v.isVisible,
                                 CreatedByID = v.CreatedByID,
                                 Date = v.Date
                             };
 
-            if (!String.IsNullOrEmpty(announcementSearchString))
+            if (!String.IsNullOrEmpty(eventSearchString))
             {
-                viewModel = viewModel.Where(s => s.Title.Contains(announcementSearchString));
+                viewModel = viewModel.Where(s => s.Name.Contains(eventSearchString));
             }
-            */
-            return PartialView();
+           
+            return PartialView(viewModel.ToList());
         }
 
         //
         //Add Events
+        //Add Announcement
+        public void _EventAdd(string name, DateTime date, string description)
+        {
+            if (ModelState.IsValid)
+            {
+                //Create new Object announcement
+                 Event newEvent = new Event();
 
+                //Give Properties to the properties from the form
+                newEvent.Name = name;
+                newEvent.Date = date;
+                newEvent.Description = description;
+
+                //Save to the database
+                db.Events.Add(newEvent);
+                db.SaveChanges();
+
+                //redirect tot Admin Page with AnnouncementsTab Open
+                Response.Redirect("~/Admin/Index#eventsTab#Top");
+            }
+        }
 
         //
         //Edit Events
 
         //
         //Delete Events
-
+        //Delete Meeting
+        public void _EventsDelete(int id)
+        {
+            Event events = db.Events.Find(id);
+            db.Events.Remove(events);
+            db.SaveChanges();
+            Response.Redirect("~/Admin/Index#eventsTab#Top");            
+        }
 
       
         //End Event Section
