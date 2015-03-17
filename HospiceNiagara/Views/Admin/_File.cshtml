@@ -4,7 +4,7 @@
     <div class="col-md-10 col-md-offset-1">
         @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            
+
             <form class="form-inline">
                 <div class="form-group">
                     <label for="folder">Category</label>
@@ -54,11 +54,12 @@
                 </select>
             </div>
             <div class="form-group">
-                  @using (Html.BeginForm("Index", "File", FormMethod.Get))
-               {
-                    <button type="button" id="adminFile" class="btn btn-blue btn-default col-md-6 " value="Filter" />
-             }
-          
+                @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                {
+                    <button type="button" id="adminFile" value="Filter" >
+                    </button>
+                }
+
             </div>
         </form>
         <br />
@@ -260,10 +261,10 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
-                </div>
-
-
-
             </div>
         </div>
+
+
+
+    </div>
+</div>

@@ -54,6 +54,8 @@ namespace HospiceNiagara.Controllers
             return View(viewModel.ToList());
         }
 
+        //*******************************************************************
+        //File Section
 
         public ActionResult _File()
         {
@@ -88,57 +90,7 @@ namespace HospiceNiagara.Controllers
             }
             return PartialView(fileList.ToList());
         }
-
-        public ActionResult _Death()
-        {
-            var deathList = from f in db.Deaths
-                           select new DeathViewModel
-                           {
-                               ID = f.ID,
-                               Name = f.Name,
-                               Date = f.Date,
-                               Location = f.Location,
-                               Note = f.Note,
-                               Visible = f.Visible,
-                               CreatedByID = f.CreatedByID
-                           };
-            return PartialView(deathList.ToList());
-        }
-         
-        //POST: ADD Death
-        [HttpPost] 
-        public ActionResult AddDeath(string name, DateTime date, string location, string note)
-        {
-           HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
-           {
-               Name = name,
-               Date = date,
-               Location = location,
-               Note = note
-           };
-
-            db.Deaths.Add(deathObj);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        } 
-
-        /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
-        {
-         * something like this
-         * var existingDeath = DB.Deaths.Where(x => x.ID == id);
-            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
-            {
-                ID = id,
-                Name = name,
-                Date = date,
-                Location = location,
-                Note = note,
-                isVisible = visible
-            };
-
-            //db.Deaths.Add(deathObj);
-            db.SaveChanges();
-        } */
+     
 
 
         // GET: Home/Delete/5
@@ -174,15 +126,14 @@ namespace HospiceNiagara.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //End File Section
+        //*************************************************************
 
 
-
-        //
+        //*************************************************************
         //Announcement Section
 
-        //GET AnnouncementList
-        [HttpGet]
-        public ActionResult _Announcement()
+        public ActionResult _Announcement(string announcementSearchString)
         {
             var viewModel = from v in db.Announcements
                             select new AnnouncementViewModel
@@ -195,7 +146,18 @@ namespace HospiceNiagara.Controllers
                                 Date = v.Date
                             };
 
+            if (!String.IsNullOrEmpty(announcementSearchString))
+            {
+                viewModel = viewModel.Where(s => s.Title.Contains(announcementSearchString));
+            }
+
             return PartialView(viewModel.ToList());
+        }
+
+        [HttpGet]
+        public void AnnouncementFilter(string announcementSearchString)
+        {
+            Response.Redirect("~/Admin/Index?announcementSearchString=" + announcementSearchString + "#announcementsTab#Top");
         }
 
         //Add Announcement
@@ -214,9 +176,34 @@ namespace HospiceNiagara.Controllers
                 //Save to the database
                 db.Announcements.Add(newAnnounce);
                 db.SaveChanges();
+
+                //redirect tot Admin Page with AnnouncementsTab Open
                 Response.Redirect("~/Admin/Index#announcementsTab#Top");
             }
         }
+
+        //Eddit Announcement
+        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Create new Object announcement
+                Announcement newAnnounce = new Announcement();
+
+                //Give Properties to the properties from the form
+                newAnnounce.Title = announceTitle;
+                newAnnounce.Date = announceDate;
+                newAnnounce.Description = announceDesc;
+
+                //Save to the database
+                db.Announcements.Add(newAnnounce);
+                db.SaveChanges();
+
+                //redirect tot Admin Page with AnnouncementsTab Open
+                Response.Redirect("~/Admin/Index#announcementsTab#Top");
+            }
+        }
+
 
 
         //Delete Announcement
@@ -230,7 +217,7 @@ namespace HospiceNiagara.Controllers
         }
 
         //End Announcement Section
-        //
+        //******************************************************************
 
         //
         //Meeting Section
@@ -251,6 +238,58 @@ namespace HospiceNiagara.Controllers
 
         //End of Meeting Section
         //
+
+
+        public ActionResult _Death()
+        {
+            var deathList = from f in db.Deaths
+                            select new DeathViewModel
+                            {
+                                ID = f.ID,
+                                Name = f.Name,
+                                Date = f.Date,
+                                Location = f.Location,
+                                Note = f.Note,
+                                Visible = f.Visible,
+                                CreatedByID = f.CreatedByID
+                            };
+            return PartialView(deathList.ToList());
+        }
+
+        //POST: ADD Death
+        [HttpPost]
+        public ActionResult AddDeath(string name, DateTime date, string location, string note)
+        {
+            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
+            {
+                Name = name,
+                Date = date,
+                Location = location,
+                Note = note
+            };
+
+            db.Deaths.Add(deathObj);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
+        {
+         * something like this
+         * var existingDeath = DB.Deaths.Where(x => x.ID == id);
+            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
+            {
+                ID = id,
+                Name = name,
+                Date = date,
+                Location = location,
+                Note = note,
+                isVisible = visible
+            };
+
+            //db.Deaths.Add(deathObj);
+            db.SaveChanges();
+        } */
 
 
     }   

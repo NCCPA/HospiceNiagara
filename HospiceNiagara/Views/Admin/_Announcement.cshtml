@@ -4,25 +4,20 @@
 
 <div class="row">
     <div class="col-md-3 col-sm-10">
+
         <!-- Search -->
-        @using (Html.BeginForm("_announcement", "Announcement", FormMethod.Get))
+        @using (Html.BeginForm("AnnouncementFilter", "Admin", FormMethod.Get))
         {
             <form class="form-inline" role="form">
 
                 <div class="form-group">
-                    <select class="form-control">
-                        <option>Title</option>
-                        <option>Date</option>
-                    </select>
+                    <input type="text" placeholder="Search Announcements" class="form-control" id="announcementSearchString" name="announcementSearchString">
                 </div>
 
-                <div class="form-group">
-                    <input type="text" placeholder="Search Announcements" class="form-control" name="searchAnnouncement">
-                </div>
-
-                <input type="submit" value="Search" class="btn btn-blue btn-default" />
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
             </form>
         }
+
         <!-- End Search -->
 
     </div>
@@ -118,36 +113,40 @@
                 <div class="modal-body">
 
                     <!-- Form For Edditing Announcement -->
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(i => items.Title, new { @class = "form-control" })
+                    @using (Html.BeginForm("_AnnouncementEdit", "Admin", FormMethod.Get))
+                    {
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(i => items.Title, new { @class = "form-control" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                <input type="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(i => items.Description, new { @class = "form-control" })
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(i => items.Description, new { @class = "form-control" })
+                                </div>
                             </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
-                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                    </form>
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
                     <!-- /END of form -->
 
                 </div>
             </div>
         </div>
     </div>
+}
 }
 <!-- /End Model Edit announcement-->
