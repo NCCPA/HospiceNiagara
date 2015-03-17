@@ -115,25 +115,27 @@
                     <!-- Form For Edditing Announcement -->
                     @using (Html.BeginForm("_AnnouncementEdit", "Admin", FormMethod.Get))
                     {
+                        <input type="hidden" name="ID" value="@items.ID" />
+                        
                         <form class="form-horizontal">
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
-                                    @Html.TextBoxFor(i => items.Title, new { @class = "form-control" })
+                                    <input type="text" value="@items.Title" name="announceTitle" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
-                                    <input type="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                                    <input type="date" name="announceDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
-                                    @Html.TextAreaFor(i => items.Description, new { @class = "form-control" })
+                                    <textarea class="form-control" name="announceDesc">@items.Description</textarea>
                                 </div>
                             </div>
 
@@ -147,6 +149,5 @@
             </div>
         </div>
     </div>
-}
 }
 <!-- /End Model Edit announcement-->

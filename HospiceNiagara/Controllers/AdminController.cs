@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -182,22 +183,22 @@ namespace HospiceNiagara.Controllers
             }
         }
 
-        //Eddit Announcement
-        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc, int id)
+        //Edit Announcement
+        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc,int id)
         {
+            //Check to see if Forum Validates
             if (ModelState.IsValid)
             {
-                //Create new Object announcement
-                Announcement newAnnounce = new Announcement();
+                //get selected announcement
+                Announcement announcement = db.Announcements.Find(id);
 
-                //Give Properties to the properties from the form
-                newAnnounce.Title = announceTitle;
-                newAnnounce.Date = announceDate;
-                newAnnounce.Description = announceDesc;
-
-                //Save to the database
-                db.Announcements.Add(newAnnounce);
-                db.SaveChanges();
+                //Update Fields
+                announcement.Title = announceTitle;
+                announcement.Date = announceDate;
+                announcement.Description = announceDesc;
+                
+                //Save and Update
+                db.SaveChanges();             
 
                 //redirect tot Admin Page with AnnouncementsTab Open
                 Response.Redirect("~/Admin/Index#announcementsTab#Top");
