@@ -65,8 +65,6 @@ namespace HospiceNiagara.Models
         public DbSet<FolderPrivacy> FolderPrivacy { get; set; }
         public DbSet<FolderGroup> FolderGroups { get; set; }
         public DbSet<FolderGroupPrivacy> FolderGroupPrivacy { get; set; }
-        
-        
 
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<MeetingPrivacy> MeetingPrivacy { get; set; }
@@ -79,6 +77,8 @@ namespace HospiceNiagara.Models
 
         //events
         public DbSet<Event> Events { get; set; }
+        public DbSet<EventPrivacy> EventPrivacys { get; set; }
+        public DbSet<EventResource> EventResources { get; set; }
 
         public DbSet<RSVP> RSVPs { get; set; }
         // public DbSet<Schedule> Shedules { get; set; }
