@@ -15,7 +15,6 @@
         <li role="presentation"><a href="#contactsTab" aria-controls="contactsTab" role="tab" data-toggle="tab">Contacts</a></li>
         <li role="presentation"><a href="#meetingsTab" aria-controls="meetingsTab" role="tab" data-toggle="tab">Meetings</a></li>
         <li role="presentation"><a href="#announcementsTab" aria-controls="announcementsTab" role="tab" data-toggle="tab">Announcements</a></li>
-        <li role="presentation"><a href="#eventsTab" aria-controls="eventsTab" role="tab" data-toggle="tab">Events</a></li>
         <li role="presentation"><a href="#deathsTab" aria-controls="deathsTab" role="tab" data-toggle="tab">Deaths</a></li>
         <li role="presentation"><a href="#scheduleTab" aria-controls="scheduleTab" role="tab" data-toggle="tab">Schedule</a></li>
     </ul>
@@ -29,8 +28,7 @@
             <div role="tabpanel" class="tab-pane" id="filesTab">@Html.Action("_File", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Partial("_ContactsList")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Action("_MeetingsList","Admin")</div>
-            <div role="tabpanel" class="tab-pane" id="announcementsTab">@Html.Action("_Announcement","Admin")</div>
-            <div role="tabpanel" class="tab-pane" id="eventsTab">@Html.Action("_EventsList","Admin")</div>
+            <div role="tabpanel" class="tab-pane" id="announcementsTab">@Html.Action("_Announcement","Admin")</div>            
             <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Action("_Death", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="scheduleTab">@Html.Partial("_ScheduleList")</div>
         </div>

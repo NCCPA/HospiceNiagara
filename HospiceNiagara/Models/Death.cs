@@ -34,9 +34,7 @@ namespace HospiceNiagara.Models
         [Range(0, 2, ErrorMessage = "The visable value is not valid.")]
         public int Visible { get; set; }
 
-        //id of person
-       // [Required(ErrorMessage = "You must select a User.")]
-        public int CreatedByID { get; set; }
+        public string CreatedByID { get; set; }
 
     }
 
@@ -66,10 +64,7 @@ namespace HospiceNiagara.Models
         [Required]
         [Range(0, 2, ErrorMessage = "The visible range is invalid.")]
         public int Visible { get; set; }
-
-        //id of person
-        // [Required(ErrorMessage = "You must select a User.")]
-        [Range(1, 9999, ErrorMessage = "The user range is invalid.")]
-        public int CreatedByID { get; set; }
+  
+        public string CreatedByID { get; set; }
     }
 }

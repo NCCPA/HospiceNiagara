@@ -316,7 +316,10 @@ namespace HospiceNiagara.Controllers
         //*************************************************************************
 
 
-        public ActionResult _Death()
+
+        //**************************************************************************
+        //Begin Death Section
+        public ActionResult _Death(string deathSearchString)
         {
             var deathList = from f in db.Deaths
                             select new DeathViewModel
@@ -329,115 +332,77 @@ namespace HospiceNiagara.Controllers
                                 Visible = f.Visible,
                                 CreatedByID = f.CreatedByID
                             };
+
+            if (!String.IsNullOrEmpty(deathSearchString))
+            {
+                deathList = deathList.Where(s => s.Name.Contains(deathSearchString));
+            }
+
             return PartialView(deathList.ToList());
         }
-
-        //POST: ADD Death
-        [HttpPost]
-        public ActionResult AddDeath(string name, DateTime date, string location, string note)
-        {
-            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
-            {
-                Name = name,
-                Date = date,
-                Location = location,
-                Note = note
-            };
-
-            db.Deaths.Add(deathObj);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        /*public ActionResult EditDeath(int id, string name, DateTime date, string location, string note, bool visible)
-        {
-         * something like this
-         * var existingDeath = DB.Deaths.Where(x => x.ID == id);
-            HospiceNiagara.Models.Death deathObj = new HospiceNiagara.Models.Death
-            {
-                ID = id,
-                Name = name,
-                Date = date,
-                Location = location,
-                Note = note,
-                isVisible = visible
-            };
-
-            //db.Deaths.Add(deathObj);
-            db.SaveChanges();
-        } */
-
-
-
-
-        //*******************************************************************
-        //Begin Event Section
         
-        //Index of events (Tab)
-        public ActionResult _EventsList(string eventSearchString)
+        //Add Death
+        public void _AddDeath(string name, DateTime date, string location, string note, bool visible, string CreatedByID)
         {
+            //Create new Death Obj
+            Death death = new Death();
 
-           var viewModel = from v in db.Events
-                            select new EventsViewModel
-                            {
-                                ID = v.ID,
-                                Name = v.Name,
-                                Description = v.Description,
-                                isVisible = v.isVisible,
-                                CreatedByID = v.CreatedByID,
-                                Date = v.Date
-                            };
+            //Add all properties
+            death.Name = name;
+            death.Date = date;
+            death.Location = location;
+            death.Note = note;
+            death.CreatedByID = CreatedByID;
 
-            if (!String.IsNullOrEmpty(eventSearchString))
-            {
-                viewModel = viewModel.Where(s => s.Name.Contains(eventSearchString));
-            }
-           
-            return PartialView(viewModel.ToList());
-        }
+            //Add Object to the database
+            db.Deaths.Add(death);
 
-        //
-        //Add Events
-        //Add Announcement
-        public void _EventAdd(string name, DateTime date, string description)
-        {
-            if (ModelState.IsValid)
-            {
-                //Create new Object announcement
-                 Event newEvent = new Event();
-
-                //Give Properties to the properties from the form
-                newEvent.Name = name;
-                newEvent.Date = date;
-                newEvent.Description = description;
-
-                //Save to the database
-                db.Events.Add(newEvent);
-                db.SaveChanges();
-
-                //redirect tot Admin Page with AnnouncementsTab Open
-                Response.Redirect("~/Admin/Index#eventsTab#Top");
-            }
-        }
-
-        //
-        //Edit Events
-
-        //
-        //Delete Events
-        //Delete Meeting
-        public void _EventsDelete(int id)
-        {
-            Event events = db.Events.Find(id);
-            db.Events.Remove(events);
+            //Save all Changes
             db.SaveChanges();
-            Response.Redirect("~/Admin/Index#eventsTab#Top");            
+
+            //Redirect to proper Tab
+            Response.Redirect("~/Admin/Index#deathsTab#Top");
         }
 
-      
-        //End Event Section
-        //*******************************************************************
 
+        //Edit Death
+        public void _EditDeath(string id, string name, DateTime date, string location, string note, bool visible, string CreatedByID)
+        {
+            //Find Death Obj
+            Death death = db.Deaths.Find(id);
+
+            //Change all properties to new
+            death.Name = name;
+            death.Date = date;
+            death.Location = location;
+            death.Note = note;
+            death.CreatedByID = CreatedByID;
+
+            //Save all Changes
+            db.SaveChanges();
+
+            //Redirect to proper Tab
+            Response.Redirect("~/Admin/Index#deathsTab#Top");
+        }
+
+
+        //Delete Death
+        public void _MeetingDelete(int id)
+        {
+            //Find Death Obj
+            Death death = db.Deaths.Find(id);
+
+            //Remove from db 
+            db.Deaths.Remove(death);
+
+            //Save Changes
+            db.SaveChanges();
+
+            //Redirect to proper Tab
+            Response.Redirect("~/Admin/Index#deathsTab#Top");            
+        }
+        //End Death Section
+        //**************************************************************************
 
 
     }   
