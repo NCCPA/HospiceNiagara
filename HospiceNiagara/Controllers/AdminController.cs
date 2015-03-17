@@ -368,5 +368,50 @@ namespace HospiceNiagara.Controllers
         } */
 
 
+
+
+        //*******************************************************************
+        //Begin Event Section
+        
+        //Index of events (Tab)
+        public ActionResult _EventsList(string eventSearchString)
+        {
+
+          /*  var viewModel = from v in db
+                            select new AnnouncementViewModel
+                            {
+                                ID = v.ID,
+                                Title = v.Title,
+                                Description = v.Description,
+                                isVisible = v.isVisible,
+                                CreatedByID = v.CreatedByID,
+                                Date = v.Date
+                            };
+
+            if (!String.IsNullOrEmpty(announcementSearchString))
+            {
+                viewModel = viewModel.Where(s => s.Title.Contains(announcementSearchString));
+            }
+            */
+            return PartialView();
+        }
+
+        //
+        //Add Events
+
+
+        //
+        //Edit Events
+
+        //
+        //Delete Events
+
+
+      
+        //End Event Section
+        //*******************************************************************
+
+
+
     }   
 }

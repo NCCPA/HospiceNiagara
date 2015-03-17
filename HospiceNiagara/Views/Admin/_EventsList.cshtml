@@ -1,182 +1,146 @@
-﻿
-<br />
-<div class="row" id="showEvent">
-    <div class="col-md-10 col-md-offset-1">
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="txtSearch" class="sr-only">Search By Name</label>
-                <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-            </div>
-            <div class="form-group">
-                <select name="ddlScheduleSelection" class="form-control">
-                    <option value="all">All</option>
-                    <option value="Name">Name</option>
-                    <option value="Location">Location</option>
-                    <option value="Notes">Notes</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-blue btn-default">Search</button>
-        </form>
-        <br />
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Notes</th>
-                            <th><a href="#" class=" eventAdd btn btn-md   col-md-6 btn-default btn-green"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Add Notice</a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Quin Jay</td>
-                            <td>January 12 2015</td>
-                            <td>Stable Center</td>
-                            <td> </td>
-                            <td>
-                                <a href="#" class="btn btn-default btn-md btn-blue col-md-3"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Visible</a>
-                                <a href="#" class="eventEdit btn btn-default btn-md btn-blue col-md-3"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Quin Jay</td>
-                            <td>January 12 2015</td>
-                            <td>Stable Center</td>
-                            <td> </td>
-                            <td>
-                                <a href="#" class="btn btn-default btn-md btn-blue col-md-3"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Hidden</a>
-                                <a href="#" class="eventEdit btn btn-default btn-md btn-blue col-md-3"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Edit</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.AnnouncementViewModel>
 
+<!-- Admin Announcement -->
 
-<div class="row" id="addEvent">
-    <div class="col-md-10 col-md-offset-1">
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
 
+        <!-- Search -->
+        @using (Html.BeginForm("AnnouncementFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline" role="form">
 
+                <div class="form-group">
+                    <input type="text" placeholder="Search Announcements" class="form-control" id="announcementSearchString" name="announcementSearchString">
+                </div>
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
+            </form>
+        }
 
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-heading"><h1>Add Event</h1></div>
-                <hr class="hr-style" />
-            </div>
-            <div class="col-md-6">
-
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="Name" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Date" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="Date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Location" class="col-sm-2 control-label">Location</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Location" placeholder="Location">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Note" class="col-sm-2 control-label">Notes</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" name="Note"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-green btn-default">Submit</button>
-                            <a href="http://localhost:61986/Admin/Index#deathsTab#Top" class="eventReset">   <input type="button" class="btn btn-blue btn-default" value="Cancel" /> </a>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-<div class="row" id="editEvent">
-
-    <div class="col-md-10 col-md-offset-1">
-
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-heading"><h1>Edit Event</h1></div>
-                <hr class="hr-style" />
-            </div>
-            <div class="col-md-6">
-
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="Name" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Date" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="Date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Location" class="col-sm-2 control-label">Location</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Location" placeholder="Location">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Note" class="col-sm-2 control-label">Notes</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" name="Note"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="isVisible" class="col-sm-2 control-label">Visible</label>
-                        <div class="checkbox col-md-offset-2">
-                            <input type="checkbox" name="visible" value="1">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-green btn-default">Submit</button>
-                            <a href="http://localhost:61986/Admin/Index#deathsTab#Top" class="eventReset">   <input type="button" class="btn btn-blue btn-default" value="Cancel" /> </a>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
+        <!-- End Search -->
 
     </div>
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+<!-- Announcement List Content -->
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Announcement Title</th>
+                    <th>Announcement Date</th>
+                    <th>Announcement Description</th>
+                    <td>
+                        <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addAnnouncement">
+                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Announcement
+                        </button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@Html.DisplayFor(i => item.Date)</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Announcement-@item.ID">
+                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit
+                            </button>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_AnnouncementDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- End Announcement List Content-->
+<!--Modal Pop-up add Announcement-->
+<!-- Modal -->
+<div class="modal fade" id="addAnnouncement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Announcement</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- Form For Adding Announcement -->
+                @using (Html.BeginForm("_AnnouncementAdd", "Admin", FormMethod.Get))
+                {
+                    <form>
+                        <div class="form-group">
+                            <label for="announceTitle">Announcement Title</label>
+                            <input type="text" class="form-control" name="announceTitle" id="announceTitle" placeholder="Announcement Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcDate">Date of Announcement</label>
+                            <input type="date" class="form-control" id="announcDate" name="announceDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcDetails">Announcement Details</label>
+                            <textarea class="form-control" name="announceDesc" id="announcDetails"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                }
+                <!-- /END of form -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /End Modal Add Announcement-->
+<!--Add Modal pop-up Edit Announcment-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="Announcement-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form For Edditing Announcement -->
+                    @using (Html.BeginForm("_AnnouncementEdit", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" name="ID" value="@items.ID" />
+
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
+                                <input type="text" value="@items.Title" name="announceTitle" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
+                                <input type="date" name="announceDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
+                                <textarea class="form-control" name="announceDesc">@items.Description</textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
+                    <!-- /END of form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
 }
-
-
-
+<!-- /End Model Edit announcement-->

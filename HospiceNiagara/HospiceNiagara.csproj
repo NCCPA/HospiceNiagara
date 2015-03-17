@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201503161233001_removedMigrations.Designer.cs">
       <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503170350123_linkedUpEvents.cs" />
+    <Compile Include="Migrations\201503170350123_linkedUpEvents.Designer.cs">
+      <DependentUpon>201503170350123_linkedUpEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -399,6 +403,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503161233001_removedMigrations.resx">
       <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503170350123_linkedUpEvents.resx">
+      <DependentUpon>201503170350123_linkedUpEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
