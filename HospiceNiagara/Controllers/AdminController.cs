@@ -50,8 +50,8 @@ namespace HospiceNiagara.Controllers
                                  DOB = u.DOB,
                                  PhoneNumber = u.PhoneNumber,
                                  PhoneExt = u.PhoneExt
-                             });       
-            
+                             });
+
             return View(viewModel.ToList());
         }
 
@@ -91,7 +91,7 @@ namespace HospiceNiagara.Controllers
             }
             return PartialView(fileList.ToList());
         }
-     
+
 
 
         // GET: Home/Delete/5
@@ -184,7 +184,7 @@ namespace HospiceNiagara.Controllers
         }
 
         //Edit Announcement
-        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc,int id)
+        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc, int id)
         {
             //Check to see if Forum Validates
             if (ModelState.IsValid)
@@ -196,9 +196,9 @@ namespace HospiceNiagara.Controllers
                 announcement.Title = announceTitle;
                 announcement.Date = announceDate;
                 announcement.Description = announceDesc;
-                
+
                 //Save and Update
-                db.SaveChanges();             
+                db.SaveChanges();
 
                 //redirect tot Admin Page with AnnouncementsTab Open
                 Response.Redirect("~/Admin/Index#announcementsTab#Top");
@@ -340,7 +340,7 @@ namespace HospiceNiagara.Controllers
 
             return PartialView(deathList.ToList());
         }
-        
+
 
 
         //Add Death
@@ -401,11 +401,81 @@ namespace HospiceNiagara.Controllers
             db.SaveChanges();
 
             //Redirect to proper Tab
-            Response.Redirect("~/Admin/Index#deathsTab#Top");            
+            Response.Redirect("~/Admin/Index#deathsTab#Top");
         }
         //End Death Section
         //**************************************************************************
 
 
-    }   
+        //**************************************************************************
+        //Begin Contact Section
+
+        public ActionResult _ContactsList(string contactSearchString)
+        {
+
+            //Search through all users and look for isContact to be true
+            var viewModel = from m in db.Users
+                            select new ContactViewModel
+                            {
+                                ID = m.Id,
+                                FirstName = m.FirstName,
+                                LastName = m.LastName,
+                                PhoneNumber = m.PhoneNumber,
+                                PhoneExt = m.PhoneExt,
+                                IsActive = m.IsActive,
+                                IsContact = m.IsContact,
+                                Position = m.Position,
+                                PositionDescription = m.PositionDescription,
+                                Email = m.Email
+                            };
+
+            //Sort by isContact for contact Page
+            viewModel = viewModel.Where(c => c.IsContact == true);
+
+
+            return PartialView(viewModel.ToList());
+        }
+
+        //Filter Relocation Contact
+
+
+        //Edit Contact
+        public void _EditContact(string firstname, string isContact, string lastname, string phoneNumber, string position, string positionDesc, string email, string id)
+        {
+            //Find Member
+            ApplicationUser user = db.Users.Find(id); 
+
+            //Set all Fields
+            user.FirstName = firstname;
+            user.LastName = lastname;
+            user.PhoneNumber = phoneNumber;
+            user.Position = position;
+            user.PositionDescription = positionDesc;
+            user.Email = email;
+
+            //set Contact visible option
+            if (isContact == "1")
+            {
+                user.IsContact = true;
+            }
+            else
+            {
+                user.IsContact = false;
+            }
+
+            //Save all Changes
+            db.SaveChanges();
+
+            //Redirect to proper Tab
+            Response.Redirect("~/Admin/Index#contactsTab#Top");
+        }
+
+        //Delete Contact
+
+        //End Contact Section
+        //**************************************************************************
+
+
+
+    }
 }

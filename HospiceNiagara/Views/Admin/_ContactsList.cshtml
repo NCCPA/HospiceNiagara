@@ -1,171 +1,150 @@
-﻿<br />
-<div class="row" id="showContact">
-    <div class="col-md-10 col-md-offset-1">
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.ContactViewModel>
 
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="txtSearch" class="sr-only">Search By Name</label>
-                <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-            </div>
-            <div class="form-group">
-                <select name="ddlScheduleSelection" class="form-control">
-                    <option value="all">All</option>
-                    <option value="Name">Name</option>
-                    <option value="Location">Location</option>
-                    <option value="Notes">About</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-blue btn-default">Search</button>
-        </form>
-        <br />
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Location</th>
-                            <th>Details</th>
-                            <th><a href="#" class="contactAdd btn btn-default btn-md btn-green col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Add</a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>The Stabler Centre</td>
-                            <td>403 Ontario Street, Unit 2, St. Catharines, L2N 1L5 </td>
-                            <td>Tel: 905-984-8766 Admin Fax: 905-934-9430 </td>
-                            <td>
-                                <a href="#" class="contactEdit btn btn-default btn-md btn-blue col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Niagara North Shared Care</td>
-                            <td>403 Ontario Street, Unit 2, St. Catharines, L2N 1L5 </td>
-                            <td>Tel: 905-984-8766 Fax: 905-934-9430</td>
-                            <td>
-                                <a href="#" class="contactEdit btn btn-default btn-md btn-blue col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span>&nbsp; Edit</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Admin Contact -->
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
 
+        <!-- Search -->
+        @using (Html.BeginForm("ContactFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline" role="form">
 
+                <div class="form-group">
+                    <input type="text" placeholder="Search Contacts" class="form-control" id="contactSearchString" name="contactSearchString">
+                </div>
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnContactSearch" />
+            </form>
+        }
 
-<div class="row" id="addContact">
-    <div class="col-md-10 col-md-offset-1">
-
-
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-heading"><h1>Add Contact</h1></div>
-                <hr class="hr-style" />
-            </div>
-            <div class="col-md-6">
-
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="Name" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Date" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="Date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Location" class="col-sm-2 control-label">Location</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Location" placeholder="Location">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Note" class="col-sm-2 control-label">Notes</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" name="Note"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-green btn-default">Submit</button>
-                            <a href="http://localhost:61986/Admin/Index#deathsTab#Top" class="contactReset">   <input type="button" class="btn btn-blue btn-default" value="Cancel" /> </a>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
+        <!-- End Search -->
 
     </div>
 </div>
-<div class="row" id="editContact">
+<br />
 
+<!-- Contact List Content -->
+<div class="row">
     <div class="col-md-10 col-md-offset-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Staff Member</th>
+                    <th>Position</th>
+                    <th>Email</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>
+                            <a data-toggle="modal" style="cursor:pointer" data-target="#ContactPosDesc-@item.ID"><b>@item.Position</b></a>
+                        </td>
+                        <td>@item.Email</td>
+                        
+                        <td>
+                            <button type="button" class="btn btn-default btn-blue col-md-12" data-toggle="modal" data-target="#Contact-@item.ID">
+                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- End Contact List Content-->
 
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-heading"><h1>Edit Contact</h1></div>
-                <hr class="hr-style" />
-            </div>
-            <div class="col-md-6">
-
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="Name" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Date" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="Date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Location" class="col-sm-2 control-label">Location</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Location" placeholder="Location">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Note" class="col-sm-2 control-label">Notes</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" name="Note"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="isVisible" class="col-sm-2 control-label">Visible</label>
-                        <div class="checkbox col-md-offset-2">
-                            <input type="checkbox" name="visible" value="1">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-green btn-default">Submit</button>
-                            <a href="http://localhost:61986/Admin/Index#deathsTab#Top" class="contactReset">   <input type="button" class="btn btn-blue btn-default" value="Cancel" /> </a>
-                        </div>
-                    </div>
-                </form>
+<!--Modal Pop-up Position Description-->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="ContactPosDesc-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@items.Position</h4>
+                </div>
+                <div class="modal-body">
+                    <p>@items.PositionDescription</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Close</button>
+                </div>
 
             </div>
         </div>
-
     </div>
-</div>
+}
+<!-- /End Modal PositionDescription-->
+
+<!--Add Modal pop-up Edit Contact-->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="Contact-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Contact Information</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form For Edditing Announcement -->
+                    @using (Html.BeginForm("_EditContact", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" name="id" value="@items.ID" />
+
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="firstName" class="col-md-4 control-label">First name</label>
+                                <input type="text" value="@items.FirstName" name="firstName" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="col-md-4 control-label">Last Name</label>
+                                <input type="text" value="@items.LastName" name="lastname" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Email, new { @class = "col-md-2 control-label" })
+                                <input type="text" value="@items.Email" name="email" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber" class="col-md-4 control-label">Phone Number</label>
+                                <input type="tel" name="phoneNumber" value="@items.PhoneNumber" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                               <label for="position" class="col-md-2 control-label">Position</label>
+                                <input type="text" value="@items.Position" name="position" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="position" class="col-md-4 control-label">Position Description</label>
+                                <textarea class="form-control" name="positionDesc">@items.PositionDescription</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="viewinContacts" class="col-md-4 control-label">View in Contacts</label>
+                                <select id="viewinContacts" name="isContact" class="form-control">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
+                    <!-- /END of form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- /End Model Edit Contact-->

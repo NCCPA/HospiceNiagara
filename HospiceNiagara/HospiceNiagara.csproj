@@ -221,6 +221,7 @@
     <Compile Include="Models\SubRole.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="Models\ViewModels\ContactViewModel.cs" />
     <Compile Include="Models\ViewModels\EventsViewModel.cs" />
     <Compile Include="Models\ViewModels\MeetingsViewModel.cs" />
     <Compile Include="Models\ViewModels\MyHospiceViewModel.cs" />
