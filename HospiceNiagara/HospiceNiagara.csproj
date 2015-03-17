@@ -172,21 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503161233001_removedMigrations.cs" />
-    <Compile Include="Migrations\201503161233001_removedMigrations.Designer.cs">
-      <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503170350123_linkedUpEvents.cs" />
-    <Compile Include="Migrations\201503170350123_linkedUpEvents.Designer.cs">
-      <DependentUpon>201503170350123_linkedUpEvents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503170357538_allEvents.cs" />
-    <Compile Include="Migrations\201503170357538_allEvents.Designer.cs">
-      <DependentUpon>201503170357538_allEvents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.cs" />
-    <Compile Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.Designer.cs">
-      <DependentUpon>201503172048321_changed_CreatedBYID_Deaths.cs</DependentUpon>
+    <Compile Include="Migrations\201503172127256_test.cs" />
+    <Compile Include="Migrations\201503172127256_test.Designer.cs">
+      <DependentUpon>201503172127256_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -410,17 +398,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503161233001_removedMigrations.resx">
-      <DependentUpon>201503161233001_removedMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503170350123_linkedUpEvents.resx">
-      <DependentUpon>201503170350123_linkedUpEvents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503170357538_allEvents.resx">
-      <DependentUpon>201503170357538_allEvents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503172048321_changed_CreatedBYID_Deaths.resx">
-      <DependentUpon>201503172048321_changed_CreatedBYID_Deaths.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503172127256_test.resx">
+      <DependentUpon>201503172127256_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
