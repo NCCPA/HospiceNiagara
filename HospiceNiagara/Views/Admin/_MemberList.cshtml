@@ -140,21 +140,32 @@
 
                 <script>
                     jQuery.validator.setDefaults({
-                        debug: true,
+                        // debug: true,
                         success: "valid",
                         errorClass: 'error'
                     });
 
                     var form = $("[name='_AddMember']");
-                   
-                    $("button").click(function () {
-                        alert("Valid: " + form.valid());
-                    });
+
+                    //$("button").click(function () {
+                    //    alert("Valid: " + form.valid());
+                    //});
 
                     form.validate({
                         rules: {
-                            firstName: "required",
-                            lastName: "required",
+                            firstName: {
+                                required: true,
+                                maxlength: 35
+                            },
+
+                            lastName: {
+                                required: true,
+                                maxlength: 45
+                            },
+
+                            positionDesc: {
+                                maxlength: 400
+                            },
 
                             email: {
                                 required: true,
@@ -162,8 +173,20 @@
                             }
                         },
                         messages: {
-                            firstName: "Please Specify First Name",
-                            lastName: "Please Specify Last Name",
+                            firstName: {
+                                required: "Please Specify First Name",
+                                maxlength: $.validator.format("Max Characters Accepted is {0}")
+                            },
+
+                            lastName: {
+                                required: "Please Specify Last Name",
+                                maxlength: $.validator.format("Max Characters Accepted is {0}")
+                            },
+
+                            positionDesc: {
+                                maxlength: $.validator.format("Max Characters Accepted is {0}")
+                            },
+
                             email: {
                                 required: "Required Email Address",
                                 email: "Must be in format of name@doman.com"
@@ -191,7 +214,7 @@
                 <div class="modal-body">
                     @Html.ValidationSummary("", new { @class = "text-danger" })
                     <!-- Form For Edditing Member -->
-                    @using (Html.BeginForm("_EditMember", "Admin", FormMethod.Get))
+                    @using (Html.BeginForm("_EditMember", "Admin", FormMethod.Get, new { name="MemberEdit" } ))
                     {
                         <input type="hidden" name="ID" value="@items.ID" />
 
@@ -276,6 +299,65 @@
                         </form>
                     }
                     <!-- /END of form -->
+                    <!--Validate Edit Form-->
+                    <script>
+                        jQuery.validator.setDefaults({
+                            // debug: true,
+                            success: "valid",
+                            errorClass: 'error'
+                        });
+
+                        var form = $("[name='MemberEdit']");
+
+                        //$("button").click(function () {
+                        //    alert("Valid: " + form.valid());
+                        //});
+
+                        form.validate({
+                            rules: {
+                                firstName: {
+                                    required: true,
+                                    maxlength: 35
+                                },
+
+                                lastName: {
+                                    required: true,
+                                    maxlength: 45
+                                },
+
+                                positionDesc: {
+                                    maxlength: 400
+                                },
+
+                                email: {
+                                    required: true,
+                                    email: true
+                                }
+                            },
+                            messages: {
+                                firstName: {
+                                    required: "Please Specify First Name",
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                lastName: {
+                                    required: "Please Specify Last Name",
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                positionDesc: {
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                email: {
+                                    required: "Required Email Address",
+                                    email: "Must be in format of name@doman.com"
+                                }
+                            }
+                        });
+                    </script>
+                    <!--End Validation-->
+
 
                 </div>
             </div>
