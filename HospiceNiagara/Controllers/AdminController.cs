@@ -381,7 +381,7 @@ namespace HospiceNiagara.Controllers
 
 
         //Edit Death
-        public void _EditDeath(string id, string deathName, DateTime deathDate, string location, string deathNote, bool deathVisible, string CreatedByID)
+        public void _EditDeath(int id, string deathName, DateTime deathDate, string location, string deathNote, bool deathVisible, string CreatedByID)
         {
             //Find Death Obj
             Death death = db.Deaths.Find(id);
