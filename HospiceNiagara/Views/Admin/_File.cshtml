@@ -81,6 +81,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
+                                                                                    <a data-toggle="modal" style="cursor:pointer" data-target="#File-@item.ID">Edit</a> |
+                                                                                   |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -130,7 +132,9 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
+                                                                                    <a data-toggle="modal" style="cursor:pointer" data-target="#File-@item.ID">Edit</a> |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                                                                   
                                                                                 </td>
                                                                             </tr>
                                                                         }
@@ -179,6 +183,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
+                                                                                    <a data-toggle="modal" style="cursor:pointer" data-target="#File-@item.ID">Edit</a> |
+                                                                                    |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -228,6 +234,7 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
+                                                                                    <a data-toggle="modal" style="cursor:pointer" data-target="#File-@item.ID">Edit</a> | |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -293,3 +300,44 @@
     </div>
 </div>
 <!-- /End Modal Add File-->
+
+<!--Edit File -->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="File-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form For Edditing Announcement -->
+                    @using (Html.BeginForm("_FileEdit", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" name="ID" value="@items.ID" />
+
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.FileName, new { @class = " control-label" })
+                                <input type="text" value="@items.FileName" name="fileName" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.FileDescription, new { @class = " control-label" })
+                                <input type="text" name="fileDesc" value="@Html.DisplayFor(i => items.FileDescription)" class="form-control" />
+                            </div>
+
+                            <button type="submit" class="btn btn-default btn-block btn-green">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
+                    <!-- /END of form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- /End Model Edit announcement-->

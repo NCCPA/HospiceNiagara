@@ -277,6 +277,23 @@ namespace HospiceNiagara.Controllers
             return View(filetoDelete);
         }
 
+        //Edit Files
+        public void _FileEdit(int id, string fileName, string fileDesc)
+        {
+            //Find File in database
+            Files files = db.Files.Find(id);
+
+            //add new fields
+            files.FileName = fileName;
+            files.FileDescription = fileDesc;
+
+            //Save changes
+            db.SaveChanges();
+
+            //Respond redirect correctly tab
+            Response.Redirect("~/Admin/Index#filesTab#Top");
+        }
+
         // POST: Home/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -656,6 +673,13 @@ namespace HospiceNiagara.Controllers
        
         //End Contact Section
         //**************************************************************************
+
+
+        //**************************************************************************
+        //Begin Schedule Section
+
+        //**************************************************************************
+        //End Schedule Section
 
 
 
