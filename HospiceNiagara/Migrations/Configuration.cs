@@ -246,15 +246,15 @@ namespace HospiceNiagara.Migrations
 
             var Death = new List<Death> 
             { 
-               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible=1},
-               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=1},
-               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=1},
-               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=1}
+               new Death { Name="Joe Smith", Date = Convert.ToDateTime("2014-12-16"), Location = "Community Client", Note = "Volunteer: Ted Tennant", Visible= true},
+               new Death { Name="Rachel Jones", Date = Convert.ToDateTime("2015-12-14"), Location = "The Stabler Centre", Note = "Room 4", Visible=true},
+               new Death { Name="Mary Brown", Date = Convert.ToDateTime("2015-12-08"), Location = "NN Outreach Team", Note = "", Visible=true},
+               new Death { Name="Sally Williams", Date = Convert.ToDateTime("2015-11-30"), Location = "NS Outreach Team", Note = "", Visible=true}
             };
             //comment
 
             Death.ForEach(d => context.Deaths.AddOrUpdate(x => x.Name, d));
-            context.SaveChanges();
+            SaveChanges(context);
             
         }
         private void SaveChanges(DbContext context)

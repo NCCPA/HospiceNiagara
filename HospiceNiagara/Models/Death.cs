@@ -32,7 +32,7 @@ namespace HospiceNiagara.Models
 
         [Display(Name = "Visible")]
         [Range(0, 2, ErrorMessage = "The visable value is not valid.")]
-        public int Visible { get; set; }
+        public bool Visible { get; set; }
 
         public string CreatedByID { get; set; }
 
@@ -63,7 +63,7 @@ namespace HospiceNiagara.Models
         [Display(Name = "Visible")]
         [Required]
         [Range(0, 2, ErrorMessage = "The visible range is invalid.")]
-        public int Visible { get; set; }
+        public bool Visible { get; set; }
   
         public string CreatedByID { get; set; }
     }

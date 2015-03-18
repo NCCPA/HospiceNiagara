@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.DeathViewModel>
 
-<!-- Admin Announcement -->
+<!-- Admin Deaths -->
 
 <div class="row">
     <div class="col-md-3 col-sm-10 col-md-offset-1">
 
         <!-- Search -->
-        @using (Html.BeginForm("DeathFilter", "Admin", FormMethod.Get))
+        @using (Html.BeginForm("deathFilter", "Admin", FormMethod.Get))
         {
             <form class="form-inline" role="form">
 
@@ -22,18 +22,19 @@
     </div>
 </div>
 
-<!-- Announcement List Content -->
+<!-- Deaths List Content -->
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>Name</th>
                     <th>Date</th>
-                    <th>Description</th>
+                    <th>Note</th>
+                    <th>Visible?</th>
                     <td>
                         <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addDeath">
-                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Announcement
+                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Death
                         </button>
                     </td>
                 </tr>
@@ -43,8 +44,9 @@
                 {
                     <tr>
                         <td>@item.Name</td>
-                        <td>@Html.DisplayFor(i => item.Date)</td>
-                        <td>@item.Location</td>
+                        <td>@item.Date</td>
+                        <td>@item.Note</td>
+                        <td>@item.Visible</td>
                         <td>
                             <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Death-@item.ID">
                                 <span class="glyphicon pull-left glyphicon-edit"></span> Edit
@@ -57,7 +59,7 @@
         </table>
     </div>
 </div>
-<!-- End Announcement List Content-->
+<!-- End Death List Content-->
 <!--Modal Pop-up add Announcement-->
 <!-- Modal -->
 <div class="modal fade" id="addDeath" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -65,25 +67,32 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Announcement</h4>
+                <h4 class="modal-title" id="myModalLabel">Add a Death</h4>
             </div>
             <div class="modal-body">
 
-                <!-- Form For Adding Announcement -->
+                <!-- Form For Adding Death -->
                 @using (Html.BeginForm("_AddDeath", "Admin", FormMethod.Get))
                 {
                     <form>
                         <div class="form-group">
-                            <label for="announceTitle">Announcement Title</label>
-                            <input type="text" class="form-control" name="announceTitle" id="announceTitle" placeholder="Announcement Title">
+                            <label for="deathName">Name</label>
+                            <input type="text" class="form-control" name="deathName" id="deathName" placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <label for="announcDate">Date of Announcement</label>
-                            <input type="date" class="form-control" id="announcDate" name="announceDate">
+                            <label for="deathDate">Date of Death</label>
+                            <input type="date" class="form-control" id="deathDate" name="deathDate">
                         </div>
                         <div class="form-group">
-                            <label for="announcDetails">Announcement Details</label>
-                            <textarea class="form-control" name="announceDesc" id="announcDetails"></textarea>
+                            <label for="deathNote">Note</label>
+                            <textarea class="form-control" name="deathNote" id="deathNote"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deathVisible">Visible?</label>                           
+                            <select id="deathVisible" name="deathVisible" class="form-control">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
                         <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
@@ -108,32 +117,40 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
+                    <h4 class="modal-title" id="myModalLabel">Edit Death</h4>
                 </div>
                 <div class="modal-body">
 
-                    <!-- Form For Edditing Announcement -->
+                    <!-- Form For Edditing Deaths -->
                     @using (Html.BeginForm("_EditDeath", "Admin", FormMethod.Get))
                     {
-                        <input type="hidden" name="ID" value="@items.ID" />
+                        <input type="hidden" value="@items.ID" name="id" />
 
                         <form class="form-horizontal">
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Name, new { @class = "col-md-2 control-label" })
-                                <input type="text" value="@items.Name" name="announceTitle" class="form-control" />
+                                <input type="text" value="@items.Name" name="deathName" class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
-                                <input type="date" name="announceDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                                <input type="date" name="deathDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(i => items.Location, new { @class = "col-md-2 control-label" })
-                                <textarea class="form-control" name="announceDesc">@items.Location</textarea>
+                                @Html.LabelFor(i => items.Note, new { @class = "col-md-2 control-label" })
+                                <textarea class="form-control" name="deathNote">@items.Note</textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <div class="form-group">
+                                @Html.LabelFor(i => items.Visible, new { @class = "col-md-2 control-label" })
+                                <select id="deathVisible" name="deathVisible" class="form-control">
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Save</button>
                             <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
                         </form>
                     }
