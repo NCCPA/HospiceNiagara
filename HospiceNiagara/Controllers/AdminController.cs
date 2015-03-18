@@ -72,6 +72,13 @@ namespace HospiceNiagara.Controllers
             return PartialView(viewModel.ToList());
         }
 
+        //Member Search
+        [HttpGet]
+        public void MemberFilter(string memberStringSearch)
+        {
+            Response.Redirect("~/Admin/Index?memberStringSearch=" + memberStringSearch + "#usersTab#Top#Top");
+        }
+
 
         //Add Member
         public void _AddMember(ApplicationUser model, string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
@@ -586,11 +593,21 @@ namespace HospiceNiagara.Controllers
             viewModel = viewModel.Where(c => c.IsContact == true);
 
 
+            if (!String.IsNullOrEmpty(contactSearchString))
+            {
+                viewModel = viewModel.Where(s => s.FirstName.Contains(contactSearchString));
+            }
+
             return PartialView(viewModel.ToList());
         }
 
         //Filter Relocation Contact
-
+        //Member Search
+        [HttpGet]
+        public void ContactFilter(string contactSearchString)
+        {
+            Response.Redirect("~/Admin/Index?contactSearchString=" + contactSearchString + "#contactsTab#Top");
+        }
 
         //Edit Contact
         public void _EditContact(string firstname, string isContact, string lastname, string phoneNumber, string position, string positionDesc, string email, string id)
@@ -622,9 +639,7 @@ namespace HospiceNiagara.Controllers
             //Redirect to proper Tab
             Response.Redirect("~/Admin/Index#contactsTab#Top");
         }
-
-        //Delete Contact
-
+       
         //End Contact Section
         //**************************************************************************
 

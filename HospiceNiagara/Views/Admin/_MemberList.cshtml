@@ -5,14 +5,14 @@
     <div class="col-md-3 col-sm-10 col-md-offset-1">
 
         <!-- Search -->
-        @using (Html.BeginForm("_MemberFilter", "Admin", FormMethod.Get))
+        @using (Html.BeginForm("MemberFilter", "Admin", FormMethod.Get))
         {
             <form class="form-inline" role="form">
 
                 <div class="form-group">
-                    <input type="text" placeholder="Search Members" class="form-control" id="announcementSearchString" name="announcementSearchString">
+                    <input type="text" placeholder="Search Members" class="form-control" id="MemberFilter" name="memberStringSearch">
                 </div>
-                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnMemberSearch" />
             </form>
         }
 
