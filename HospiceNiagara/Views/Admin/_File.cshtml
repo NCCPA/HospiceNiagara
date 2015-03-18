@@ -1,62 +1,53 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.FileViewModel>
-<br />
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
+<!-- Admin File -->
 
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
+
+        <!-- Search -->
+        @using (Html.BeginForm("AnnouncementFilter", "Admin", FormMethod.Get))
+        {
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="folder">Category</label>
-                    <select name="folder" class="form-control">
-                        <option value="1">Organizational</option>
-                        <option value="2">Board</option>
-                        <option value="3">Staff</option>
-                        <option value="4">Volunteer</option>
+                    <label for="txtSearch" class="sr-only">Search By Name</label>
+                    <input type="text" class="form-control" id="txtFileSearch" placeholder="Enter Search Content">
+                </div>
+           <!--     <div class="form-group">
+                    <select name="ddlScheduleSelection" id="ddlFileSchedule" class="form-control">
+                        <option value="all">All</option>
+                        <option value="org">Organizational Resources</option>
+                        <option value="board">Board Resources</option>
+                        <option value="staff">Staff Resources</option>
+                        <option value="vol">Volunteer Resources</option>
                     </select>
-                </div>
+                </div>-->
                 <div class="form-group">
-                    <label for="fileDescription" class="control-label">Description</label>
-                    <input type="text" class="form-control" name="fileDescription" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Select File</label>
-                    <input type="file" id="input-1a" class="file" name="FileUpload1" /><br />
+                    @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                    {
+                        <button type="button" id="adminFile"  class="btn btn-blue btn-default " value="Filter">Filter</button>
+                        
+                    }
+
                 </div>
             </form>
-            <br />
         }
 
-        <p>
-            Search for a file bellow.
-        </p>
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="txtSearch" class="sr-only">Search By Name</label>
-                <input type="text" class="form-control" id="txtFileSearch" placeholder="Enter Search Content">
-            </div>
-            <div class="form-group">
-                <select name="ddlScheduleSelection" id="ddlFileSchedule" class="form-control">
-                    <option value="all">All</option>
-                    <option value="org">Organizational Resources</option>
-                    <option value="board">Board Resources</option>
-                    <option value="staff">Staff Resources</option>
-                    <option value="vol">Volunteer Resources</option>
-                </select>
-            </div>
-            <div class="form-group">
-                @using (Html.BeginForm("Index", "File", FormMethod.Get))
-                {
-                    <button type="button" id="adminFile" style="width:70px; height:30px;" class="btn btn-blue btn-default " value="Filter">Submit</button>
-                }
+        <!-- End Search -->
 
-            </div>
-        </form>
-        <br />
-        <br />
-        <div class="row">
-            <div class="col-xs-12 col-sm-10  col-sm-push-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Folder <span class="pull-right">
+    <button type="button" class="btn btn-default btn-green" data-toggle="modal" data-target="#addFile">
+        <span class="glyphicon pull-left glyphicon-plus"></span> Add File
+    </button>
+</span></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>
@@ -255,7 +246,50 @@
                         </tr>
                     </tbody>
                 </table>
+    </div>
+</div>
+
+<!--Modal Pop-up add File-->
+<!-- Modal -->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add File</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Form For Adding File -->
+                @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="folder">Category</label>
+                            <select name="folder" class="form-control">
+                                <option value="1">Organizational</option>
+                                <option value="2">Board</option>
+                                <option value="3">Staff</option>
+                                <option value="4">Volunteer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fileDescription" class="control-label">Description</label>
+                            <input type="text" class="form-control" name="fileDescription" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Select File</label>
+                            <input type="file" id="input-1a" class="file" name="FileUpload1" /><br />
+                        </div>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                    <br />
+                }
+                <!-- /END of form -->
+
+
             </div>
         </div>
     </div>
 </div>
+<!-- /End Modal Add File-->
