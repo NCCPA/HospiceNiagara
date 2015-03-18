@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using HospiceNiagara.Models;
+using HospiceNiagara.Models.ViewModels;
 
 namespace HospiceNiagara.Models
 {
