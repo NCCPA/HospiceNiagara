@@ -4,29 +4,42 @@
     <h1>Resources</h1>
 </div>
 <div class="row">
-    <div class="col-xs-12 col-sm-10  col-sm-push-1">
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="txtSearch" class="sr-only">Search By Name</label>
-                <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-            </div>
-            <div class="form-group">
-                <select name="ddlScheduleSelection" class="form-control">
-                    <option value="all">All</option>
-                    <option value="current">Organizational Resources</option>
-                    <option value="past">Board Resources</option>
-                    <option value="past">Staff Resources</option>
-                    <option value="past">Volunteer Resources</option>
-                </select>
-            </div>
-            <div class="form-group">
-                @using (Html.BeginForm("Index", "File", FormMethod.Get))
-                {
-                    <input type="submit" class="btn btn-blue btn-default" value="Filter" />
-                }
-            </div>
-        </form>
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
 
+        <!-- Search -->
+        @using (Html.BeginForm("AnnouncementFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="txtSearch" class="sr-only">Search By Name</label>
+                    <input type="text" class="form-control" id="txtFileSearch" placeholder="Enter Search Content">
+                </div>
+                <!--     <div class="form-group">
+                         <select name="ddlScheduleSelection" id="ddlFileSchedule" class="form-control">
+                             <option value="all">All</option>
+                             <option value="org">Organizational Resources</option>
+                             <option value="board">Board Resources</option>
+                             <option value="staff">Staff Resources</option>
+                             <option value="vol">Volunteer Resources</option>
+                         </select>
+                     </div>-->
+                <div class="form-group">
+                    @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                    {
+                        <button type="button" id="adminFile" class="btn btn-blue btn-default " value="Filter">Filter</button>
+
+                    }
+
+                </div>
+            </form>
+        }
+
+        <!-- End Search -->
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-10  col-sm-push-1">
         <br />
         <br />
         <div class="row">

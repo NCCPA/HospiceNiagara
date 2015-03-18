@@ -88,7 +88,7 @@
                             <label for="announcDetails">Announcement Details</label>
                             <textarea class="form-control" name="announceDesc" id="announcDetails"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="submit" class="btn btn-default btn-block btn-green">Submit</button>
                         <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
                     </form>
                 }
@@ -121,21 +121,21 @@
 
                         <form class="form-horizontal">
                             <div class="form-group">
-                                @Html.LabelFor(i => items.Title, new { @class = "col-md-2 control-label" })
+                                @Html.LabelFor(i => items.Title, new { @class = " control-label" })
                                 <input type="text" value="@items.Title" name="announceTitle" class="form-control" />
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(i => items.Date, new { @class = "col-md-2 control-label" })
+                                @Html.LabelFor(i => items.Date, new { @class = " control-label" })
                                 <input type="date" name="announceDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(i => items.Description, new { @class = "col-md-2 control-label" })
+                                @Html.LabelFor(i => items.Description, new { @class = " control-label" })
                                 <textarea class="form-control" name="announceDesc">@items.Description</textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="submit" class="btn btn-default btn-block btn-green">Submit</button>
                             <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
                         </form>
                     }
