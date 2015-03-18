@@ -340,20 +340,28 @@ namespace HospiceNiagara.Controllers
 
             return PartialView(deathList.ToList());
         }
-        
 
+        //Filter Death
+        [HttpGet]
+        public void deathFilter(string deathSearchString)
+        {
+            Response.Redirect("~/Admin/Index?deathSearchString=" + deathSearchString + "#deathsTab#Top");
+        }
+
+        //
 
         //Add Death
-        public void _AddDeath(string name, DateTime date, string location, string note, bool visible, string CreatedByID)
+        public void _AddDeath(string deathName, DateTime deathDate, string location, string deathNote, bool deathVisible, string CreatedByID)
         {
             //Create new Death Obj
             Death death = new Death();
 
             //Add all properties
-            death.Name = name;
-            death.Date = date;
+            death.Name = deathName;
+            death.Date = deathDate;
             death.Location = location;
-            death.Note = note;
+            death.Note = deathNote;
+            death.Visible = deathVisible;
             death.CreatedByID = CreatedByID;
 
             //Add Object to the database
@@ -368,16 +376,17 @@ namespace HospiceNiagara.Controllers
 
 
         //Edit Death
-        public void _EditDeath(string id, string name, DateTime date, string location, string note, bool visible, string CreatedByID)
+        public void _EditDeath(string id, string deathName, DateTime deathDate, string location, string deathNote, bool deathVisible, string CreatedByID)
         {
             //Find Death Obj
             Death death = db.Deaths.Find(id);
 
             //Change all properties to new
-            death.Name = name;
-            death.Date = date;
+            death.Name = deathName;
+            death.Date = deathDate;
             death.Location = location;
-            death.Note = note;
+            death.Note = deathNote;
+            death.Visible = deathVisible;
             death.CreatedByID = CreatedByID;
 
             //Save all Changes
