@@ -93,7 +93,7 @@
                 <div class="modal-body">
 
                     <!-- Form For Edditing Announcement -->
-                    @using (Html.BeginForm("_EditContact", "Admin", FormMethod.Get))
+                    @using (Html.BeginForm("_EditContact", "Admin", FormMethod.Get, new { name="editContact"}))
                     {
                         <input type="hidden" name="id" value="@items.ID" />
 
@@ -141,7 +141,64 @@
                         </form>
                     }
                     <!-- /END of form -->
+                    <!--Validate Edit Form-->
+                    <script>
+                        jQuery.validator.setDefaults({
+                            // debug: true,
+                            success: "valid",
+                            errorClass: 'error'
+                        });
 
+                        var form = $("[name='editContact']");
+
+                        //$("button").click(function () {
+                        //    alert("Valid: " + form.valid());
+                        //});
+
+                        form.validate({
+                            rules: {
+                                firstName: {
+                                    required: true,
+                                    maxlength: 35
+                                },
+
+                                lastname: {
+                                    required: true,
+                                    maxlength: 45
+                                },
+
+                                positionDesc: {
+                                    maxlength: 400
+                                },
+
+                                email: {
+                                    required: true,
+                                    email: true
+                                }
+                            },
+                            messages: {
+                                firstName: {
+                                    required: "Please Specify First Name",
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                lastname: {
+                                    required: "Please Specify Last Name",
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                positionDesc: {
+                                    maxlength: $.validator.format("Max Characters Accepted is {0}")
+                                },
+
+                                email: {
+                                    required: "Required Email Address",
+                                    email: "Must be in format of name@doman.com"
+                                }
+                            }
+                        });
+                    </script>
+                    <!--End Validation-->
                 </div>
             </div>
         </div>

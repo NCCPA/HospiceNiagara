@@ -6,7 +6,7 @@
     <div class="col-md-3 col-sm-10 col-md-offset-1">
 
         <!-- Search -->
-        @using (Html.BeginForm("deathFilter", "Admin", FormMethod.Get))
+        @using (Html.BeginForm("DeathFilter", "Admin", FormMethod.Get))
         {
             <form class="form-inline" role="form">
 
@@ -77,19 +77,19 @@
                     <form>
                         <div class="form-group">
                             <label for="deathName">Name</label>
-                            <input type="text" class="form-control" name="deathName" id="deathName" placeholder="Name">
+                            <input type="text" class="form-control" name="name" id="deathName" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="deathDate">Date of Death</label>
-                            <input type="date" class="form-control" id="deathDate" name="deathDate">
+                            <input type="date" class="form-control" id="date" name="date">
                         </div>
                         <div class="form-group">
                             <label for="deathNote">Note</label>
-                            <textarea class="form-control" name="deathNote" id="deathNote"></textarea>
+                            <textarea class="form-control" name="note" id="deathNote"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="deathVisible">Visible?</label>                           
-                            <select id="deathVisible" name="deathVisible" class="form-control">
+                            <select id="deathVisible" name="visible" class="form-control">
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
                             </select>
@@ -129,24 +129,33 @@
                         <form class="form-horizontal">
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Name, new { @class = "control-label" })
-                                <input type="text" value="@items.Name" name="deathName" class="form-control" />
+                                <input type="text" value="@items.Name" name="name" class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Date, new { @class = " control-label" })
-                                <input type="date" name="deathDate" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
+                                <input type="date" name="date" value="@Html.DisplayFor(i => items.Date)" class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Note, new { @class = " control-label" })
-                                <textarea class="form-control" name="deathNote">@items.Note</textarea>
+                                <textarea class="form-control" name="note">@items.Note</textarea>
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Visible, new { @class = " control-label" })
-                                <select id="deathVisible" name="deathVisible" class="form-control">
-                                    <option value="true">Yes</option>
-                                    <option value="false">No</option>
+                                <select id="deathVisible" name="visible" class="form-control">
+                                    @if (items.Visible == true)
+                                    {
+                                        <option value="1" selected>Yes</option>
+                                        <option value="0">No</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">Yes</option>
+                                        <option value="0" selected>No</option>
+                                    }
+                                    
                                 </select>
                             </div>
 

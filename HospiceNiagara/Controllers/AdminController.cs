@@ -501,7 +501,12 @@ namespace HospiceNiagara.Controllers
             return PartialView(deathList.ToList());
         }
 
-
+        //FilterDeath
+        [HttpGet]
+        public void DeathFilter(string deathSearchString)
+        {
+            Response.Redirect("~/Admin/Index?deathSearchString=" + deathSearchString + "#deathsTab#Top");
+        }
 
         //Add Death
         public void _AddDeath(string name, DateTime date, string location, string note, bool visible, string CreatedByID)
@@ -528,7 +533,7 @@ namespace HospiceNiagara.Controllers
 
 
         //Edit Death
-        public void _EditDeath(string id, string name, DateTime date, string location, string note, bool visible, string CreatedByID)
+        public void _EditDeath(int id, string name, DateTime date, string location, string note, string visible, string CreatedByID)
         {
             //Find Death Obj
             Death death = db.Deaths.Find(id);
@@ -539,6 +544,15 @@ namespace HospiceNiagara.Controllers
             death.Location = location;
             death.Note = note;
             death.CreatedByID = CreatedByID;
+
+            if (visible == "1")
+            {
+                death.Visible = true;
+            }
+            else
+            {
+                death.Visible = false;
+            }
 
             //Save all Changes
             db.SaveChanges();
