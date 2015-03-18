@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-using HospiceNiagara.Models;
-using HospiceNiagara.Models.ViewModels;
 
-namespace HospiceNiagara.Models
+namespace HospiceNiagara.Models.ViewModels
 {
-    public class MemberViewModel
+    public class ContactViewModel
     {
-        //Add Children ViewModels
-        public List<FileViewModel> FileViewModel { get; set; }
-        public List<Death> Death { get; set; }
-        
-
-
         public string ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

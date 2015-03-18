@@ -59,7 +59,7 @@ namespace HospiceNiagara.Models
 
         //id of person
         //[Required(ErrorMessage = "You must select a User.")]
-        public int CreatedByID { get; set; }
+        public String CreatedByID { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
 

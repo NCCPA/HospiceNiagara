@@ -93,6 +93,11 @@ namespace HospiceNiagara.Controllers
         }
      
 
+        public FileContentResult FileDownload(int id)
+        {
+            var theFile = db.Files.Where(f => f.ID == id).SingleOrDefault();
+            return File(theFile.FileContent, theFile.MimeType, theFile.FileName);
+        }
 
         // GET: Home/Delete/5
         public ActionResult Delete(int? id)
@@ -125,7 +130,7 @@ namespace HospiceNiagara.Controllers
             HospiceNiagara.Models.Files fileStore = db.Files.Find(id);
             db.Files.Remove(fileStore);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("~/Admin/Index#filesTab#Top");
         }
         //End File Section
         //*************************************************************
@@ -184,7 +189,7 @@ namespace HospiceNiagara.Controllers
         }
 
         //Edit Announcement
-        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc,int id)
+        public void _AnnouncementEdit(string announceTitle, DateTime announceDate, string announceDesc, int id)
         {
             //Check to see if Forum Validates
             if (ModelState.IsValid)
@@ -340,7 +345,7 @@ namespace HospiceNiagara.Controllers
 
             return PartialView(deathList.ToList());
         }
-
+        
         //Filter Death
         [HttpGet]
         public void deathFilter(string deathSearchString)
@@ -414,6 +419,76 @@ namespace HospiceNiagara.Controllers
         }
         //End Death Section
         //**************************************************************************
+
+
+        //**************************************************************************
+        //Begin Contact Section
+
+        public ActionResult _ContactsList(string contactSearchString)
+        {
+
+            //Search through all users and look for isContact to be true
+            var viewModel = from m in db.Users
+                            select new ContactViewModel
+                            {
+                                ID = m.Id,
+                                FirstName = m.FirstName,
+                                LastName = m.LastName,
+                                PhoneNumber = m.PhoneNumber,
+                                PhoneExt = m.PhoneExt,
+                                IsActive = m.IsActive,
+                                IsContact = m.IsContact,
+                                Position = m.Position,
+                                PositionDescription = m.PositionDescription,
+                                Email = m.Email
+                            };
+
+            //Sort by isContact for contact Page
+            viewModel = viewModel.Where(c => c.IsContact == true);
+
+
+            return PartialView(viewModel.ToList());
+        }
+
+        //Filter Relocation Contact
+
+
+        //Edit Contact
+        public void _EditContact(string firstname, string isContact, string lastname, string phoneNumber, string position, string positionDesc, string email, string id)
+        {
+            //Find Member
+            ApplicationUser user = db.Users.Find(id); 
+
+            //Set all Fields
+            user.FirstName = firstname;
+            user.LastName = lastname;
+            user.PhoneNumber = phoneNumber;
+            user.Position = position;
+            user.PositionDescription = positionDesc;
+            user.Email = email;
+
+            //set Contact visible option
+            if (isContact == "1")
+            {
+                user.IsContact = true;
+            }
+            else
+            {
+                user.IsContact = false;
+            }
+
+            //Save all Changes
+            db.SaveChanges();
+
+            //Redirect to proper Tab
+            Response.Redirect("~/Admin/Index#contactsTab#Top");
+        }
+
+        //Delete Contact
+
+        //End Contact Section
+        //**************************************************************************
+
 
 
     }   

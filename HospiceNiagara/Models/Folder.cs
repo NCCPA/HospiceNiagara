@@ -17,9 +17,20 @@ namespace HospiceNiagara.Models
 
         [Required(ErrorMessage = "You cannot leave the name of the file blank.")]
         [StringLength(100, ErrorMessage = "The name of the file cannot be more than 100 characters.")]
-        public string FileName { get; set; }
+        public string FolderName { get; set; }
 
         [StringLength(100, ErrorMessage = "The file description cannot be more than 100 characters.")]
-        public string FileDescription { get; set; }
+        public string FolderDescription { get; set; }
+    }
+    public class FolderViewModel
+    {
+        public int ID { get; set; }
+
+        [Required(ErrorMessage = "You cannot leave the name of the file blank.")]
+        [StringLength(100, ErrorMessage = "The name of the file cannot be more than 100 characters.")]
+        public string FolderName { get; set; }
+
+        [StringLength(100, ErrorMessage = "The file description cannot be more than 100 characters.")]
+        public string FolderDescription { get; set; }
     }
 }

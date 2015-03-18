@@ -4,7 +4,7 @@
     <div class="col-md-10 col-md-offset-1">
         @using (Html.BeginForm("Index", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            
+
             <form class="form-inline">
                 <div class="form-group">
                     <label for="folder">Category</label>
@@ -13,15 +13,6 @@
                         <option value="2">Board</option>
                         <option value="3">Staff</option>
                         <option value="4">Volunteer</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="folder">Folder</label>
-                    <select name="folder" class="form-control">
-                        <option value="1">Sample</option>
-                        <option value="2">Blample</option>
-                        <option value="3">Dample</option>
-                        <option value="4">Crample</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -45,7 +36,7 @@
                 <input type="text" class="form-control" id="txtFileSearch" placeholder="Enter Search Content">
             </div>
             <div class="form-group">
-                <select name="ddlScheduleSelection" id="ddlFileShedule" class="form-control">
+                <select name="ddlScheduleSelection" id="ddlFileSchedule" class="form-control">
                     <option value="all">All</option>
                     <option value="org">Organizational Resources</option>
                     <option value="board">Board Resources</option>
@@ -54,11 +45,11 @@
                 </select>
             </div>
             <div class="form-group">
-                  @using (Html.BeginForm("Index", "File", FormMethod.Get))
-                  {
-                    <button type="button" id="adminFile" style="width:70px; height:30px;"  class="btn btn-blue btn-default " value="Filter" >Submit</button>
-                  }
-          
+                @using (Html.BeginForm("Index", "File", FormMethod.Get))
+                {
+                    <button type="button" id="adminFile" style="width:70px; height:30px;" class="btn btn-blue btn-default " value="Filter">Submit</button>
+                }
+
             </div>
         </form>
         <br />
@@ -76,7 +67,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />  <div class="row fileList">
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Event </a><br />  <div class="row fileList">
                                                             <br />
                                                             <div class="col-xs-12 col-sm-10  col-sm-push-1">
                                                                 <table class="table panel-heading well well-sm ">
@@ -98,7 +89,7 @@
                                                                                     @Html.DisplayFor(modelItem => item.FileDescription)
                                                                                 </td>
                                                                                 <td>
-                                                                                    @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                                                                                    @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -106,6 +97,7 @@
                                                                     }
                                                                 </table>
                                                             </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -124,7 +116,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />  <div class="row fileList">
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Meeting #1 </a><br />  <div class="row fileList">
                                                             <br />
                                                             <div class="col-xs-12 col-sm-10  col-sm-push-1">
                                                                 <table class="table panel-heading well well-sm ">
@@ -146,7 +138,7 @@
                                                                                     @Html.DisplayFor(modelItem => item.FileDescription)
                                                                                 </td>
                                                                                 <td>
-                                                                                    @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                                                                                    @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -154,6 +146,7 @@
                                                                     }
                                                                 </table>
                                                             </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -172,7 +165,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />  <div class="row fileList">
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Staff Schedules </a><br />  <div class="row fileList">
                                                             <br />
                                                             <div class="col-xs-12 col-sm-10  col-sm-push-1">
                                                                 <table class="table panel-heading well well-sm ">
@@ -194,7 +187,7 @@
                                                                                     @Html.DisplayFor(modelItem => item.FileDescription)
                                                                                 </td>
                                                                                 <td>
-                                                                                    @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                                                                                    @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -202,6 +195,7 @@
                                                                     }
                                                                 </table>
                                                             </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -220,7 +214,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Sample Folder </a><br />  <div class="row fileList">
+                                                        <a class="showfile"> &nbsp; &nbsp; &nbsp; <span class="widget-icon-left  glyphicon glyphicon-folder-open"> </span> &nbsp; Volunteer Schedules </a><br />  <div class="row fileList">
                                                             <br />
                                                             <div class="col-xs-12 col-sm-10  col-sm-push-1">
                                                                 <table class="table panel-heading well well-sm ">
@@ -242,7 +236,7 @@
                                                                                     @Html.DisplayFor(modelItem => item.FileDescription)
                                                                                 </td>
                                                                                 <td>
-                                                                                    @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                                                                                    @Html.ActionLink("Download", "FileDownload", new { id = item.ID }) |
                                                                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                                                                 </td>
                                                                             </tr>
@@ -250,6 +244,7 @@
                                                                     }
                                                                 </table>
                                                             </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -260,10 +255,7 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
-                </div>
-
-
-
             </div>
         </div>
+    </div>
+</div>

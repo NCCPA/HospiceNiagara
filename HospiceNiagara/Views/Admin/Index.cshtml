@@ -26,7 +26,7 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Partial("_MemberList")</div>
             <div role="tabpanel" class="tab-pane" id="filesTab">@Html.Action("_File", "Admin")</div>
-            <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Partial("_ContactsList")</div>
+            <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Action("_ContactsList","Admin")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Action("_MeetingsList","Admin")</div>
             <div role="tabpanel" class="tab-pane" id="announcementsTab">@Html.Action("_Announcement","Admin")</div>            
             <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Action("_Death", "Admin")</div>
