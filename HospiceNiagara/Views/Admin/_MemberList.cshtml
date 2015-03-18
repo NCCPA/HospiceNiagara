@@ -1,46 +1,54 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.MemberViewModel>
-<br />
+<!-- Admin Member -->
+
+<div class="row">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
+
+        <!-- Search -->
+        @using (Html.BeginForm("_MemberFilter", "Admin", FormMethod.Get))
+        {
+            <form class="form-inline" role="form">
+
+                <div class="form-group">
+                    <input type="text" placeholder="Search Announcements" class="form-control" id="announcementSearchString" name="announcementSearchString">
+                </div>
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
+            </form>
+        }
+
+        <!-- End Search -->
+
+    </div>
+</div>
+
+<!-- Member List Content -->
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-<form class="form-inline">
-    <div class="form-group">
-        <label for="txtSearch" class="sr-only">Search By Name</label>
-        <input type="text" class="form-control" id="txtSearch" placeholder="Enter Search Content">
-    </div>
-    <div class="form-group">
-        <select name="ddlScheduleSelection" class="form-control">
-            <option value="All">All</option>
-            <option value="Name">Name</option>
-            <option value="Email">E-Mail</option>
-            <option value="Phone">Phone</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-blue btn-default">Search</button>
-</form>
-<br />
-<div class="row">
-    <div class="col-md-12">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>E-Mail</th>
-                    <th>Phone</th>
-                    <th>Date Of Birth</th>
-                    <th><a href="/Account/Register" class="btn btn-default btn-green col-md-6"><span class="glyphicon pull-left glyphicon-plus "></span> Add User</a></th>
+                    <th>Member Name</th>
+                    <th>Member Phone Number</th>
+                    <th>Member E-Mail</th>
+                    <td>
+                        <button type="button" class="btn col-md-12 btn-default btn-green" data-toggle="modal" data-target="#addMember">
+                            <span class="glyphicon pull-left glyphicon-plus"></span> Add Member
+                        </button>
+                    </td>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DOB)</td>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Email</td>
                         <td>
-                            <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Index","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-user"></span> View</a>
-                            <a class="btn btn-default btn-blue col-md-3" href="@Url.Action("Edit","Profile", new { ID = item.ID })"><span class="glyphicon pull-left glyphicon-edit"></span> Edit</a>
+                            <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Member-@item.ID">
+                                <span class="glyphicon pull-left glyphicon-edit"></span> Edit
+                            </button>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_MemberDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
                 }
@@ -48,7 +56,183 @@
         </table>
     </div>
 </div>
+<!-- End Announcement List Content-->
+<!--Modal Pop-up add Announcement-->
+<!-- Modal -->
+<div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Announcement</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- Form For Adding Member -->
+                @using (Html.BeginForm("_AddMember", "Admin", FormMethod.Get))
+                {
+                    <form>
+                        <div class="form-group">
+                            <label for="memberFirstName">First Name</label>
+                            <input type="text" class="form-control" name="firstName" id="memberFirstName" placeholder="First Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="announcDate">Last Name</label>
+                            <input type="text" class="form-control" id="memberLastName" name="lastName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberBio">Member Bio</label>
+                            <input type="text" class="form-control" name="bio" id="memberBio" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberEmail">E-Mail</label>
+                            <input type="text" class="form-control" name="email" id="memberEmail" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberPhoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" name="phoneNumber" id="memberPhoneNumber" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberPhoneExt">Phone Extension</label>
+                            <input type="text" class="form-control" name="phoneExt" id="memberPhoneExt" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberIsContact">View Member in Contacts</label>
+                            <select class="form-control" name="isContact" id="memberIsContact">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberPosition">Position Title</label>
+                            <input type="text" class="form-control" name="position" id="memberPosition" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberPositionDesc">Position Description</label>
+                            <textarea class="form-control" name="positionDesc" id="memberPositionDesc"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberIsActive">Active Member</label>
+                            <select class="form-control" name="isActive" id="memberIsActive">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                        <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                    </form>
+                }
+                <!-- /END of form -->
+
+
+            </div>
         </div>
     </div>
+</div>
+<!-- /End Modal Add Member-->
+
+<!--Edit Member Modal -->
+@foreach (var items in Model)
+{
+    <div class="modal fade" id="Member-@items.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Announcement</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <!-- Form For Edditing Member -->
+                    @using (Html.BeginForm("_EditMember", "Admin", FormMethod.Get))
+                    {
+                        <input type="hidden" name="ID" value="@items.ID" />
+
+                        <form>
+                            <div class="form-group">
+                                <label for="memberFirstName">First Name</label>                                
+                                <input type="text" name="firstName" id="memberFirstname" class="form-control"  required value="@items.FirstName" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberLastname">Last Name</label>
+                                <input type="text" name="lastName" id="memberLastname" class="form-control" required value="@items.LastName" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberBio">Member Bio</label>
+                                <textarea id="memberBio" class="form-control" name="bio" maxlength="250">@items.Bio</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberEmail">E-Mail</label>
+                                <input type="email" class="form-control" required name="email" value="@items.Email" id="memberEmail" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberPhoneNumber">Phone Number</label>
+                                <input type="text" class="form-control" name="phoneNumber" value="@items.PhoneNumber" id="memberPhoneNumber" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberPhoneExt">Phone Extension</label>
+                                <input type="text" maxlength="4" class="form-control" name="phoneExt" value="@items.PhoneExt" id="memberPhoneExt" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberIsContact">View Member in Contacts</label>
+                                <select class="form-control" name="isContact" id="memberIsContact" >
+                                    @if (items.IsContact == true) { 
+                                    <option value="1" selected="selected">Yes</option>
+                                    <option value="0">No</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">Yes</option>
+                                        <option value="0" selected="selected">No</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberPosition">Position Title</label>
+                                <input type="text" class="form-control" name="position" value="@items.Position" id="memberPosition" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberPositionDesc">Position Description</label>
+                                <textarea class="form-control" name="positionDesc" id="memberPositionDesc">@items.PositionDescription</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="memberIsActive">Active Member</label>
+                                <select class="form-control" name="isActive" id="memberIsActive">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
 
 
+                            <button type="submit" class="btn btn-default btn-block btn-blue">Submit</button>
+                            <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
+                        </form>
+                    }
+                    <!-- /END of form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- /End Model Edit announcement-->

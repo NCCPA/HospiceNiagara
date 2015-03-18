@@ -22,9 +22,9 @@
 
     <div class="row">
 
-        <!-- Tab panes new List<HospiceNiagara.Models.FileViewModel>() -->
+        <!-- Tab panes new -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Partial("_MemberList")</div>
+            <div role="tabpanel" class="tab-pane active" id="usersTab">@Html.Action("_MemberList","Admin")</div>
             <div role="tabpanel" class="tab-pane" id="filesTab">@Html.Action("_File", "Admin")</div>
             <div role="tabpanel" class="tab-pane" id="contactsTab">@Html.Action("_ContactsList","Admin")</div>
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Action("_MeetingsList","Admin")</div>

@@ -6,8 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,30 +35,148 @@ namespace HospiceNiagara.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            //Initialize store and manager
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-
-            //Get Current Id and Display it to the User
-            var currentUserId = User.Identity.GetUserId();
-            var Users = manager.Users;
-
-            var viewModel = (from u in db.Users
-                             select new MemberViewModel
-                             {
-                                 ID = u.Id,
-                                 FirstName = u.FirstName,
-                                 LastName = u.LastName,
-                                 Email = u.Email,
-                                 DOB = u.DOB,
-                                 PhoneNumber = u.PhoneNumber,
-                                 PhoneExt = u.PhoneExt
-                             });
-
-            return View(viewModel.ToList());
+            return View();
         }
 
         //*******************************************************************
         //File Section
+
+
+        //*******************************************************************
+        //Start Member Section
+        
+        //Show MemberList
+        public ActionResult _Memberlist(string memberStringSearch)
+        {
+            var viewModel = from v in db.Users
+                            select new MemberViewModel
+                            {
+                                ID = v.Id,
+                                FirstName = v.FirstName,
+                                LastName = v.LastName,
+                                Bio = v.Bio,
+                                Email = v.Email,
+                                PhoneNumber = v.PhoneNumber,
+                                PhoneExt = v.PhoneExt,
+                                IsContact = v.IsContact,
+                                Position = v.Position,
+                                PositionDescription = v.PositionDescription,
+                                IsActive = v.IsActive                                
+                            };
+
+            if (!String.IsNullOrEmpty(memberStringSearch))
+            {
+                viewModel = viewModel.Where(s => s.FirstName.Contains(memberStringSearch));
+            }
+
+            return PartialView(viewModel.ToList());
+        }
+
+
+        //Add Member
+        public void _AddMember(string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
+        {
+            //make new member Object
+            ApplicationUser user = new ApplicationUser();
+
+            //Set all Fields needed
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Bio = bio;
+            user.Email = email;
+            user.PhoneNumber = phoneNumber;
+            user.PhoneExt = phoneExt;            
+            user.PositionDescription = positionDesc;
+            user.Position = position;
+
+            //Drop Down List for active or inactive member
+            if (isActive == "1")
+            {
+                user.IsActive = true;
+            }
+            else
+            {
+                user.IsActive = false;
+            }
+
+            //Drop Down List to view member in Contact List or Not
+            if (isContact == "1")
+            {
+                user.IsContact = true;
+            }
+            else
+            {
+                user.IsContact = false;
+            }
+
+
+            //Add user Object to Users.db
+            db.Users.Add(user);
+
+            //save context
+            db.SaveChanges();
+
+            //Redirect correctly
+            Response.Redirect("~/Admin/Index#usersTab#Top");
+        }
+
+        //Edit Member
+        public void _EditMember(string id, string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
+        {
+
+                ApplicationUser user = db.Users.Find(id);
+
+                //Set all Fields needed
+                user.FirstName = firstName;
+                user.LastName = lastName;
+                user.Bio = bio;
+                user.Email = email;
+                user.PhoneNumber = phoneNumber;
+                user.PhoneExt = phoneExt;
+                user.PositionDescription = positionDesc;
+                user.Position = position;
+
+                //Drop Down List for active or inactive member
+                if (isActive == "1")
+                {
+                    user.IsActive = true;
+                }
+                else
+                {
+                    user.IsActive = false;
+                }
+
+                //Drop Down List to view member in Contact List or Not
+                if (isContact == "1")
+                {
+                    user.IsContact = true;
+                }
+                else
+                {
+                    user.IsContact = false;
+                }
+
+                //save context
+                db.SaveChanges();
+                //Redirect correctly
+                Response.Redirect("~/Admin/Index#usersTab#Top");
+            
+        }
+
+        //Delete Member
+        public void _MemberDelete(string id)
+        {
+            //Get User and remove from db
+            ApplicationUser user = db.Users.Find(id);
+            db.Users.Remove(user);
+            db.SaveChanges();
+            Response.Redirect("~/Admin/Index#usersTab#Top");
+        }
+
+
+        //End Member Section
+        //*******************************************************************
+
 
         public ActionResult _File()
         {

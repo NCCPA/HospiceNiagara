@@ -176,6 +176,18 @@
     <Compile Include="Migrations\201503172127256_test.Designer.cs">
       <DependentUpon>201503172127256_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503180052279_addedValidationForMember.cs" />
+    <Compile Include="Migrations\201503180052279_addedValidationForMember.Designer.cs">
+      <DependentUpon>201503180052279_addedValidationForMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503180110117_removedRequiredFields.cs" />
+    <Compile Include="Migrations\201503180110117_removedRequiredFields.Designer.cs">
+      <DependentUpon>201503180110117_removedRequiredFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503180118303_re-added-requiredFields.cs" />
+    <Compile Include="Migrations\201503180118303_re-added-requiredFields.Designer.cs">
+      <DependentUpon>201503180118303_re-added-requiredFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnounceFile.cs" />
@@ -200,7 +212,7 @@
     <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\MeetingPrivacy.cs" />
     <Compile Include="Models\MeetingResource.cs" />
-    <Compile Include="Models\MemberViewModel.cs" />
+    <Compile Include="Models\ViewModels\MemberViewModel.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RSVP.cs" />
@@ -361,7 +373,6 @@
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Profile\_ModalPicture.cshtml" />
     <Content Include="Views\Admin\_ResourceList.cshtml" />
-    <Content Include="Views\Admin\_BookDetails.cshtml" />
     <Content Include="Views\Admin\_File.cshtml" />
     <Content Include="Views\File\Index.cshtml" />
     <Content Include="Views\File\Delete.cshtml" />
@@ -402,6 +413,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503172127256_test.resx">
       <DependentUpon>201503172127256_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180052279_addedValidationForMember.resx">
+      <DependentUpon>201503180052279_addedValidationForMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180110117_removedRequiredFields.resx">
+      <DependentUpon>201503180110117_removedRequiredFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503180118303_re-added-requiredFields.resx">
+      <DependentUpon>201503180118303_re-added-requiredFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
