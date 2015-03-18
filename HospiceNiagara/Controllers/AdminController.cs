@@ -93,6 +93,11 @@ namespace HospiceNiagara.Controllers
         }
 
 
+        public FileContentResult FileDownload(int id)
+        {
+            var theFile = db.Files.Where(f => f.ID == id).SingleOrDefault();
+            return File(theFile.FileContent, theFile.MimeType, theFile.FileName);
+        }
 
         // GET: Home/Delete/5
         public ActionResult Delete(int? id)
@@ -125,7 +130,7 @@ namespace HospiceNiagara.Controllers
             HospiceNiagara.Models.Files fileStore = db.Files.Find(id);
             db.Files.Remove(fileStore);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("~/Admin/Index#filesTab#Top");
         }
         //End File Section
         //*************************************************************
