@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using HospiceNiagara.Models;
 using HospiceNiagara.Models.ViewModels;
 
-namespace HospiceNiagara.Models
+namespace HospiceNiagara.Models.ViewModels
 {
     public class MemberViewModel
     {

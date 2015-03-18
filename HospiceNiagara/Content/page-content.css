@@ -223,3 +223,10 @@ body {
 .tab-content{
     overflow:hidden;
 }
+
+
+.error {
+    color:red;
+    padding-top:5px;
+    padding-left:5px;
+}

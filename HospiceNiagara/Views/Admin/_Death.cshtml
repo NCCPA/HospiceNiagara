@@ -49,7 +49,7 @@
                             <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Death-@item.ID">
                                 <span class="glyphicon pull-left glyphicon-edit"></span> Edit
                             </button>
-                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_DeleteDeath", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_DeleteDeath", "Admin", new { id = item.ID })" onclick="javascript:return confirm('Are you sure you want to delete?')"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
                 }

@@ -200,7 +200,6 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventPrivacy.cs" />
     <Compile Include="Models\EventResource.cs" />
-    <Compile Include="Models\File.cs" />
     <Compile Include="Models\Files.cs" />
     <Compile Include="Models\Folder.cs" />
     <Compile Include="Models\FolderGroup.cs" />
@@ -309,9 +308,9 @@
     <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.11.2.js" />
     <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

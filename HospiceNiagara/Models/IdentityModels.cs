@@ -33,12 +33,6 @@ namespace HospiceNiagara.Models
         [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
 
-        [Display(Name = "E-Mail")]
-        public string Email { get; set; }
-
-        [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
-
         [Display(Name = "Phone Extension")]
         public string PhoneExt { get; set; }
 

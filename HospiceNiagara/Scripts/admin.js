@@ -153,4 +153,9 @@
         txtSearch = txtSearch.replace(/\s+/g, '+');
         location.href = 'http://localhost:61986/Admin/Index?searchString=' + txtSearch + '#filesTab#top';
     });
+
+
+
+
+
 });

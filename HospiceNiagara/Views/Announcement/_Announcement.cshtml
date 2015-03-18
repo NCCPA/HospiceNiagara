@@ -1,31 +1,28 @@
 ﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.AnnouncementViewModel>
+
+<!-- My Hospice Announcement -->
+
 <div class="row">
-    <div class="col-md-3 col-sm-10">
+    <div class="col-md-3 col-sm-10 col-md-offset-1">
+
         <!-- Search -->
-        @using (Html.BeginForm("_announcement", "Announcement", FormMethod.Get))
+        @using (Html.BeginForm("AnnouncementFilter", "Admin", FormMethod.Get))
         {
             <form class="form-inline" role="form">
 
                 <div class="form-group">
-                    <select class="form-control">
-                        <option>Title</option>
-                        <option>Date</option>
-                    </select>
+                    <input type="text" placeholder="Search Announcements" class="form-control" id="announcementSearchString" name="announcementSearchString">
                 </div>
-
-                <div class="form-group">
-                    <input type="text" placeholder="Search Announcements" class="form-control" name="searchAnnouncement">
-                </div>
-
-                <input type="submit" value="Search" class="btn btn-blue btn-default" />
+                <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
             </form>
         }
+
         <!-- End Search -->
 
     </div>
 </div>
-
-<!-- Page Content -->
+<br/>
+<!-- Announcement List Content -->
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <table class="table table-striped">
@@ -33,8 +30,7 @@
                 <tr>
                     <th>Announcement Title</th>
                     <th>Announcement Date</th>
-                    <th>Announcement Description</th>
-
+                    <th>Announcement Description</th>                  
                 </tr>
             </thead>
             <tbody>
@@ -42,11 +38,12 @@
                 {
                     <tr>
                         <td>@item.Title</td>
-                        <td>@item.CreatedByID</td>
-                        <td>@item.Description</td>
+                        <td>@Html.DisplayFor(i => item.Date)</td>
+                        <td>@item.Description</td>                      
                     </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
+<!-- End Announcement List Content-->

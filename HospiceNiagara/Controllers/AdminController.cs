@@ -74,63 +74,91 @@ namespace HospiceNiagara.Controllers
 
 
         //Add Member
-        public void _AddMember(string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
+        public void _AddMember(ApplicationUser model, string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
         {
-            //make new member Object
-            ApplicationUser user = new ApplicationUser();
-
-            //Set all Fields needed
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.Bio = bio;
-            user.Email = email;
-            user.PhoneNumber = phoneNumber;
-            user.PhoneExt = phoneExt;            
-            user.PositionDescription = positionDesc;
-            user.Position = position;
-
-            //Drop Down List for active or inactive member
-            if (isActive == "1")
-            {
-                user.IsActive = true;
-            }
-            else
-            {
-                user.IsActive = false;
-            }
-
-            //Drop Down List to view member in Contact List or Not
-            if (isContact == "1")
-            {
-                user.IsContact = true;
-            }
-            else
-            {
-                user.IsContact = false;
-            }
-
-
-            //Add user Object to Users.db
-            db.Users.Add(user);
-
-            //save context
-            db.SaveChanges();
-
-            //Redirect correctly
-            Response.Redirect("~/Admin/Index#usersTab#Top");
-        }
-
-        //Edit Member
-        public void _EditMember(string id, string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
-        {
-
-                ApplicationUser user = db.Users.Find(id);
+               ApplicationUser user = new ApplicationUser();
 
                 //Set all Fields needed
                 user.FirstName = firstName;
                 user.LastName = lastName;
                 user.Bio = bio;
                 user.Email = email;
+                user.UserName = email;
+                user.PhoneNumber = phoneNumber;
+                user.PhoneExt = phoneExt;
+                user.PositionDescription = positionDesc;
+                user.Position = position;
+
+                //Drop Down List for active or inactive member
+                if (isActive == "1")
+                {
+                    user.IsActive = true;
+                }
+                else
+                {
+                    user.IsActive = false;
+                }
+
+                //Drop Down List to view member in Contact List or Not
+                if (isContact == "1")
+                {
+                    user.IsContact = true;
+                }
+                else
+                {
+                    user.IsContact = false;
+                }
+
+
+                //Add user Object to Users.db
+                db.Users.Add(user);
+
+                //save context
+                SaveChanges(db);
+
+                //Redirect correctly
+                Response.Redirect("~/Admin/Index#usersTab#Top");
+            
+        }
+
+
+        private void SaveChanges(DbContext context)
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                foreach (var failure in ex.EntityValidationErrors)
+                {
+                    sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
+                    foreach (var error in failure.ValidationErrors)
+                    {
+                        sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+                        sb.AppendLine();
+                    }
+                }
+
+                throw new DbEntityValidationException(
+                    "Entity Validation Failed - errors follow:\n" +
+                    sb.ToString(), ex
+                ); // Add the original exception as the innerException
+            }
+        }
+
+        //Edit Member
+        public void _EditMember(string id, string firstName, string lastName, string bio, string email, string phoneNumber, string phoneExt, string isContact, string position, string positionDesc, string isActive)
+        {          
+                ApplicationUser user = db.Users.Find(id);
+                //Set all Fields needed
+                user.FirstName = firstName;
+                user.LastName = lastName;
+                user.Bio = bio;
+                user.Email = email;
+                user.UserName = email;
                 user.PhoneNumber = phoneNumber;
                 user.PhoneExt = phoneExt;
                 user.PositionDescription = positionDesc;
@@ -157,10 +185,10 @@ namespace HospiceNiagara.Controllers
                 }
 
                 //save context
-                db.SaveChanges();
+                SaveChanges(db);
                 //Redirect correctly
                 Response.Redirect("~/Admin/Index#usersTab#Top");
-            
+           
         }
 
         //Delete Member

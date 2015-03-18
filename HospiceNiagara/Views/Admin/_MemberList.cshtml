@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiceNiagara.Models.MemberViewModel>
+﻿@model IEnumerable<HospiceNiagara.Models.ViewModels.MemberViewModel>
 <!-- Admin Member -->
 
 <div class="row">
@@ -10,7 +10,7 @@
             <form class="form-inline" role="form">
 
                 <div class="form-group">
-                    <input type="text" placeholder="Search Announcements" class="form-control" id="announcementSearchString" name="announcementSearchString">
+                    <input type="text" placeholder="Search Members" class="form-control" id="announcementSearchString" name="announcementSearchString">
                 </div>
                 <input type="submit" value="Filter" class="btn btn-default btn-blue" id="btnAnnouncementSearch" />
             </form>
@@ -48,7 +48,7 @@
                             <button type="button" class="btn btn-default btn-blue col-md-6" data-toggle="modal" data-target="#Member-@item.ID">
                                 <span class="glyphicon pull-left glyphicon-edit"></span> Edit
                             </button>
-                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_MemberDelete", "Admin", new { id = item.ID })"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
+                            <a class="col-md-6 btn btn-default btn-blue" href="@Url.Action("_MemberDelete", "Admin", new { id = item.ID })" onclick="javascript:return confirm('Are you sure you want to delete?')"><span class="pull-left glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
                 }
@@ -69,62 +69,64 @@
             <div class="modal-body">
 
                 <!-- Form For Adding Member -->
-                @using (Html.BeginForm("_AddMember", "Admin", FormMethod.Get))
+                @using (Html.BeginForm("_AddMember", "Admin", FormMethod.Get, new { name = "_AddMember" }))
                 {
+
                     <form>
                         <div class="form-group">
                             <label for="memberFirstName">First Name</label>
-                            <input type="text" class="form-control" name="firstName" id="memberFirstName" placeholder="First Name">
+                            <input type="text" class="form-control" name="firstName" id="memberFirstName" placeholder="First Name" /><br />
                         </div>
 
                         <div class="form-group">
-                            <label for="announcDate">Last Name</label>
-                            <input type="text" class="form-control" id="memberLastName" name="lastName">
+                            <label for="memberLastname">Last Name</label>
+                            <input type="text" name="lastName" id="memberLastname" class="form-control" placeholder="Last Name" /><br />
+
                         </div>
 
                         <div class="form-group">
                             <label for="memberBio">Member Bio</label>
-                            <input type="text" class="form-control" name="bio" id="memberBio" />
+                            <textarea id="memberBio" class="form-control" name="bio" maxlength="250" placeholder="Bio of Member"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="memberEmail">E-Mail</label>
-                            <input type="text" class="form-control" name="email" id="memberEmail" />
+                            <input type="email" class="form-control" required name="email" id="memberEmail" placeholder="E-Mail" /><br />
                         </div>
 
                         <div class="form-group">
                             <label for="memberPhoneNumber">Phone Number</label>
-                            <input type="text" class="form-control" name="phoneNumber" id="memberPhoneNumber" />
+                            <input type="text" class="form-control" name="phoneNumber" id="memberPhoneNumber" placeholder="Phone Number" />
                         </div>
 
                         <div class="form-group">
                             <label for="memberPhoneExt">Phone Extension</label>
-                            <input type="text" class="form-control" name="phoneExt" id="memberPhoneExt" />
+                            <input type="text" maxlength="4" class="form-control" name="phoneExt" id="memberPhoneExt" placeholder="Phone Number Extension" />
                         </div>
 
                         <div class="form-group">
                             <label for="memberIsContact">View Member in Contacts</label>
-                            <select class="form-control" name="isContact" id="memberIsContact">
+                            <select class="form-control" name="isContact" id="memberIsContact" required>
                                 <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                <option value="0" selected>No</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="memberPosition">Position Title</label>
-                            <input type="text" class="form-control" name="position" id="memberPosition" />
+                            <input type="text" class="form-control" name="position" value="" id="memberPosition" placeholder="Position Title" />
                         </div>
 
                         <div class="form-group">
                             <label for="memberPositionDesc">Position Description</label>
-                            <textarea class="form-control" name="positionDesc" id="memberPositionDesc"></textarea>
+                            <textarea class="form-control" name="positionDesc" id="memberPositionDesc" placeholder="Position Description"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="memberIsActive">Active Member</label>
                             <select class="form-control" name="isActive" id="memberIsActive">
                                 <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                <option value="0" selected>No</option>
                             </select>
                         </div>
 
@@ -134,14 +136,48 @@
                     </form>
                 }
                 <!-- /END of form -->
+                <!--Validate Form-->
 
+                <script>
+                    jQuery.validator.setDefaults({
+                        debug: true,
+                        success: "valid",
+                        errorClass: 'error'
+                    });
+
+                    var form = $("[name='_AddMember']");
+                   
+                    $("button").click(function () {
+                        alert("Valid: " + form.valid());
+                    });
+
+                    form.validate({
+                        rules: {
+                            firstName: "required",
+                            lastName: "required",
+
+                            email: {
+                                required: true,
+                                email: true
+                            }
+                        },
+                        messages: {
+                            firstName: "Please Specify First Name",
+                            lastName: "Please Specify Last Name",
+                            email: {
+                                required: "Required Email Address",
+                                email: "Must be in format of name@doman.com"
+                            }
+                        }
+                    });
+                </script>
+                <!-- / End Validation-->
 
             </div>
         </div>
     </div>
 </div>
 <!-- /End Modal Add Member-->
-
 <!--Edit Member Modal -->
 @foreach (var items in Model)
 {
@@ -161,8 +197,10 @@
 
                         <form>
                             <div class="form-group">
-                                <label for="memberFirstName">First Name</label>                                
-                                <input type="text" name="firstName" id="memberFirstname" class="form-control"  required value="@items.FirstName" />
+                                <label for="memberFirstName">First Name</label>
+                                @Html.TextBoxFor(m => items.FirstName, new { @class = "form-control", Name = "firstName" })
+                                @Html.ValidationMessageFor(m => items.FirstName, "", new { @class = "text-danger" })
+                                <!--<input type="text" name="firstName" id="memberFirstname" class="form-control"  required value="@@items.FirstName" />-->
                             </div>
 
                             <div class="form-group">
@@ -172,7 +210,7 @@
 
                             <div class="form-group">
                                 <label for="memberBio">Member Bio</label>
-                                <textarea id="memberBio" class="form-control" name="bio" maxlength="250">@items.Bio</textarea>
+                                <textarea id="memberBio" class="form-control" name="bio" maxlength="250" placeholder="Bio of Member">@items.Bio</textarea>
                             </div>
 
                             <div class="form-group">
@@ -192,10 +230,11 @@
 
                             <div class="form-group">
                                 <label for="memberIsContact">View Member in Contacts</label>
-                                <select class="form-control" name="isContact" id="memberIsContact" >
-                                    @if (items.IsContact == true) { 
-                                    <option value="1" selected="selected">Yes</option>
-                                    <option value="0">No</option>
+                                <select class="form-control" name="isContact" id="memberIsContact">
+                                    @if (items.IsContact == true)
+                                    {
+                                        <option value="1" selected="selected">Yes</option>
+                                        <option value="0">No</option>
                                     }
                                     else
                                     {
@@ -218,8 +257,16 @@
                             <div class="form-group">
                                 <label for="memberIsActive">Active Member</label>
                                 <select class="form-control" name="isActive" id="memberIsActive">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    @if (items.IsActive == true)
+                                    {
+                                        <option value="1" selected="selected">Yes</option>
+                                        <option value="0">No</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">Yes</option>
+                                        <option value="0" selected>No</option>
+                                    }
                                 </select>
                             </div>
 

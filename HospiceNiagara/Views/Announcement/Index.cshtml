@@ -8,11 +8,9 @@
 <div role="tabpanel">
 
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#announcementsTab" aria-controls="announcementsTab" role="tab" data-toggle="tab">Announcements</a></li>
-        <li role="presentation"><a href="#deathsTab" aria-controls="deathsTab" role="tab" data-toggle="tab">Death Notice</a></li>
-        <li role="presentation"><a href="#eventsTab" aria-controls="eventsTab" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation" class="active"><a href="#announcementsTab" aria-controls="announcementsTab" role="tab" data-toggle="tab">Announcements</a></li>        
         <li role="presentation"><a href="#meetingsTab" aria-controls="meetingsTab" role="tab" data-toggle="tab">Meetings</a></li>
-        
+        <li role="presentation"><a href="#deathsTab" aria-controls="deathsTab" role="tab" data-toggle="tab">Death Notice</a></li>
     </ul>
     <br />
 
@@ -20,10 +18,9 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="announcementsTab">@Html.Action("_announcement","announcement")</div>
-            <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Partial("_dnControl")</div>
-            <div role="tabpanel" class="tab-pane" id="eventsTab">@Html.Partial("_EventControl")</div>
+            <div role="tabpanel" class="tab-pane active" id="announcementsTab">@Html.Action("_announcement","announcement")</div>            
             <div role="tabpanel" class="tab-pane" id="meetingsTab">@Html.Partial("_MeetingControl")</div>
+            <div role="tabpanel" class="tab-pane" id="deathsTab">@Html.Partial("_dnControl")</div>
         </div>
 
     </div>
