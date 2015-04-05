@@ -73,9 +73,9 @@
             <div class="modal-body">
 
                 <!-- Form For Adding Announcement -->
-                @using (Html.BeginForm("_AnnouncementAdd", "Admin", FormMethod.Get))
+                @using (Html.BeginForm("_AnnouncementAdd", "Admin", FormMethod.Get, new { name="announcementAdd" }))
                 {
-                    <form>
+                   
                         <div class="form-group">
                             <label for="announceTitle">Announcement Title</label>
                             <input type="text" class="form-control" name="announceTitle" id="announceTitle" placeholder="Announcement Title">
@@ -90,10 +90,56 @@
                         </div>
                         <button type="submit" class="btn btn-default btn-block btn-green">Submit</button>
                         <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                    </form>
+                  
                 }
                 <!-- /END of form -->
+                <!--Validate Edit Form-->
+                <script>
+                    jQuery.validator.setDefaults({
+                        // debug: true,
+                        success: "valid",
+                        errorClass: 'error'
+                    });
 
+                    var form = $("[name='announcementAdd']");
+
+                    //$("button").click(function () {
+                    //    alert("Valid: " + form.valid());
+                    //});
+
+                    form.validate({
+                        rules: {
+                            announceTitle: {
+                                required: true,
+                                maxlength: 150
+                            },
+
+                            announceDate: {
+                                required: true                               
+                            },
+
+                            announceDesc: {
+                                maxlength: 1000
+                            },
+
+                        },
+                        messages: {
+                            announceTitle: {
+                                required: "Please Specify Announcement Name",
+                                maxlength: $.validator.format("Max Characters Accepted is {0}")
+                            },
+
+                            announceDate: {
+                                required: "Please Specify Date of Announcement"                                
+                            },
+
+                            announceDesc: {
+                                maxlength: $.validator.format("Max Characters Accepted is {0}")
+                            }                         
+                        }
+                    });
+                </script>
+                <!--End Validation-->
 
             </div>
         </div>
@@ -115,11 +161,12 @@
                 <div class="modal-body">
 
                     <!-- Form For Edditing Announcement -->
-                    @using (Html.BeginForm("_AnnouncementEdit", "Admin", FormMethod.Get))
+                    @using (Html.BeginForm("_AnnouncementEdit", "Admin", FormMethod.Get, new { @class = "form-horizontal" }))
                     {
-                        <input type="hidden" name="ID" value="@items.ID" />
+                        
+                            <input type="hidden" name="ID" value="@items.ID" />
 
-                        <form class="form-horizontal">
+
                             <div class="form-group">
                                 @Html.LabelFor(i => items.Title, new { @class = " control-label" })
                                 <input type="text" value="@items.Title" name="announceTitle" class="form-control" />
@@ -137,7 +184,8 @@
 
                             <button type="submit" class="btn btn-default btn-block btn-green">Submit</button>
                             <button type="button" class="btn btn-default btn-block btn-blue" data-dismiss="modal">Cancel</button>
-                        </form>
+                      
+
                     }
                     <!-- /END of form -->
 
