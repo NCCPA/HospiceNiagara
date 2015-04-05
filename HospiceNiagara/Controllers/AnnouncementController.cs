@@ -18,24 +18,31 @@ namespace HospiceNiagara.Controllers
             return View();
         }
 
-        //Get Partial View Announcement
-        [HttpGet]
-        public ActionResult _announcement()
+        public ActionResult _Announcement(string announcementSearchString)
         {
             var viewModel = from v in db.Announcements
-                                select new AnnouncementViewModel
-                                {
-                                    ID = v.ID,
-                                    Title = v.Title,
-                                    Description = v.Description,
-                                    isVisible = v.isVisible,
-                                    CreatedByID = v.CreatedByID,
-                                    Date = v.Date                             
-                                };
+                            select new AnnouncementViewModel
+                            {
+                                ID = v.ID,
+                                Title = v.Title,
+                                Description = v.Description,
+                                isVisible = v.isVisible,
+                                CreatedByID = v.CreatedByID,
+                                Date = v.Date
+                            };
+
+            if (!String.IsNullOrEmpty(announcementSearchString))
+            {
+                viewModel = viewModel.Where(s => s.Title.Contains(announcementSearchString));
+            }
 
             return PartialView(viewModel.ToList());
         }
 
-
+        [HttpGet]
+        public void AnnouncementFilter(string announcementSearchString)
+        {
+            Response.Redirect("~/Announcement/Index?announcementSearchString=" + announcementSearchString + "#announcementsTab#Top");
+        }
     }
 }

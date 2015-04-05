@@ -143,14 +143,10 @@ namespace HospiceNiagara.Migrations
             var announcement = new List<Announcement>
             {
                 new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now},
-                new Announcement {Title = "Movie Night and Raffle Draw!", Description="Random Movie Choosen from a hat of everyone's choice", isVisible=true, Date = DateTime.Now}
+                new Announcement {Title = "Swing Hard to Live Strong Golf Tournament", Description="Swing Hard to Live Strong Golf Tournament", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Niagara's February e-newsletter Available", Description="Niagara's February e-newsletter Available", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "Smile Cookie Campaign", Description="Smile Cookie Campaign", isVisible=true, Date = DateTime.Now},
+                new Announcement {Title = "TV Night and Paint Contest!", Description="TV Night and Paint Contest!", isVisible=true, Date = DateTime.Now}
             };
             announcement.ForEach(a => context.Announcements.AddOrUpdate(x => x.ID, a));
             context.SaveChanges();
@@ -160,12 +156,11 @@ namespace HospiceNiagara.Migrations
             var meetings = new List<Meeting>
             {
                 new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"},
-                new Meeting { Date = DateTime.Today, Name = "Heart Day", Description = "Doctors and spiritual leaders meeting"}
+                new Meeting { Date = DateTime.Today, Name = "Board Meeting", Description = "Directors Meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Staff Apprication Day", Description = "A day about our staff"},
+                new Meeting { Date = DateTime.Today, Name = "Event Planning 2015", Description = "Lets meet to plan our our year."},
+                new Meeting { Date = DateTime.Today, Name = "Staff Meeting", Description = "Staff Meeting"},
+                new Meeting { Date = DateTime.Today, Name = "Board Meeting", Description = "Directors Meeting"}
             };
             meetings.ForEach(a => context.Meetings.AddOrUpdate(x => x.ID, a));
             context.SaveChanges();
